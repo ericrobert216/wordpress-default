@@ -1,0 +1,50 @@
+<?php
+/**
+ * Plugin Name: Clever Swatch
+ * Description: Swatch color for your woocommerce variable products.
+ * Version: 1.0.0
+ * Author: EricRobert <ericrobert216@gmail.com>
+ * Requires at least: 4.3.5
+ * Tested up to: 4.6.1
+ *
+ * Text Domain: clever-swatch
+ * Domain Path: /i18n/languages/
+ *
+ * @package clever-swatch
+ * @author Eric Robert
+ */
+
+
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+    die;
+}
+
+/**
+ * The core plugin class that is used to define internationalization,
+ * admin-specific hooks, and public-facing site hooks.
+ */
+if(is_admin()){
+    $this->__admin_constructor();
+}else{
+
+    //$this->__front_end_constructor();
+}
+require plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name.php';
+/**
+ * Begins execution of the plugin.
+ *
+ * Since everything within the plugin is registered via hooks,
+ * then kicking off the plugin from this point in the file does
+ * not affect the page life cycle.
+ *
+ * @since    1.0.0
+ */
+function run_plugin_name() {
+    $plugin = new Plugin_Name();
+    $plugin->run();
+}
+run_plugin_name();
+
+
+?>

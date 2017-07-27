@@ -1,0 +1,156 @@
+@charset "UTF-8";
+
+.ced-vm-collapse p {
+  margin: 0px !important;
+}
+
+#ced-vm-accordion, .ced-vm-sub-accordion {
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ced-vm-panel-heading h4, .ced-vm-sub-panel-heading h4 {
+  background-color: #eeeeee;
+  margin: 0;
+  padding: 10px;
+  border: 1px solid #cccccc;
+  cursor: pointer;
+}
+
+.ced-vm-collapse, .ced-vm-sub-collapse {
+  display: none;
+  border: 1px solid #cccccc;
+  border-top: 0px;
+}
+
+.ced-vm-collapse.ced-vm-default, .ced-vm-sub-collapse.ced-vm-default {
+  display: block;
+}
+
+.ced-vm-panel, .ced-vm-sub-panel {
+  margin-bottom: 7px;
+}
+
+/*VARIABLE SWATCHES TABLE*/
+.ced-vm-enable-swatch {
+  border: 1px solid #cccccc;
+  padding: 10px;
+  margin: 0 10px;
+}
+
+table.ced-vm-label-data,
+table.ced-vm-attr-option {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table.ced-vm-label-data input,
+table.ced-vm-label-data select,
+table.ced-vm-attr-option input,
+table.ced-vm-attr-option select {
+  max-width: 200px !important;
+  width: 100%;
+  font-size: 14px;
+}
+
+.ced-vm-ds1 {
+  margin-right: 10px !important;
+}
+
+table.ced-vm-label-data tbody tr:nth-of-type(2n) {
+  background: #f0f0f0 none repeat scroll 0 0;
+}
+
+table.ced-vm-label-data tbody tr td,
+table.ced-vm-attr-option tbody tr td {
+  padding: 5px 10px;
+}
+
+table.ced-vm-attr-option img, button {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.ced-vm-attr-option tr:not(:first-child) {
+  border-top: 1px dashed #cccccc;
+}
+
+.ced-vm-scimage-upload {
+  background: #3498db none repeat scroll 0 0;
+  border: 1px solid #3498db;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  padding: 5px;
+}
+
+table.ced-vm-attr-option td:first-child {
+  width: 40%;
+}
+
+/*================================================
+=            VARIATION GALLERY IMAGES            =
+================================================*/
+.ced-vm-variation-gallery-wrapper {
+  background: #d2d7d3 none repeat scroll 0 0;
+  padding: 10px 15px;
+}
+
+.ced-vm-variation-gallery-container .product_images.ui-sortable {
+  margin: 0;
+}
+
+.ced-vm-variation-gallery-container .product_images > li {
+  display: inline-block;
+  margin-right: 10px;
+  text-align: center;
+  position: relative;
+}
+
+.ced-vm-variation-gallery-container .product_images li img {
+  height: 100px;
+  width: 100px;
+}
+
+.ced-vm-variation-gallery-container .product_images li ul.actions {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.ced-vm-variation-gallery-container .product_images li ul.actions li a.ced-vm-delete-gallery-image:hover::before {
+  color: #a00;
+}
+
+.ced-vm-variation-gallery-container .product_images li ul.actions li a.ced-vm-delete-gallery-image {
+  display: block;
+  font-size: 1.4em;
+  height: 1em;
+  position: relative;
+  text-indent: -9999px;
+  width: 1em;
+  cursor: pointer;
+}
+
+.ced-vm-variation-gallery-container .product_images li ul.actions li a.ced-vm-delete-gallery-image::before {
+  color: #999;
+  content: "";
+  background-image: url("../../images/var_close.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 15px;
+  left: 2px;
+  line-height: 1;
+  margin: 0;
+  position: absolute;
+  top: 2px;
+  width: 15px;
+  height: 15px;
+}
+
+/*=====  End of VARIATION GALLERY IMAGES  ======*/
+tr.ced-vm-sci td:nth-child(2) > img {
+  margin-right: 10px;
+}

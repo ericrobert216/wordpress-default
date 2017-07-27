@@ -362,7 +362,7 @@ if( !class_exists( 'CS_clever_swatch_admin_interface' ) ){
 			if ( in_array( $screen_id, array( 'product', 'edit-product' ) ) ){
 				
 				wp_enqueue_style( 'wp-color-picker' );
-				wp_register_script( 'cs-cw-product-edit', CS_VM_JSPATH . 'admin/product_edit.js', array( 'jquery','wp-color-picker' ), CS_VM_VERSION );
+				wp_register_script( 'cs-cw-product-edit', CS_VM_JSPATH . 'admin/product/edit.js', array( 'jquery','wp-color-picker' ), CS_VM_VERSION );
 				wp_localize_script( 'cs-cw-product-edit', 'cs_cw_params', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
 				wp_enqueue_script( 'cs-cw-product-edit' );
 				

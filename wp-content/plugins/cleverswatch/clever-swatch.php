@@ -14,6 +14,7 @@
  * @author Eric Robert
  */
 
+
 if( !class_exists( 'cs_clever_swatch' ) ){
 
     /**

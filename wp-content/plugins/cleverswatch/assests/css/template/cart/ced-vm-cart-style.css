@@ -1,0 +1,228 @@
+.ced-vm-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+  z-index: 999999999;
+}
+
+.ced-vm-product-detail-container {
+  background-color: #ffffff !important;
+  box-shadow: 0 1px 5px 1px #ccc !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 700px !important;
+  overflow-y: auto !important;
+  padding: 10px !important;
+  margin-top: 10%;
+  position:relative!important;
+  height: 380px;
+}
+
+#ced-vm-cart-loader {
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  max-width: 700px;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  top: 0px;
+  display: none;
+}
+
+#ced-vm-cart-loader img {
+  display: block;
+  margin: 40% auto 0;
+  width: 90px;
+}
+
+#ced-vm-variation-container .close_icon {
+  margin: 0;
+  text-align: right;
+  margin-right: 30px;
+}
+
+.ced-vm-close-btn {
+  background-color: #777;
+  border-radius: 100%;
+  color: #ffffff;
+  display: inline-block;
+  font-size: 23px;
+  height: 40px;
+  position: fixed;
+  text-align: center;
+  width: 40px;
+}
+
+#ced-vm-variation-container .images img {
+  width: 100% !important;
+  max-width: auto !important;
+}
+
+.ced-vm-product-detail-container .type-product > div {
+  display: inline-block !important;
+  vertical-align: top !important;
+}
+
+#ced-vm-variation-container .woocommerce-variation-add-to-cart.variations_button > div, #ced-vm-variation-container button {
+  display: inline-block !important;
+}
+
+#ced-vm-variation-container .thumbnails a img {
+  display: inline-block !important;
+  margin: 5px 5px 5px 0 !important;
+  width: 23% !important;
+  width: 100% !important;
+}
+
+#ced-vm-variation-container .images {
+  max-width: 35% !important;
+  width: 100% !important;
+  margin-right: 1% !important;
+}
+
+#ced-vm-variation-container .summary.entry-summary {
+  max-width: 50% !important;
+  width: 100% !important;
+}
+
+.ced-vm-close-btn {
+  cursor: pointer;
+  float: right;
+}
+
+/*--Cart Page--*/
+.ced-vm-cart-update a {
+  color: #777 !important;
+  font-size: 13px !important;
+  text-transform: uppercase;
+  display: inline-block;
+  vertical-align: middle;
+  opacity: .8;
+}
+
+.ced-vm-cart-update img {
+  height: 12px !important;
+  margin-right: 4px;
+  width: 12px !important;
+  opacity: .7;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.ced-vm-cart-update:hover img {
+  opacity: 1 !important;
+}
+
+.ced-vm-cart-update:hover a {
+  opacity: 1 !important;
+}
+
+/*error message*/
+.ced-vm-stock-error {
+  display: none;
+  background: #dd3333 none repeat scroll 0 0;
+  color: #ffffff;
+  padding: 5px 10px;
+  text-align: center;
+}
+
+img.changemenow {
+  cursor: pointer;
+}
+
+#ced-vm-variation-container
+table.variations {
+  max-width: 400px;
+  width: 100%;
+}
+
+#ced-vm-variation-container
+table.variations
+tr
+td.value {
+  padding-top: 0px !important;
+}
+
+/*=====================================
+=            MEDIA QUARIES            =
+=====================================*/
+@media only screen and (max-width: 768px) {
+  #ced-vm-variation-container .images,
+  #ced-vm-variation-container .summary.entry-summary {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+}
+
+#ced-vm-variation-container .thumbnails a {
+  border: 0 none;
+  float: left;
+  margin-left: 10px;
+  width: 28%;
+}
+
+#ced-vm-variation-container .thumbnails a img {
+  max-width: 100%;
+}
+
+#ced-vm-variation-container .thumbnails li {
+  list-style: none;
+}
+
+/*=====  End of MEDIA QUARIES  ======*/
+#ced-vm-variation-container table.variations tr td.label {
+  width: 100% !important;
+}
+
+.ced-vm-overlay .variations_form table.variations label {
+  color: #43454b!important;
+  font-size: 15px!important;
+}
+.ced-vm-overlay h1.product_title ,.ced-vm-overlay .summary.entry-summary span{
+  color: #43454b !important;
+}
+.ced-vm-overlay .variations td.label {
+  padding-left: 0;
+  padding-top: 0 !important;
+  vertical-align: top;
+}
+.ced-vm-overlay #ced-vm-variation-container span.onsale {
+  left: 0;
+  position: absolute;
+}
+#ced-vm-variation-container .images img {
+  position: static !important;
+  width: 100% !important;
+}
+
+/*========================================
+=            Custom CSS Start            =
+========================================*/
+
+#ced-vm-variation-container table.variations tr td.label {
+  width: auto!important;
+}
+#ced-vm-variation-container .flex-control-nav {
+  margin: 0;
+}
+#ced-vm-variation-container  .flex-control-nav.flex-control-thumbs > li {
+  cursor: pointer;
+  float: left;
+  list-style: outside none none;
+  width: 25%;
+}
+#ced-vm-variation-container  .flex-control-nav.flex-control-thumbs > li img{
+  opacity: .46;
+}
+#ced-vm-variation-container  .flex-control-nav.flex-control-thumbs > li .flex-active{
+  opacity: 1;
+}
+
+/*=====  End of Custom CSS   ======*/
