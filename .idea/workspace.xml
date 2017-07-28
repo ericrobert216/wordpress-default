@@ -2,9 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f4c1b66-c7dd-451c-9546-21868a032477" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/js/admin/zoo-cleverswatch-product-edit.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/class-zoo-clever-swatch-admin-manager.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/class-zoo-clever-swatch-config.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/admin/class-cs-cw-admin-abtract.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/js/admin/product/edit.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/js/admin/product_edit.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin/controller.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/cs-cw-admin-manager.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/cs-cw-config.php" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/clever-swatch.php" afterPath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/clever-swatch-bak.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/clever-swatch.php.bak" afterPath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/clever-swatch.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin/class-admin_manager.php" afterPath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin_sac/class-admin_manager.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin/class-cs-cw-variation-gallery.php" afterPath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin_sac/class-cs-cw-variation-gallery.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin/templates/cs-cw-settings-page.php" afterPath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin_sac/templates/cs-cw-settings-page.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin/templates/product-custom-tab-fields.php" afterPath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin_sac/templates/product-custom-tab-fields.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/clever-swatch.php" afterPath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/clever-swatch.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin/class-admin_manager.php" afterPath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin/class-admin_manager.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,11 +29,24 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="class-cs-cw-admin-abtract.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/admin/class-cs-cw-admin-abtract.php">
+      <file leaf-file-name="class-zoo-clever-swatch-admin-manager.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/class-zoo-clever-swatch-admin-manager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="224">
+              <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+              <folding>
+                <element signature="e#10854#10876#0#HTML" expanded="true" />
+                <element signature="e#11371#11393#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="class-zoo-clever-swatch-admin-variation-gallery.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/class-zoo-clever-swatch-admin-variation-gallery.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="19" column="40" lean-forward="true" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -29,86 +55,86 @@
       <file leaf-file-name="clever-swatch.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/clever-swatch.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="668">
-              <caret line="118" column="60" lean-forward="false" selection-start-line="118" selection-start-column="25" selection-end-line="118" selection-end-column="60" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="3" />
               <folding>
-                <element signature="e#6#347#0#PHP" expanded="true" />
-                <element signature="e#9514#9641#0#PHP" expanded="false" />
-                <element signature="e#9916#12665#0#PHP" expanded="false" />
-                <element signature="e#13013#22690#0#PHP" expanded="false" />
-                <element signature="e#23060#27414#0#PHP" expanded="false" />
-                <element signature="e#27696#30579#0#PHP" expanded="false" />
-                <element signature="e#30675#30922#0#PHP" expanded="false" />
-                <element signature="e#31030#31135#0#PHP" expanded="false" />
-                <element signature="e#31141#31184#0#PHP" expanded="false" />
-                <element signature="e#31287#31783#0#PHP" expanded="false" />
-                <element signature="e#31881#32718#0#PHP" expanded="false" />
-                <element signature="e#32818#36869#0#PHP" expanded="false" />
-                <element signature="e#37000#37929#0#PHP" expanded="false" />
-                <element signature="e#38026#39056#0#PHP" expanded="false" />
-                <marker date="1501141221410" expanded="true" signature="37129:37176" ph="SELECT ID FR... $" />
+                <element signature="e#6#355#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cs-cw-config.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/cs-cw-config.php">
+      <file leaf-file-name="zoo-cleverswatch-edit-attr-fields.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/templates/admin/zoo-cleverswatch-edit-attr-fields.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="18" column="34" lean-forward="false" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+            <state relative-caret-position="96">
+              <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
               <folding>
-                <element signature="e#6#85#0#PHP" expanded="true" />
+                <element signature="e#6#150#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cs-cw-admin-manager.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/cs-cw-admin-manager.php">
+      <file leaf-file-name="zoo-cleverswatch-product-custom-tab-fields.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/templates/admin/zoo-cleverswatch-product-custom-tab-fields.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="3" />
+              <folding>
+                <element signature="e#6#150#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="zoo-cleverswatch-settings-page.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/templates/admin/zoo-cleverswatch-settings-page.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="96">
+              <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+              <folding>
+                <element signature="e#6#150#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="class-admin_manager.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin/class-admin_manager.php">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin_sac/class-admin_manager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1453">
-              <caret line="367" column="16" lean-forward="true" selection-start-line="367" selection-start-column="16" selection-end-line="367" selection-end-column="16" />
+            <state relative-caret-position="80">
+              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="15" selection-end-column="3" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/js/admin/product/edit.js">
+      <file leaf-file-name="cs-cw-settings-page.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin_sac/templates/cs-cw-settings-page.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1686">
-              <caret line="23" column="26" lean-forward="false" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="26" />
+            <state relative-caret-position="768">
+              <caret line="52" column="68" lean-forward="true" selection-start-line="52" selection-start-column="68" selection-end-line="52" selection-end-column="68" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="product_edit.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/js/admin/product_edit.js">
+      <file leaf-file-name="zoo-cleverswatch-product-edit.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/js/admin/zoo-cleverswatch-product-edit.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
-              <caret line="29" column="56" lean-forward="true" selection-start-line="29" selection-start-column="56" selection-end-line="29" selection-end-column="56" />
+            <state relative-caret-position="2080">
+              <caret line="130" column="38" lean-forward="true" selection-start-line="130" selection-start-column="38" selection-end-line="130" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="class-cs-cw-variation-gallery.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin/class-cs-cw-variation-gallery.php">
+      <file leaf-file-name="class-zoo-clever-swatch-config.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/class-zoo-clever-swatch-config.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="74" column="30" lean-forward="false" selection-start-line="74" selection-start-column="30" selection-end-line="74" selection-end-column="30" />
+            <state relative-caret-position="240">
+              <caret line="15" column="3" lean-forward="false" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -118,36 +144,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>CS_VM_PREFIX</find>
-      <find>CS_VM_</find>
-      <find>text_attribute_tip</find>
+      <find>incc</find>
+      <find>inc</find>
+      <find>incl</find>
+      <find>inclu</find>
+      <find>includ</find>
+      <find>include</find>
+      <find>include_</find>
+      <find>include_one</find>
+      <find>include_oo</find>
+      <find>include_o</find>
+      <find>include_on</find>
+      <find>include_onc</find>
+      <find>include_once</find>
+      <find>product-custom-tab-fields.php</find>
       <find>Add Variation Gallery Images</find>
-      <find>__front_end_constructor</find>
-      <find>_vm</find>
-      <find>-vm</find>
-      <find>cs_clever_swatch</find>
-      <find>load_plugin_textdomain</find>
-      <find>cs_cw_install</find>
-      <find>activate_plugin_name</find>
-      <find>register_activation_hook</find>
-      <find>register_deactivation_hook</find>
-      <find>admin</find>
-      <find>ced_vm_params</find>
-      <find>ced-vm-variation-gallery-wrapper</find>
-      <find>variation-gallery-wrapper</find>
+      <find>add-variation-gallery-image</find>
       <find>p</find>
       <find>pro</find>
       <find>prod</find>
-      <find>produ</find>
       <find>product</find>
+      <find>product_de</find>
+      <find>product_d</find>
       <find>product_</find>
       <find>product_e</find>
-      <find>product_ed</find>
+      <find>product_edir</find>
       <find>product_edi</find>
-      <find>product_edit</find>
-      <find>CS_VM_JSPATH</find>
-      <find>cs-cw-before-admin-constructor</find>
-      <find>cs_clever_swatch_woo_missing_notice</find>
+      <find>product_edit.js</find>
+      <find>product_ed</find>
+      <find>CS_clever_swatch_variation_gallery</find>
+      <find>cs-cw-product-edit</find>
     </findStrings>
     <replaceStrings>
       <replace>cs</replace>
@@ -158,11 +184,15 @@
       <replace>CS</replace>
       <replace>_cw</replace>
       <replace>-cw</replace>
+      <replace>cs_cw_admin_manager</replace>
+      <replace>CW</replace>
+      <replace>Cs_Cw_Admin_Variation_Gallery</replace>
+      <replace>cw</replace>
     </replaceStrings>
     <dirStrings>
-      <dir>$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes</dir>
-      <dir>$PROJECT_DIR$</dir>
       <dir>$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests</dir>
+      <dir>$PROJECT_DIR$</dir>
+      <dir>$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes</dir>
       <dir>$PROJECT_DIR$/wp-content/plugins/cleverswatch</dir>
     </dirStrings>
   </component>
@@ -178,11 +208,22 @@
         <option value="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin/templates/product-custom-tab-fields.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin/class-cs-cw-variation-gallery.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin/controller.php" />
-        <option value="$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/js/admin/product_edit.js" />
         <option value="$PROJECT_DIR$/wp-content/plugins/cleverswatch/clever-swatch-origin.php" />
-        <option value="$PROJECT_DIR$/wp-content/plugins/cleverswatch/clever-swatch.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin/class-admin_manager.php" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/cleverswatch/clever-swatch-2.php" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/cleverswatch/clever-swatch-bak.php" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/cleverswatch/templates/admin/edit_attr_fields.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/cs-cw-config.php" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/cs-cw-admin-variation-gallery.php" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/js/admin/product_edit.js" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/cs-cw-admin-manager.php" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/cleverswatch/clever-swatch.php" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/class-zoo-clever-swatch-admin-variation-gallery.php" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/class-zoo-clever-swatch-admin-manager.php" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/class-zoo-clever-swatch-config.php" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/cleverswatch/templates/admin/zoo-cleverswatch-product-custom-tab-fields.php" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/cleverswatch/templates/admin/zoo-cleverswatch-edit-attr-fields.php" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/cleverswatch/templates/admin/zoo-cleverswatch-settings-page.php" />
       </list>
     </option>
   </component>
@@ -213,6 +254,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -324,7 +366,11 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="includes" />
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -351,6 +397,66 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="includes" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="default" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="default" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wp-content" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cleverswatch" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assests" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="default" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="default" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wp-content" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cleverswatch" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assests" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -386,15 +492,16 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../default-2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes" />
+      <recent name="$PROJECT_DIR$/wp-content/plugins/cleverswatch/templates/admin" />
       <recent name="$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/js/admin/product" />
       <recent name="$PROJECT_DIR$/wp-content/plugins/cleverswatch" />
       <recent name="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin" />
@@ -493,7 +600,8 @@
       <updated>1500951231728</updated>
       <workItem from="1500951232964" duration="4864000" />
       <workItem from="1501033980368" duration="16522000" />
-      <workItem from="1501121075793" duration="14628000" />
+      <workItem from="1501121075793" duration="15259000" />
+      <workItem from="1501210776393" duration="19007000" />
     </task>
     <task id="LOCAL-00001" summary="abc">
       <created>1501063258500</created>
@@ -509,16 +617,24 @@
       <option name="project" value="LOCAL" />
       <updated>1501121126589</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="abc">
+      <created>1501149474697</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1501149474697</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36014000" />
+    <option name="totallyTimeSpent" value="55652000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1052" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25506938" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25773746" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -575,11 +691,90 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/admin/class-cs-cw-admin-abtract.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/clever-swatch-bak.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1680">
+          <caret line="118" column="60" lean-forward="false" selection-start-line="118" selection-start-column="25" selection-end-line="118" selection-end-column="60" />
+          <folding>
+            <element signature="e#9173#9300#0#PHP" expanded="false" />
+            <element signature="e#9575#12324#0#PHP" expanded="false" />
+            <element signature="e#12672#22349#0#PHP" expanded="false" />
+            <element signature="e#22719#27073#0#PHP" expanded="false" />
+            <element signature="e#27355#30238#0#PHP" expanded="false" />
+            <element signature="e#30334#30581#0#PHP" expanded="false" />
+            <element signature="e#30689#30794#0#PHP" expanded="false" />
+            <element signature="e#30800#30843#0#PHP" expanded="false" />
+            <element signature="e#30946#31442#0#PHP" expanded="false" />
+            <element signature="e#31540#32377#0#PHP" expanded="false" />
+            <element signature="e#32477#36528#0#PHP" expanded="false" />
+            <element signature="e#36659#37588#0#PHP" expanded="false" />
+            <element signature="e#37685#38715#0#PHP" expanded="false" />
+            <marker date="1501210918245" expanded="true" signature="36788:36835" ph="SELECT ID FR... $" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/class-zoo-clever-swatch-admin-manager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin_sac/class-admin_manager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5872">
+          <caret line="367" column="16" lean-forward="true" selection-start-line="367" selection-start-column="16" selection-end-line="367" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/js/admin/product/edit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="23" column="26" lean-forward="false" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/js/admin/zoo-cleverswatch-product-edit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="29" column="56" lean-forward="true" selection-start-line="29" selection-start-column="56" selection-end-line="29" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin_sac/class-cs-cw-variation-gallery.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1184">
+          <caret line="74" column="30" lean-forward="false" selection-start-line="74" selection-start-column="30" selection-end-line="74" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/class-zoo-clever-swatch-config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="18" column="34" lean-forward="false" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/hello.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
@@ -591,26 +786,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/clever-swatch.php">
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/clever-swatch-bak.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#6#347#0#PHP" expanded="true" />
-            <element signature="e#9514#9641#0#PHP" expanded="false" />
-            <element signature="e#9916#12665#0#PHP" expanded="false" />
-            <element signature="e#13013#22690#0#PHP" expanded="false" />
-            <element signature="e#23060#27414#0#PHP" expanded="false" />
-            <element signature="e#27696#30579#0#PHP" expanded="false" />
-            <element signature="e#30675#30922#0#PHP" expanded="false" />
-            <element signature="e#31030#31135#0#PHP" expanded="false" />
-            <element signature="e#31141#31184#0#PHP" expanded="false" />
-            <element signature="e#31287#31783#0#PHP" expanded="false" />
-            <element signature="e#31881#32718#0#PHP" expanded="false" />
-            <element signature="e#32818#36869#0#PHP" expanded="false" />
-            <element signature="e#37000#37929#0#PHP" expanded="false" />
-            <element signature="e#38026#39056#0#PHP" expanded="false" />
-            <marker date="1501141221410" expanded="true" signature="37129:37176" ph="SELECT ID FR... $" />
+            <element signature="e#9173#9300#0#PHP" expanded="false" />
+            <element signature="e#9575#12324#0#PHP" expanded="false" />
+            <element signature="e#12672#22349#0#PHP" expanded="false" />
+            <element signature="e#22719#27073#0#PHP" expanded="false" />
+            <element signature="e#27355#30238#0#PHP" expanded="false" />
+            <element signature="e#30334#30581#0#PHP" expanded="false" />
+            <element signature="e#30689#30794#0#PHP" expanded="false" />
+            <element signature="e#30800#30843#0#PHP" expanded="false" />
+            <element signature="e#30946#31442#0#PHP" expanded="false" />
+            <element signature="e#31540#32377#0#PHP" expanded="false" />
+            <element signature="e#32477#36528#0#PHP" expanded="false" />
+            <element signature="e#36659#37588#0#PHP" expanded="false" />
+            <element signature="e#37685#38715#0#PHP" expanded="false" />
+            <marker date="1501210918245" expanded="true" signature="36788:36835" ph="SELECT ID FR... $" />
           </folding>
         </state>
       </provider>
@@ -623,7 +817,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin/class-admin_manager.php">
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin_sac/class-admin_manager.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3520">
           <caret line="220" column="21" lean-forward="true" selection-start-line="220" selection-start-column="21" selection-end-line="220" selection-end-column="21" />
@@ -631,7 +825,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin/templates/product-custom-tab-fields.php">
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin_sac/templates/product-custom-tab-fields.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="944">
           <caret line="63" column="142" lean-forward="false" selection-start-line="63" selection-start-column="142" selection-end-line="63" selection-end-column="142" />
@@ -639,7 +833,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin/templates/cs-cw-settings-page.php">
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin_sac/templates/cs-cw-settings-page.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1200">
           <caret line="79" column="80" lean-forward="false" selection-start-line="79" selection-start-column="80" selection-end-line="79" selection-end-column="80" />
@@ -655,7 +849,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin/class-cs-cw-variation-gallery.php">
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin_sac/class-cs-cw-variation-gallery.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="992">
           <caret line="62" column="12" lean-forward="true" selection-start-line="62" selection-start-column="12" selection-end-line="62" selection-end-column="12" />
@@ -674,35 +868,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/clever-swatch.php">
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/clever-swatch-bak.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="9504">
           <caret line="594" column="24" lean-forward="false" selection-start-line="594" selection-start-column="23" selection-end-line="594" selection-end-column="24" />
           <folding>
-            <element signature="e#6#347#0#PHP" expanded="true" />
-            <element signature="e#9514#9641#0#PHP" expanded="false" />
-            <element signature="e#9916#12665#0#PHP" expanded="false" />
-            <element signature="e#13013#22690#0#PHP" expanded="false" />
-            <element signature="e#23060#27414#0#PHP" expanded="false" />
-            <element signature="e#27696#30579#0#PHP" expanded="false" />
-            <element signature="e#30675#30922#0#PHP" expanded="false" />
-            <element signature="e#31030#31135#0#PHP" expanded="false" />
-            <element signature="e#31141#31184#0#PHP" expanded="false" />
-            <element signature="e#31287#31783#0#PHP" expanded="false" />
-            <element signature="e#31881#32718#0#PHP" expanded="false" />
-            <element signature="e#32818#36869#0#PHP" expanded="false" />
-            <element signature="e#37000#37929#0#PHP" expanded="false" />
-            <element signature="e#38026#39056#0#PHP" expanded="false" />
-            <marker date="1501141221410" expanded="true" signature="37129:37176" ph="SELECT ID FR... $" />
+            <element signature="e#9173#9300#0#PHP" expanded="false" />
+            <element signature="e#9575#12324#0#PHP" expanded="false" />
+            <element signature="e#12672#22349#0#PHP" expanded="false" />
+            <element signature="e#22719#27073#0#PHP" expanded="false" />
+            <element signature="e#27355#30238#0#PHP" expanded="false" />
+            <element signature="e#30334#30581#0#PHP" expanded="false" />
+            <element signature="e#30689#30794#0#PHP" expanded="false" />
+            <element signature="e#30800#30843#0#PHP" expanded="false" />
+            <element signature="e#30946#31442#0#PHP" expanded="false" />
+            <element signature="e#31540#32377#0#PHP" expanded="false" />
+            <element signature="e#32477#36528#0#PHP" expanded="false" />
+            <element signature="e#36659#37588#0#PHP" expanded="false" />
+            <element signature="e#37685#38715#0#PHP" expanded="false" />
+            <marker date="1501210918245" expanded="true" signature="36788:36835" ph="SELECT ID FR... $" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin/templates/cs-cw-settings-page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1200">
-          <caret line="79" column="80" lean-forward="false" selection-start-line="79" selection-start-column="80" selection-end-line="79" selection-end-column="80" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -735,26 +920,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin/controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="14" column="3" lean-forward="false" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
           <caret line="27" column="30" lean-forward="false" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin/templates/product-custom-tab-fields.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="944">
-          <caret line="63" column="142" lean-forward="false" selection-start-line="63" selection-start-column="142" selection-end-line="63" selection-end-column="142" />
           <folding />
         </state>
       </provider>
@@ -778,67 +947,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin/class-cs-cw-variation-gallery.php">
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin_sac/templates/product-custom-tab-fields.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="74" column="30" lean-forward="false" selection-start-line="74" selection-start-column="30" selection-end-line="74" selection-end-column="30" />
+        <state relative-caret-position="272">
+          <caret line="21" column="37" lean-forward="true" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/js/admin/product_edit.js">
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin/controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="29" column="56" lean-forward="true" selection-start-line="29" selection-start-column="56" selection-end-line="29" selection-end-column="56" />
+        <state relative-caret-position="224">
+          <caret line="14" column="3" lean-forward="false" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin/class-admin_manager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1453">
-          <caret line="367" column="16" lean-forward="true" selection-start-line="367" selection-start-column="16" selection-end-line="367" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/js/admin/product/edit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1686">
-          <caret line="23" column="26" lean-forward="false" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/clever-swatch.php.bak">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/clever-swatch.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="668">
-          <caret line="118" column="60" lean-forward="false" selection-start-line="118" selection-start-column="25" selection-end-line="118" selection-end-column="60" />
-          <folding>
-            <element signature="e#6#347#0#PHP" expanded="true" />
-            <element signature="e#9514#9641#0#PHP" expanded="false" />
-            <element signature="e#9916#12665#0#PHP" expanded="false" />
-            <element signature="e#13013#22690#0#PHP" expanded="false" />
-            <element signature="e#23060#27414#0#PHP" expanded="false" />
-            <element signature="e#27696#30579#0#PHP" expanded="false" />
-            <element signature="e#30675#30922#0#PHP" expanded="false" />
-            <element signature="e#31030#31135#0#PHP" expanded="false" />
-            <element signature="e#31141#31184#0#PHP" expanded="false" />
-            <element signature="e#31287#31783#0#PHP" expanded="false" />
-            <element signature="e#31881#32718#0#PHP" expanded="false" />
-            <element signature="e#32818#36869#0#PHP" expanded="false" />
-            <element signature="e#37000#37929#0#PHP" expanded="false" />
-            <element signature="e#38026#39056#0#PHP" expanded="false" />
-            <marker date="1501141221410" expanded="true" signature="37129:37176" ph="SELECT ID FR... $" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -850,7 +971,83 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/cs-cw-admin-manager.php">
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/clever-swatch-bak.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="201" column="16" lean-forward="false" selection-start-line="201" selection-start-column="16" selection-end-line="201" selection-end-column="16" />
+          <folding>
+            <element signature="e#9173#9300#0#PHP" expanded="false" />
+            <element signature="e#9575#12324#0#PHP" expanded="false" />
+            <element signature="e#12672#22349#0#PHP" expanded="false" />
+            <element signature="e#22719#27073#0#PHP" expanded="false" />
+            <element signature="e#27355#30238#0#PHP" expanded="false" />
+            <element signature="e#30334#30581#0#PHP" expanded="false" />
+            <element signature="e#30689#30794#0#PHP" expanded="false" />
+            <element signature="e#30800#30843#0#PHP" expanded="false" />
+            <element signature="e#30946#31442#0#PHP" expanded="false" />
+            <element signature="e#31540#32377#0#PHP" expanded="false" />
+            <element signature="e#32477#36528#0#PHP" expanded="false" />
+            <element signature="e#36659#37588#0#PHP" expanded="false" />
+            <element signature="e#37685#38715#0#PHP" expanded="false" />
+            <marker date="1501210918245" expanded="true" signature="36788:36835" ph="SELECT ID FR... $" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin_sac/class-cs-cw-variation-gallery.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="17" column="54" lean-forward="false" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/js/admin/product/edit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="28" column="72" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="178" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-includes/functions.wp-scripts.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="144" column="36" lean-forward="false" selection-start-line="144" selection-start-column="29" selection-end-line="144" selection-end-column="36" />
+          <folding>
+            <marker date="1500951194840" expanded="true" signature="3529:3533" ph="&lt;" />
+            <marker date="1500951194840" expanded="true" signature="3539:3543" ph="&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin_sac/templates/cs-cw-settings-page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="768">
+          <caret line="52" column="68" lean-forward="true" selection-start-line="52" selection-start-column="68" selection-end-line="52" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/js/admin/zoo-cleverswatch-product-edit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2080">
+          <caret line="130" column="38" lean-forward="true" selection-start-line="130" selection-start-column="38" selection-end-line="130" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/clever-swatch.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="3" />
+          <folding>
+            <element signature="e#6#355#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/js/admin/edit-tags.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -858,13 +1055,68 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/cs-cw-config.php">
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin_sac/class-admin_manager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="18" column="34" lean-forward="false" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+        <state relative-caret-position="80">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="15" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/class-zoo-clever-swatch-config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="15" column="3" lean-forward="false" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/templates/admin/zoo-cleverswatch-product-custom-tab-fields.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="3" />
           <folding>
-            <element signature="e#6#85#0#PHP" expanded="true" />
+            <element signature="e#6#150#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/templates/admin/zoo-cleverswatch-edit-attr-fields.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+          <folding>
+            <element signature="e#6#150#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/templates/admin/zoo-cleverswatch-settings-page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+          <folding>
+            <element signature="e#6#150#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/class-zoo-clever-swatch-admin-manager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+          <folding>
+            <element signature="e#10854#10876#0#HTML" expanded="true" />
+            <element signature="e#11371#11393#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/class-zoo-clever-swatch-admin-variation-gallery.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="19" column="40" lean-forward="true" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
