@@ -1,4 +1,4 @@
-var ajax_url = ced_vm_params.ajax_url;
+var ajax_url = zoo_cw_params.ajax_url;
 jQuery(document).ready(function(){
 	
 	//----------------- single page swatches js---------------------------------//
@@ -14,16 +14,16 @@ jQuery(document).ready(function(){
 			var checkedRadio = jQuery(this).val();
 			var $radio = jQuery(this);
 			
-			jQuery("input[name='"+radioName+"']").parent('.ced-vm-swatch-wrapper').removeClass('ced-vm-border');   
-			jQuery(this).parent('.ced-vm-swatch-wrapper').addClass('ced-vm-border');
+			jQuery("input[name='"+radioName+"']").parent('.zoo-cw-swatch-wrapper').removeClass('zoo-cw-border');
+			jQuery(this).parent('.zoo-cw-swatch-wrapper').addClass('zoo-cw-border');
 			
 			jQuery(attrSelect).find('option').each(function(){
 				
 				if(jQuery(this).val()==checkedRadio){
 					
 					jQuery(this).attr('selected', 'selected');
-					jQuery(this).closest("tr").addClass('ced-vm-checked');
-					//console.log(jQuery($radio).parent('.ced-vm-swatch-wrapper').addClass('ced-vm-border'));
+					jQuery(this).closest("tr").addClass('zoo-cw-checked');
+					//console.log(jQuery($radio).parent('.zoo-cw-swatch-wrapper').addClass('zoo-cw-border'));
 					
 				}else{
 					
@@ -54,11 +54,11 @@ jQuery(document).ready(function(){
 					if(jQuery.inArray( tmpVal, attrNameArray ) < 0){
 						
 						jQuery(this).find('input').attr('disabled','disabled');
-						jQuery(this).find('div').addClass('ced-vm-disable');
+						jQuery(this).find('div').addClass('zoo-cw-disable');
 					}else{
 						
 						jQuery(this).find('input').removeAttr('disabled');
-						jQuery(this).find('div').removeClass('ced-vm-disable');
+						jQuery(this).find('div').removeClass('zoo-cw-disable');
 					}
 				});
 			})
@@ -72,11 +72,11 @@ jQuery(document).ready(function(){
 			
 			jQuery(this).removeAttr('disabled');
 			jQuery(this).removeAttr('checked');
-			jQuery(this).closest('div').removeClass('ced-vm-border');
+			jQuery(this).closest('div').removeClass('zoo-cw-border');
 		});
 		
-		jQuery('form.variations_form').find('.variations tr.ced-vm-row-wrapper').each(function(){
-			jQuery(this).removeClass('ced-vm-checked');
+		jQuery('form.variations_form').find('.variations tr.zoo-cw-row-wrapper').each(function(){
+			jQuery(this).removeClass('zoo-cw-checked');
 		});
 		
 	})

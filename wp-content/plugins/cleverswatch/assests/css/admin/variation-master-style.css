@@ -1,34 +1,34 @@
 /*General Settings*/
-.ced-vm-settings-wrapper {
+.zoo-cw-settings-wrapper {
   margin: 10px 20px 0 2px;
 }
 
-.ced-vm-settings-container {
+.zoo-cw-settings-container {
   background: #f9f9f9 none repeat scroll 0 0;
 }
 
-table.ced-vm-settings-table {
+table.zoo-cw-settings-table {
   width: 100%;
 }
 
-table.ced-vm-settings-table tbody tr td {
+table.zoo-cw-settings-table tbody tr td {
   display: table-cell;
   padding: 5px;
   vertical-align: middle;
 }
 
-.ced-vm-attr-image-uploader img,
-.ced-vm-attr-image-uploader button {
+.zoo-cw-attr-image-uploader img,
+.zoo-cw-attr-image-uploader button {
   display: inline-block;
   vertical-align: middle;
 }
 
-.ced-vm-dt-option {
+.zoo-cw-dt-option {
   margin-top: 10px;
 }
 
 /*toggle Button*/
-.ced-vm-settings-table .toggle input[type="checkbox"], .ced-vm-settings-table .toggle input[type="radio"] {
+.zoo-cw-settings-table .toggle input[type="checkbox"], .zoo-cw-settings-table .toggle input[type="radio"] {
   height: 0;
   margin: 0;
   opacity: 0;
@@ -37,7 +37,7 @@ table.ced-vm-settings-table tbody tr td {
   width: 0;
 }
 
-.ced-vm-settings-table .toggle .handle::after, .ced-vm-settings-table .toggle .handle::before {
+.zoo-cw-settings-table .toggle .handle::after, .zoo-cw-settings-table .toggle .handle::before {
   background-color: #fff;
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
@@ -57,7 +57,7 @@ table.ced-vm-settings-table tbody tr td {
   width: 25px;
 }
 
-.ced-vm-settings-table .toggle .handle {
+.zoo-cw-settings-table .toggle .handle {
   background-color: #fff;
   -webkit-border-radius: 19px;
   -moz-border-radius: 19px;
@@ -72,76 +72,76 @@ table.ced-vm-settings-table tbody tr td {
   width: 50px;
 }
 
-.ced-vm-settings-table .toggle input[type="checkbox"]:checked + .handle::before,
-.ced-vm-settings-table .toggle input[type="radio"]:checked + .handle::before {
+.zoo-cw-settings-table .toggle input[type="checkbox"]:checked + .handle::before,
+.zoo-cw-settings-table .toggle input[type="radio"]:checked + .handle::before {
   background-color: #039BE5;
   width: 50px;
 }
 
-.ced-vm-settings-table .toggle input[type="checkbox"]:checked + .handle::after,
-.ced-vm-settings-table .toggle input[type="radio"]:checked + .handle::after {
+.zoo-cw-settings-table .toggle input[type="checkbox"]:checked + .handle::after,
+.zoo-cw-settings-table .toggle input[type="radio"]:checked + .handle::after {
   left: 25px;
 }
 
-table.ced-vm-settings-table {
+table.zoo-cw-settings-table {
   background: #fff none repeat scroll 0 0;
   border: 1px solid #dddddd;
   border-collapse: collapse;
 }
 
-table.ced-vm-settings-table tbody tr:nth-of-type(2n+1) {
+table.zoo-cw-settings-table tbody tr:nth-of-type(2n+1) {
   background: #f9f9f9 none repeat scroll 0 0;
 }
 
-table.ced-vm-settings-table tbody tr td label {
+table.zoo-cw-settings-table tbody tr td label {
   align-items: center;
   display: flex;
   justify-content: center;
   padding: 5px 0;
 }
 
-.ced-vm-settings-table .toggle .handle {
+.zoo-cw-settings-table .toggle .handle {
   top: 0px;
 }
 
-.ced-vm-div-wrapper {
+.zoo-cw-div-wrapper {
   padding: 15px;
 }
 
-.ced-vm-settings-header {
+.zoo-cw-settings-header {
   background-color: #fff;
 }
 
-h3.ced-vm-heading {
+h3.zoo-cw-heading {
   background-color: #0073AA;
   color: #fff;
   padding: 15px;
   margin-bottom: 0;
 }
 
-.ced-vm-wrapper {
+.zoo-cw-wrapper {
   background-color: #fff;
   padding: 10px;
 }
 
-.ced-vm-wrapper .wp-picker-container {
+.zoo-cw-wrapper .wp-picker-container {
   float: right;
   margin-right: 5%;
 }
-.ced-vm-settings-table input#ced_vm_atds_cv {
+.zoo-cw-settings-table input#zoo_cw_atds_cv {
     vertical-align: middle;
     width: 42px;
 }
-.ced-vm-settings-table input#ced_vm_atds_cv_w {
+.zoo-cw-settings-table input#zoo_cw_atds_cv_w {
     vertical-align: middle;
     width: 42px;
 }
 /*media quaries*/
 @media only screen and (min-width: 768px) {
-  table.ced-vm-settings-table tbody tr td:first-child {
+  table.zoo-cw-settings-table tbody tr td:first-child {
     width: 25%;
   }
-  table.ced-vm-settings-table tr td:nth-child(2) {
+  table.zoo-cw-settings-table tr td:nth-child(2) {
     text-align: center;
     width: 30%;
 }

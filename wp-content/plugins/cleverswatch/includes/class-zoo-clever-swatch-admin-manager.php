@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Main Plugin class for managing admin interfaces.
  *
- * @class    Cs_Cw_Admin_Manager
+ * @class    Zoo_Clever_Swatch_Admin_Manager
  *
  * @version  1.0.0
  * @package  clever-swatch/includes
@@ -15,11 +15,11 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since    1.0.0
  */
 
-require_once CS_VM_DIRPATH.'includes/cs-cw-admin-variation-gallery.php';
+require_once ZOO_CW_DIRPATH.'includes/class-zoo-clever-swatch-admin-variation-gallery.php';
 
-if( !class_exists( 'Cs_Cw_Admin_Manager' ) ){
+if( !class_exists( 'Zoo_Clever_Swatch_Admin_Manager' ) ){
 
-    class Cs_Cw_Admin_Manager{
+    class Zoo_Clever_Swatch_Admin_Manager{
 
         private static $_instance;
 
@@ -34,41 +34,41 @@ if( !class_exists( 'Cs_Cw_Admin_Manager' ) ){
 
         public function __construct(){
 
-            add_action( 'admin_enqueue_scripts', array($this,'cs_cw_enqueue_product_page_scripts') );
+            add_action( 'admin_enqueue_scripts', array($this,'zoo_cw_enqueue_product_page_scripts') );
 
-            $cs_cw_variation_gallery_manager = Cs_Cw_Admin_Variation_Gallery::getInstance();
+            $zoo_cw_variation_gallery_manager = Zoo_Clever_Swatch_Admin_Variation_Gallery::getInstance();
 
             //adding tab in admin menu.
-            add_action( 'admin_menu', array($this, 'cs_cw_add_settings_page') );
+            add_action( 'admin_menu', array($this, 'zoo_cw_add_settings_page') );
 
             //for downloading exported csv..
-            add_action('admin_init', array($this,'cs_cw_export_csv_download') );
+            add_action('admin_init', array($this,'zoo_cw_export_csv_download') );
 
             //adding tab for variation swatch images.
-            add_action('woocommerce_product_data_tabs', array( $this ,'cs_cw_variation_product_tab' ) ) ;
+            add_action('woocommerce_product_data_tabs', array( $this ,'zoo_cw_variation_product_tab' ) ) ;
 
             //custom tab fields.
-            add_action('woocommerce_product_data_panels',  array( $this ,'cs_cw_customTabFields' ) ) ;
+            add_action('woocommerce_product_data_panels',  array( $this ,'zoo_cw_customTabFields' ) ) ;
 
             //saving custom tab data..
-            add_action( 'woocommerce_process_product_meta', array( $this ,'cs_cw_saveCustomTabFields' ) );
+            add_action( 'woocommerce_process_product_meta', array( $this ,'zoo_cw_saveCustomTabFields' ) );
 
 //            $attribute_taxonomies = wc_get_attribute_taxonomies();
 //
 //            if ( ! empty( $attribute_taxonomies ) ) {
 //                foreach ( $attribute_taxonomies as $attribute ) {
-//                    add_action( 'pa_' . $attribute->attribute_name . '_add_form_fields', array( $this, 'cs_cw_add_image_color_selector' ) );
-//                    add_filter('manage_edit-'.'pa_' . $attribute->attribute_name.'_columns', array( $this,'cs_cw_add_preview_column') );
-//                    add_filter('manage_pa_' . $attribute->attribute_name.'_custom_column', array( $this,'cs_cw_preview_column_content'),10, 3 );
-//                    add_action( 'pa_' . $attribute->attribute_name .'_edit_form_fields', array( $this, 'cs_cw_edit_attr_fields' ), 10 );
+//                    add_action( 'pa_' . $attribute->attribute_name . '_add_form_fields', array( $this, 'zoo_cw_add_image_color_selector' ) );
+//                    add_filter('manage_edit-'.'pa_' . $attribute->attribute_name.'_columns', array( $this,'zoo_cw_add_preview_column') );
+//                    add_filter('manage_pa_' . $attribute->attribute_name.'_custom_column', array( $this,'zoo_cw_preview_column_content'),10, 3 );
+//                    add_action( 'pa_' . $attribute->attribute_name .'_edit_form_fields', array( $this, 'zoo_cw_edit_attr_fields' ), 10 );
 //                }
 //            }
 
-            add_action( 'created_term', array( $this, 'cs_cw_save_attr_extra_fields' ), 10, 3 );
-            add_action( 'edit_term', array( $this, 'cs_cw_save_attr_extra_fields' ), 10, 3 );
+            add_action( 'created_term', array( $this, 'zoo_cw_save_attr_extra_fields' ), 10, 3 );
+            add_action( 'edit_term', array( $this, 'zoo_cw_save_attr_extra_fields' ), 10, 3 );
 
             //custom tab fields.
-            add_action( "wp_ajax_cs_cw_update_term_data", array( $this ,'cs_cw_customTabFields' ) );
+            add_action( "wp_ajax_zoo_cw_update_term_data", array( $this ,'zoo_cw_customTabFields' ) );
         }
 
         /**
@@ -76,7 +76,7 @@ if( !class_exists( 'Cs_Cw_Admin_Manager' ) ){
          *
          * @since 1.0.0
          */
-        function cs_cw_export_csv_download(){
+        function zoo_cw_export_csv_download(){
 
             if(isset($_GET["export"])){
 
@@ -151,7 +151,7 @@ if( !class_exists( 'Cs_Cw_Admin_Manager' ) ){
 
             $csv_array = array();
 
-            require_once CS_VM_DIRPATH.'includes/library/class-cs-cw-getvariationfields.php';
+            require_once ZOO_CW_DIRPATH.'includes/library/class-zoo-cw-getvariationfields.php';
 
             $product_ids = get_posts(array('posts_per_page'=>-1,'post_type'=>'product','fields'=>'ids'));
 
@@ -189,7 +189,7 @@ if( !class_exists( 'Cs_Cw_Admin_Manager' ) ){
          *
          * @since 1.0.0
          */
-        function cs_cw_edit_attr_fields( $term ){
+        function zoo_cw_edit_attr_fields( $term ){
             $id = $term->term_id;
             $dt = get_woocommerce_term_meta( $id, 'display_type', true );
             $color_code = get_woocommerce_term_meta( $id, 'slctd_clr', true );
@@ -197,7 +197,7 @@ if( !class_exists( 'Cs_Cw_Admin_Manager' ) ){
             if(empty($image))
                 $image = wc_placeholder_img_src();
 
-            require_once CS_VM_TEMPLATES_PATH.'admin/edit_attr_fields.php';
+            require_once ZOO_CW_TEMPLATES_PATH.'admin/edit_attr_fields.php';
         }
 
         /**
@@ -205,16 +205,16 @@ if( !class_exists( 'Cs_Cw_Admin_Manager' ) ){
          *
          * @since 1.0.0
          */
-        function cs_cw_save_attr_extra_fields( $term_id, $tt_id = '', $taxonomy = '' ){
-            if ( isset( $_POST['cs-cw-display-type'] ) ) {
+        function zoo_cw_save_attr_extra_fields( $term_id, $tt_id = '', $taxonomy = '' ){
+            if ( isset( $_POST['zoo-cw-display-type'] ) ) {
 
-                $dt = absint( $_POST['cs-cw-display-type'] );
-                update_woocommerce_term_meta( $term_id, 'display_type', absint( $_POST['cs-cw-display-type'] ) );
+                $dt = absint( $_POST['zoo-cw-display-type'] );
+                update_woocommerce_term_meta( $term_id, 'display_type', absint( $_POST['zoo-cw-display-type'] ) );
 
                 if($dt == 2){
-                    update_woocommerce_term_meta( $term_id, 'slctd_clr',  $_POST['cs_cw_slctdclr'] );
+                    update_woocommerce_term_meta( $term_id, 'slctd_clr',  $_POST['zoo_cw_slctdclr'] );
                 }else if($dt == 1){
-                    update_woocommerce_term_meta( $term_id, 'slctd_img',  $_POST['cs-cw-selected-attr-img'] );
+                    update_woocommerce_term_meta( $term_id, 'slctd_img',  $_POST['zoo-cw-selected-attr-img'] );
                 }
             }
         }
@@ -224,7 +224,7 @@ if( !class_exists( 'Cs_Cw_Admin_Manager' ) ){
          *
          * @since 1.0.0
          */
-        function cs_cw_preview_column_content( $columns, $column, $id ){
+        function zoo_cw_preview_column_content( $columns, $column, $id ){
 
             if ( 'thumb' == $column ) {
 
@@ -247,7 +247,7 @@ if( !class_exists( 'Cs_Cw_Admin_Manager' ) ){
                     }
                     $image = str_replace( ' ', '%20', $image );
 
-                    $columns .= '<img src="' . esc_url( $image ) . '" alt="' . __( 'Thumbnail', 'variation-master' ) . '" class="cs-cw-attr-thumb" height="48" width="48" />';
+                    $columns .= '<img src="' . esc_url( $image ) . '" alt="' . __( 'Thumbnail', 'clever-swatch' ) . '" class="zoo-cw-attr-thumb" height="48" width="48" />';
                 }
 
             }
@@ -259,7 +259,7 @@ if( !class_exists( 'Cs_Cw_Admin_Manager' ) ){
          *
          * @since 1.0.0
          */
-        function cs_cw_add_preview_column( $columns ){
+        function zoo_cw_add_preview_column( $columns ){
             $new_columns = array();
 
             if ( isset( $columns['cb'] ) ) {
@@ -267,7 +267,7 @@ if( !class_exists( 'Cs_Cw_Admin_Manager' ) ){
                 unset( $columns['cb'] );
             }
 
-            $new_columns['thumb'] = __( 'Image', 'variation-master' );
+            $new_columns['thumb'] = __( 'Image', 'clever-swatch' );
 
             return array_merge( $new_columns, $columns );
         }
@@ -277,21 +277,21 @@ if( !class_exists( 'Cs_Cw_Admin_Manager' ) ){
          *
          * @since 1.0.0
          */
-        function cs_cw_add_image_color_selector(){?>
+        function zoo_cw_add_image_color_selector(){?>
             <div class="form-field term-display-type-wrap">
-                <label for="cs-cw-display-type"><?php _e( 'Display type', 'variation-master' ); ?></label>
-                <select id="cs-cw-display-type" name="cs-cw-display-type" class="postform">
-                    <option value="0"><?php _e( 'None', 'variation-master' ); ?></option>
-                    <option value="1"><?php _e( 'Image', 'variation-master' ); ?></option>
-                    <option value="2"><?php _e( 'Color', 'variation-master' ); ?></option>
+                <label for="zoo-cw-display-type"><?php _e( 'Display type', 'clever-swatch' ); ?></label>
+                <select id="zoo-cw-display-type" name="zoo-cw-display-type" class="postform">
+                    <option value="0"><?php _e( 'None', 'clever-swatch' ); ?></option>
+                    <option value="1"><?php _e( 'Image', 'clever-swatch' ); ?></option>
+                    <option value="2"><?php _e( 'Color', 'clever-swatch' ); ?></option>
                 </select>
-                <div class="cs-cw-attr-image-uploader cs-cw-dt-option" style="display: none;">
-                    <input type="hidden" class="cs-cw-selected-attr-img" name="cs-cw-selected-attr-img">
-                    <img class="cs-cw-slctd-img" src="<?php echo wc_placeholder_img_src();?>" alt="<?php _e('Select Image','variation-master')?>" height="50px" width="50px">
-                    <button class="cs-cw-image-picker" type="button"><?php _e('Browse','variation-master');?></button>
+                <div class="zoo-cw-attr-image-uploader zoo-cw-dt-option" style="display: none;">
+                    <input type="hidden" class="zoo-cw-selected-attr-img" name="zoo-cw-selected-attr-img">
+                    <img class="zoo-cw-slctd-img" src="<?php echo wc_placeholder_img_src();?>" alt="<?php _e('Select Image','clever-swatch')?>" height="50px" width="50px">
+                    <button class="zoo-cw-image-picker" type="button"><?php _e('Browse','clever-swatch');?></button>
                 </div>
-                <div class="cs-cw-attr-colorpickerdiv cs-cw-dt-option"  style="display: none;">
-                    <input type="text" name="cs_cw_slctdclr" class="cs-cw-colorpicker" />
+                <div class="zoo-cw-attr-colorpickerdiv zoo-cw-dt-option"  style="display: none;">
+                    <input type="text" name="zoo_cw_slctdclr" class="zoo-cw-colorpicker" />
                 </div>
             </div>
             <?php
@@ -302,19 +302,19 @@ if( !class_exists( 'Cs_Cw_Admin_Manager' ) ){
          *
          * @since 1.0.0
          */
-        function cs_cw_add_settings_page(){
+        function zoo_cw_add_settings_page(){
 
-            add_menu_page('Variation Master', 'Variation Master ', 'manage_woocommerce', 'cs-cw-settings', array($this, 'cs_cw_settings_callback'),CS_VM_GALLERYPATH.'variation.png',55.567 );
+            add_menu_page('Clever Swatch', 'Clever Swatch ', 'manage_woocommerce', 'zoo-cw-settings', array($this, 'zoo_cw_settings_callback'),ZOO_CW_GALLERYPATH.'variation.png',55.567 );
         }
 
         /**
-         * callback function of settings page of variation master.
+         * callback function of settings page of clever swatch.
          *
          * @since 1.0.0
          */
-        function cs_cw_settings_callback(){
+        function zoo_cw_settings_callback(){
 
-            require_once CS_VM_TEMPLATES_PATH.'admin/cs-cw-settings-page.php';
+            require_once ZOO_CW_TEMPLATES_PATH.'admin/zoo-clever-watch-settings-page.php';
         }
 
         /**
@@ -322,7 +322,7 @@ if( !class_exists( 'Cs_Cw_Admin_Manager' ) ){
          *
          * @since 1.0.0
          */
-        function cs_cw_enqueue_product_page_scripts(){
+        function zoo_cw_enqueue_product_page_scripts(){
 
             global $wp_query, $post;
 
@@ -332,18 +332,18 @@ if( !class_exists( 'Cs_Cw_Admin_Manager' ) ){
             $suffix       = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
             $screen_page = $screen ? $screen->base : '';
 
-            if( $screen_page == 'toplevel_page_cs-cw-settings' )
-                wp_enqueue_style( 'cs-variation-master-style', CS_VM_CSSPATH. 'admin/variation-master-style.css' );
+            if( $screen_page == 'toplevel_page_zoo-cw-settings' )
+                wp_enqueue_style( 'zoo-clever-swatch-style', ZOO_CW_CSSPATH. 'admin/clever-swatch-style.css' );
 
             //condition for the product edit page only.
             if ( in_array( $screen_id, array( 'product', 'edit-product' ) ) ){
 
                 wp_enqueue_style( 'wp-color-picker' );
-                wp_register_script( 'cs-cw-product-edit', CS_VM_JSPATH . 'admin/product_edit.js', array( 'jquery','wp-color-picker' ), CS_VM_VERSION );
-                wp_localize_script( 'cs-cw-product-edit', 'cs_cw_params', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
-                wp_enqueue_script( 'cs-cw-product-edit' );
+                wp_register_script( 'zoo-cw-product-edit', ZOO_CW_JSPATH . 'admin/product_edit.js', array( 'jquery','wp-color-picker' ), ZOO_CW_VERSION );
+                wp_localize_script( 'zoo-cw-product-edit', 'zoo_cw_params', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+                wp_enqueue_script( 'zoo-cw-product-edit' );
 
-                wp_enqueue_style( 'cs-cw-product-edit-style', CS_VM_CSSPATH. 'admin/cs-cw-product-edit-style.css' );
+                wp_enqueue_style( 'zoo-cw-product-edit-style', ZOO_CW_CSSPATH. 'admin/zoo-cw-product-edit-style.css' );
             }
 
             if ( in_array( $screen_page, array( 'edit-tags' ) ) || in_array( $screen_page, array( 'term') ) ){
@@ -351,17 +351,17 @@ if( !class_exists( 'Cs_Cw_Admin_Manager' ) ){
                 wp_enqueue_style( 'wp-color-picker' );
                 wp_enqueue_media();
 
-                wp_register_script( 'cs-cw-tags-edit', CS_VM_JSPATH . 'admin/edit-tags.js', array( 'jquery','wp-color-picker' ), CS_VM_VERSION );
-                wp_enqueue_script( 'cs-cw-tags-edit' );
+                wp_register_script( 'zoo-cw-tags-edit', ZOO_CW_JSPATH . 'admin/edit-tags.js', array( 'jquery','wp-color-picker' ), ZOO_CW_VERSION );
+                wp_enqueue_script( 'zoo-cw-tags-edit' );
             }
 
-            if( $screen_id == "toplevel_page_cs-cw-settings"){
+            if( $screen_id == "toplevel_page_zoo-cw-settings"){
 
                 wp_enqueue_style( 'wp-color-picker' );
 
-                wp_register_script( 'cs-cw-import-export', CS_VM_JSPATH . 'admin/import-export.js', array( 'jquery','wp-color-picker' ), CS_VM_VERSION );
-                wp_localize_script( 'cs-cw-import-export', 'cs_cw_params', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
-                wp_enqueue_script( 'cs-cw-import-export' );
+                wp_register_script( 'zoo-cw-import-export', ZOO_CW_JSPATH . 'admin/import-export.js', array( 'jquery','wp-color-picker' ), ZOO_CW_VERSION );
+                wp_localize_script( 'zoo-cw-import-export', 'zoo_cw_params', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+                wp_enqueue_script( 'zoo-cw-import-export' );
 
             }
         }
@@ -371,12 +371,12 @@ if( !class_exists( 'Cs_Cw_Admin_Manager' ) ){
          *
          * @since 1.0.0
          */
-        public function cs_cw_variation_product_tab( $tabs ){
+        public function zoo_cw_variation_product_tab( $tabs ){
 
             $tabs['swatches'] = array(
-                'label'  => __( 'Variation Swatches', 'variation-master' ),
-                'target' => 'cs-cw-variation-swatch-data',
-                'class'  => array( 'show_if_variable','cs-cw-term-swatches' ),
+                'label'  => __( 'Clever Swatch', 'clever-swatch' ),
+                'target' => 'zoo-cw-variation-swatch-data',
+                'class'  => array( 'show_if_variable','zoo-cw-term-swatches' ),
             );
 
             return $tabs;
@@ -387,7 +387,7 @@ if( !class_exists( 'Cs_Cw_Admin_Manager' ) ){
          *
          * @since 1.0.0
          */
-        public function cs_cw_customTabFields(){
+        public function zoo_cw_customTabFields(){
 
             if(is_ajax()){
                 if(isset($_POST['post_id']) && !empty($_POST['post_id'])){
@@ -401,7 +401,7 @@ if( !class_exists( 'Cs_Cw_Admin_Manager' ) ){
             $_product 		= 	wc_get_product($post->ID);
 
             if($_product->is_type('variable')){
-                require_once CS_VM_TEMPLATES_PATH.'admin/product-custom-tab-fields.php';
+                require_once ZOO_CW_TEMPLATES_PATH.'admin/product-page-custom-tab-fields.php';
             }else{
                 // not an variable product.....
             }
@@ -415,23 +415,23 @@ if( !class_exists( 'Cs_Cw_Admin_Manager' ) ){
          *
          * @since 1.0.0
          */
-        function cs_cw_saveCustomTabFields( $post_id ){
+        function zoo_cw_saveCustomTabFields( $post_id ){
             $_product = wc_get_product( $post_id );
-            $cs_cw_swatch_array = array();
+            $zoo_cw_swatch_array = array();
             if( $_product->is_type('variable') ){
-                $disabled_swatch = isset($_POST["cs-cw-disable_swatch"]) ? 1 : 0;
-                $cs_cw_swatch_array['disabled'] = $disabled_swatch;
+                $disabled_swatch = isset($_POST["zoo-cw-disable_swatch"]) ? 1 : 0;
+                $zoo_cw_swatch_array['disabled'] = $disabled_swatch;
                 $attributes	=	$_product->get_variation_attributes();
                 if(is_array($attributes)){
                     foreach ( $attributes as $attribute_name => $options ){
                         $tmp_attr_data_array = array();
                         $attrName =  $attribute_name;
-                        $tmp_attr_data_array['label'] = isset($_POST["cs_cw_label_$attrName"])&& !empty($_POST["cs_cw_label_$attrName"]) ?  $_POST["cs_cw_label_$attrName"] : wc_attribute_label( $attribute_name ) ;
-                        $tmp_attr_data_array['dt'] = isset($_POST["cs_cw_dt_$attrName"]) ? intval( $_POST["cs_cw_dt_$attrName"] ) : 1 ;
-                        $ds1 = isset($_POST["cs_cw_ds_$attrName"]) ? intval( $_POST["cs_cw_ds_$attrName"] ) : 1 ;
-                        $ds2 = isset($_POST["cs_cw_ds2_$attrName"]) ? intval( $_POST["cs_cw_ds2_$attrName"] ) : 1 ;
+                        $tmp_attr_data_array['label'] = isset($_POST["zoo_cw_label_$attrName"])&& !empty($_POST["zoo_cw_label_$attrName"]) ?  $_POST["zoo_cw_label_$attrName"] : wc_attribute_label( $attribute_name ) ;
+                        $tmp_attr_data_array['dt'] = isset($_POST["zoo_cw_dt_$attrName"]) ? intval( $_POST["zoo_cw_dt_$attrName"] ) : 1 ;
+                        $ds1 = isset($_POST["zoo_cw_ds_$attrName"]) ? intval( $_POST["zoo_cw_ds_$attrName"] ) : 1 ;
+                        $ds2 = isset($_POST["zoo_cw_ds2_$attrName"]) ? intval( $_POST["zoo_cw_ds2_$attrName"] ) : 1 ;
                         $tmp_attr_data_array['ds'] = array('ds'=>$ds1, 'ds2'=>$ds2);
-                        $tmp_attr_data_array['dn'] = isset($_POST["cs_cw_dn_$attrName"]) ?  $_POST["cs_cw_dn_$attrName"]  : 1 ;
+                        $tmp_attr_data_array['dn'] = isset($_POST["zoo_cw_dn_$attrName"]) ?  $_POST["zoo_cw_dn_$attrName"]  : 1 ;
 
                         if ( is_array( $options ) ) {
                             $tmp_option_array = array();
@@ -440,34 +440,34 @@ if( !class_exists( 'Cs_Cw_Admin_Manager' ) ){
                                 foreach ( $terms as $term ) {
                                     if ( in_array( $term->slug, $options ) ){
                                         $tmp_term_name =  $term->slug;
-                                        $tmp_option_array[$tmp_term_name]['gat'] = isset($_POST["cs_cw_gat_$tmp_term_name"]) ? intval( $_POST["cs_cw_gat_$tmp_term_name"] ) : 0 ;
-                                        $tmp_option_array[$tmp_term_name]['dt'] = isset($_POST["cs_cw_sdt_$tmp_term_name"]) ? intval( $_POST["cs_cw_sdt_$tmp_term_name"] ) : 1 ;
+                                        $tmp_option_array[$tmp_term_name]['gat'] = isset($_POST["zoo_cw_gat_$tmp_term_name"]) ? intval( $_POST["zoo_cw_gat_$tmp_term_name"] ) : 0 ;
+                                        $tmp_option_array[$tmp_term_name]['dt'] = isset($_POST["zoo_cw_sdt_$tmp_term_name"]) ? intval( $_POST["zoo_cw_sdt_$tmp_term_name"] ) : 1 ;
                                         if( $tmp_option_array[$tmp_term_name]['dt'] == 1 ){
-                                            $tmp_option_array[$tmp_term_name]['image'] = isset($_POST["cs-cw-input-scimg-$tmp_term_name"]) ? sanitize_text_field( $_POST["cs-cw-input-scimg-$tmp_term_name"] ) : '' ;
+                                            $tmp_option_array[$tmp_term_name]['image'] = isset($_POST["zoo-cw-input-scimg-$tmp_term_name"]) ? sanitize_text_field( $_POST["zoo-cw-input-scimg-$tmp_term_name"] ) : '' ;
                                         }else{
-                                            $tmp_option_array[$tmp_term_name]['color'] = isset($_POST["cs_cw_slctclr_$tmp_term_name"]) ? sanitize_text_field( $_POST["cs_cw_slctclr_$tmp_term_name"] ) : '' ;
+                                            $tmp_option_array[$tmp_term_name]['color'] = isset($_POST["zoo_cw_slctclr_$tmp_term_name"]) ? sanitize_text_field( $_POST["zoo_cw_slctclr_$tmp_term_name"] ) : '' ;
                                         }
                                     }
                                 }
                             }else{
                                 foreach ( $options as $option ){
                                     $tmp_term_name =  $option;
-                                    $tmp_option_array[$tmp_term_name]['dt'] = isset($_POST["cs_cw_sdt_$tmp_term_name"]) ? intval( $_POST["cs_cw_sdt_$tmp_term_name"] ) : 1 ;
+                                    $tmp_option_array[$tmp_term_name]['dt'] = isset($_POST["zoo_cw_sdt_$tmp_term_name"]) ? intval( $_POST["zoo_cw_sdt_$tmp_term_name"] ) : 1 ;
                                     if( $tmp_option_array[$tmp_term_name]['dt'] == 1 ){
-                                        $tmp_option_array[$tmp_term_name]['image'] = isset($_POST["cs-cw-input-scimg-$tmp_term_name"]) ? sanitize_text_field( $_POST["cs-cw-input-scimg-$tmp_term_name"] ) : '' ;
+                                        $tmp_option_array[$tmp_term_name]['image'] = isset($_POST["zoo-cw-input-scimg-$tmp_term_name"]) ? sanitize_text_field( $_POST["zoo-cw-input-scimg-$tmp_term_name"] ) : '' ;
                                     }else{
-                                        $tmp_option_array[$tmp_term_name]['color'] = isset($_POST["cs_cw_slctclr_$tmp_term_name"]) ? sanitize_text_field( $_POST["cs_cw_slctclr_$tmp_term_name"] ) : '' ;
+                                        $tmp_option_array[$tmp_term_name]['color'] = isset($_POST["zoo_cw_slctclr_$tmp_term_name"]) ? sanitize_text_field( $_POST["zoo_cw_slctclr_$tmp_term_name"] ) : '' ;
                                     }
                                 }
                             }
                             $tmp_attr_data_array['options_data'] = $tmp_option_array;
                         }
-                        $cs_cw_swatch_array[$attrName] = $tmp_attr_data_array;
+                        $zoo_cw_swatch_array[$attrName] = $tmp_attr_data_array;
                     }
                 }else{
                     //not available attributes..
                 }
-                update_post_meta( $post_id, 'cs_cw_product_swatch_data', $cs_cw_swatch_array );
+                update_post_meta( $post_id, 'zoo_cw_product_swatch_data', $zoo_cw_swatch_array );
             }else{
                 // not an variable product.....
             }
@@ -475,4 +475,4 @@ if( !class_exists( 'Cs_Cw_Admin_Manager' ) ){
     }
 }
 
-$cs_cw_admin_manager_object = new Cs_Cw_Admin_Manager();
+$zoo_cw_admin_manager_object = new Zoo_Clever_Swatch_Admin_Manager();

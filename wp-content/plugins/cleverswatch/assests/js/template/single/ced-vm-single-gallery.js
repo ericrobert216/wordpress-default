@@ -1,4 +1,4 @@
-var ajaxUrl = ced_vm_gallery_params.ajax_url;
+var ajaxUrl = zoo_cw_gallery_params.ajax_url;
 var defaultGallery = '';
 jQuery(document).ready(function(){
 	
@@ -17,7 +17,7 @@ jQuery(document).ready(function(){
 			cache: false,
 			type: "POST",
 			data: {
-				'action': 'ced_vm_get_variation_gallery_for_reset_single',				
+				'action': 'zoo_cw_get_variation_gallery_for_reset_single',
 				'productId': productId
 			},success:function(response) {
 
@@ -67,7 +67,7 @@ jQuery('form.variations_form').on('change','input[name=variation_id]',function()
 			cache: false,
 			type: "POST",
 			data: {
-				'action': 'ced_vm_get_variation_gallery_for_single',
+				'action': 'zoo_cw_get_variation_gallery_for_single',
 				'reset': 0,
 				'variation_id': variationID,
 				'product_id': productId
@@ -101,7 +101,7 @@ jQuery('form.variations_form').on('change','input[name=variation_id]',function()
 	*
 	*/
 	var ProductGallery = function( $target, args ) {
-		this.$current_theme = ced_vm_gallery_params.current_theme;
+		this.$current_theme = zoo_cw_gallery_params.current_theme;
 		console.log(this.$current_theme);
 		if(this.$current_theme = 'Avada'){
 			this.$target = $target;
@@ -119,9 +119,9 @@ jQuery('form.variations_form').on('change','input[name=variation_id]',function()
 		$target.data( 'product_gallery', this );
 
 		// Pick functionality to initialize...
-		this.flexslider_enabled = jQuery.isFunction( jQuery.fn.flexslider ) && ced_vm_gallery_params.flexslider_enabled;
-		this.zoom_enabled       = jQuery.isFunction( jQuery.fn.zoom ) && ced_vm_gallery_params.zoom_enabled;
-		this.photoswipe_enabled = typeof PhotoSwipe !== 'undefined' && ced_vm_gallery_params.photoswipe_enabled;
+		this.flexslider_enabled = jQuery.isFunction( jQuery.fn.flexslider ) && zoo_cw_gallery_params.flexslider_enabled;
+		this.zoom_enabled       = jQuery.isFunction( jQuery.fn.zoom ) && zoo_cw_gallery_params.zoom_enabled;
+		this.photoswipe_enabled = typeof PhotoSwipe !== 'undefined' && zoo_cw_gallery_params.photoswipe_enabled;
 
 		// ...also taking args into account.
 		if ( args ) {
@@ -168,9 +168,9 @@ jQuery('form.variations_form').on('change','input[name=variation_id]',function()
 		$target.data( 'product_gallery', this );
 
 		// Pick functionality to initialize...
-		this.flexslider_enabled = jQuery.isFunction( jQuery.fn.flexslider ) && ced_vm_gallery_params.flexslider_enabled;
-		this.zoom_enabled       = jQuery.isFunction( jQuery.fn.zoom ) && ced_vm_gallery_params.zoom_enabled;
-		this.photoswipe_enabled = typeof PhotoSwipe !== 'undefined' && ced_vm_gallery_params.photoswipe_enabled;
+		this.flexslider_enabled = jQuery.isFunction( jQuery.fn.flexslider ) && zoo_cw_gallery_params.flexslider_enabled;
+		this.zoom_enabled       = jQuery.isFunction( jQuery.fn.zoom ) && zoo_cw_gallery_params.zoom_enabled;
+		this.photoswipe_enabled = typeof PhotoSwipe !== 'undefined' && zoo_cw_gallery_params.photoswipe_enabled;
 
 		// ...also taking args into account.
 		if ( args ) {
@@ -208,13 +208,13 @@ ProductGallery.prototype.initFlexslider = function() {
 
 	$target.flexslider( {
 		selector:       '.woocommerce-product-gallery__wrapper > .woocommerce-product-gallery__image',
-		animation:      ced_vm_gallery_params.flexslider.animation,
-		smoothHeight:   ced_vm_gallery_params.flexslider.smoothHeight,
-		directionNav:   ced_vm_gallery_params.flexslider.directionNav,
-		controlNav:     ced_vm_gallery_params.flexslider.controlNav,
-		slideshow:      ced_vm_gallery_params.flexslider.slideshow,
-		animationSpeed: ced_vm_gallery_params.flexslider.animationSpeed,
-			animationLoop:  ced_vm_gallery_params.flexslider.animationLoop, // Breaks photoswipe pagination if true.
+		animation:      zoo_cw_gallery_params.flexslider.animation,
+		smoothHeight:   zoo_cw_gallery_params.flexslider.smoothHeight,
+		directionNav:   zoo_cw_gallery_params.flexslider.directionNav,
+		controlNav:     zoo_cw_gallery_params.flexslider.controlNav,
+		slideshow:      zoo_cw_gallery_params.flexslider.slideshow,
+		animationSpeed: zoo_cw_gallery_params.flexslider.animationSpeed,
+			animationLoop:  zoo_cw_gallery_params.flexslider.animationLoop, // Breaks photoswipe pagination if true.
 			start: function() {
 				$target.css( 'opacity', 1 );
 

@@ -1,4 +1,4 @@
-var ajaxUrl = ced_vm_gallery_params.ajax_url;
+var ajaxUrl = zoo_cw_gallery_params.ajax_url;
 var defaultGallery = '';
 jQuery(document).ready(function(){
 	
@@ -46,7 +46,7 @@ jQuery(document).ready(function(){
 				  cache: false,
 				  type: "POST",
 				  data: {
-					'action': 'ced_vm_get_variation_gallery_for_single',
+					'action': 'zoo_cw_get_variation_gallery_for_single',
 					'reset': 0,
 					'variation_id': variationID,
 					'product_id': productId

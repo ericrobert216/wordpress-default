@@ -1,13 +1,13 @@
-var ajax_url = ced_vm_params.ajax_url;
+var ajax_url = zoo_cw_params.ajax_url;
 
 jQuery(document).ready(function(){
 	
-	ced_vm_image_change_on_variation_popup();
+	zoo_cw_image_change_on_variation_popup();
 	
 	jQuery(".changemenow").on('click',function(){
-		jQuery(".ced-vm-overlay").show();
-		jQuery("#ced-vm-variation-container").hide();
-		jQuery("#ced-vm-cart-loader").show();
+		jQuery(".zoo-cw-overlay").show();
+		jQuery("#zoo-cw-variation-container").hide();
+		jQuery("#zoo-cw-cart-loader").show();
 		var proID = jQuery(this).attr('vID');
 		var vID = jQuery(this).attr('variation_id');
 		var $thisTR = jQuery(this).closest('td').parent();
@@ -25,22 +25,22 @@ jQuery(document).ready(function(){
 			  type: "POST",
 			  headers : { "cache-control": "no-cache" },
 			  data: {
-				'action': 'ced_vm_get_product_html',
+				'action': 'zoo_cw_get_product_html',
 				'product_id': proID,
 				'variationID' : variationID,
 			  },
 			  success:function(response) {
-				  jQuery("#ced-vm-cart-loader").hide();
-				  var html = '<input type="hidden" id="ced_vm_prevproid" value="'+vID+'"><p class="close_icon"><span class="ced-vm-close-btn">&times;</span></p>';
+				  jQuery("#zoo-cw-cart-loader").hide();
+				  var html = '<input type="hidden" id="zoo_cw_prevproid" value="'+vID+'"><p class="close_icon"><span class="zoo-cw-close-btn">&times;</span></p>';
 				  
 				  response = html+response;
 				  
-				  jQuery( '#ced-vm-variation-container' ).html(response);
+				  jQuery( '#zoo-cw-variation-container' ).html(response);
 				   jQuery( '.woocommerce-product-gallery' ).each( function() {
 					 jQuery( this ).wc_product_gallery();
 					
 				  } );	
-				  $form = jQuery( '#ced-vm-variation-container' ).find( '.variations_form' );
+				  $form = jQuery( '#zoo-cw-variation-container' ).find( '.variations_form' );
 				  
 				  if ($form) {
 					  $form.wc_variation_form();
@@ -54,7 +54,7 @@ jQuery(document).ready(function(){
 					//$form.trigger( 'reset_data' );
 					jQuery($cartDiv).find('.single_add_to_cart_button').html('Update');
 					//jQuery($cartDiv).find('.single_add_to_cart_button').attr('disabled','disabled');
-				  jQuery("#ced-vm-variation-container").show();
+				  jQuery("#zoo-cw-variation-container").show();
 				  
 			  }
 		});
@@ -80,7 +80,7 @@ jQuery(document).ready(function(){
 		$target.data( 'product_gallery', this );
 
 		// Pick functionality to initialize...
-		this.flexslider_enabled = jQuery.isFunction( jQuery.fn.flexslider ) && ced_vm_params.flexslider_enabled;
+		this.flexslider_enabled = jQuery.isFunction( jQuery.fn.flexslider ) && zoo_cw_params.flexslider_enabled;
 		
 		// ...also taking args into account.
 		if ( args ) {
@@ -108,13 +108,13 @@ jQuery(document).ready(function(){
 
 		$target.flexslider( {
 			selector:       '.woocommerce-product-gallery__wrapper > .woocommerce-product-gallery__image',
-			animation:      ced_vm_params.flexslider.animation,
-			smoothHeight:   ced_vm_params.flexslider.smoothHeight,
-			directionNav:   ced_vm_params.flexslider.directionNav,
-			controlNav:     ced_vm_params.flexslider.controlNav,
-			slideshow:      ced_vm_params.flexslider.slideshow,
-			animationSpeed: ced_vm_params.flexslider.animationSpeed,
-			animationLoop:  ced_vm_params.flexslider.animationLoop, // Breaks photoswipe pagination if true.
+			animation:      zoo_cw_params.flexslider.animation,
+			smoothHeight:   zoo_cw_params.flexslider.smoothHeight,
+			directionNav:   zoo_cw_params.flexslider.directionNav,
+			controlNav:     zoo_cw_params.flexslider.controlNav,
+			slideshow:      zoo_cw_params.flexslider.slideshow,
+			animationSpeed: zoo_cw_params.flexslider.animationSpeed,
+			animationLoop:  zoo_cw_params.flexslider.animationLoop, // Breaks photoswipe pagination if true.
 			start: function() {
 				$target.css( 'opacity', 1 );
 
@@ -150,22 +150,22 @@ jQuery(document).ready(function(){
 	jQuery(document).on('click','.reset_variations',function(){
 		
 		jQuery('form.variations_form').find('div .woocommerce-variation-add-to-cart .input-text').hide();
-		jQuery(".ced-vm-stock-error").html('');
-		jQuery(".ced-vm-stock-error").hide();
+		jQuery(".zoo-cw-stock-error").html('');
+		jQuery(".zoo-cw-stock-error").hide();
 	});
 	
 	jQuery(document).on("click",".single_add_to_cart_button",function(e){
 		
 		e.preventDefault();
 		
-		var product_id = jQuery('#ced-vm-variation-container').find('input[name="product_id"]').val();
-		var quantity = jQuery('#ced-vm-variation-container').find('input[name="quantity"]').val();
-		var PrevProId = jQuery("#ced_vm_prevproid").val();
-		var variation_id = jQuery('#ced-vm-variation-container').find('input[name="variation_id"]').val();
+		var product_id = jQuery('#zoo-cw-variation-container').find('input[name="product_id"]').val();
+		var quantity = jQuery('#zoo-cw-variation-container').find('input[name="quantity"]').val();
+		var PrevProId = jQuery("#zoo_cw_prevproid").val();
+		var variation_id = jQuery('#zoo-cw-variation-container').find('input[name="variation_id"]').val();
 		
 		var variation = {};
 		
-		variations_html = jQuery("#ced-vm-variation-container").find( 'select[name^=attribute]' );
+		variations_html = jQuery("#zoo-cw-variation-container").find( 'select[name^=attribute]' );
 		
 		variations_html.each( function() {
 			
@@ -180,7 +180,7 @@ jQuery(document).ready(function(){
 			  type: "POST",
 			  headers : { "cache-control": "no-cache" },
 			  data: {
-				'action': 'ced_vm_update_variation_in_cart',
+				'action': 'zoo_cw_update_variation_in_cart',
 				'product_id': product_id,
 				'quantity':quantity,
 				'PrevProId':PrevProId,
@@ -193,8 +193,8 @@ jQuery(document).ready(function(){
 					  
 					  location.reload();
 				  }else{
-					  jQuery(".ced-vm-stock-error").html(response);
-					  jQuery(".ced-vm-stock-error").show();
+					  jQuery(".zoo-cw-stock-error").html(response);
+					  jQuery(".zoo-cw-stock-error").show();
 					  jQuery('form.variations_form').find('div .woocommerce-variation-add-to-cart .input-text').show();
 				  }
 			  }
@@ -202,20 +202,20 @@ jQuery(document).ready(function(){
 		
 	});
 	
-	jQuery(document).on('click','.ced-vm-close-btn',function(){
+	jQuery(document).on('click','.zoo-cw-close-btn',function(){
 		
-		jQuery("#ced-vm-variation-container").html( ' ' );
-		jQuery("#ced-vm-variation-container").hide();
-		jQuery(".ced-vm-overlay").hide();
+		jQuery("#zoo-cw-variation-container").html( ' ' );
+		jQuery("#zoo-cw-variation-container").hide();
+		jQuery(".zoo-cw-overlay").hide();
 	});
 });
 
-function ced_vm_image_change_on_variation_popup()
+function zoo_cw_image_change_on_variation_popup()
 {
 
 	/* little trick to handle image change :: saving default image */
-	var ced_caf_default_img_src = jQuery( 'div.images img' ).attr( 'src' );
-	var ced_caf_default_img_alt = jQuery( 'div.images img' ).attr( 'alt' );
+	var zoo_caf_default_img_src = jQuery( 'div.images img' ).attr( 'src' );
+	var zoo_caf_default_img_alt = jQuery( 'div.images img' ).attr( 'alt' );
 
 	/*global wc_add_to_cart_variation_params, wc_cart_fragments_params */
 /*

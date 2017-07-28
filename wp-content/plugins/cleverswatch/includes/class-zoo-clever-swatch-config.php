@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * class for managing gallery images per variation.
  *
- * @class    Cs_Cw_Admin_Variation_Gallery
+ * @class    Zoo_Clever_Swatch_Admin_Variation_Gallery
  *
  * @version  1.0.0
  * @package  clever-swatch/includes
@@ -15,8 +15,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since    1.0.0
  */
 
-if( !class_exists( 'Cs_Cw_Config' ) ){
-    class Cs_Cw_Config {
+if( !class_exists( 'Zoo_Clever_Swatch_Config' ) ){
+    class Zoo_Clever_Swatch_Config {
 
         /**
          * clever-swatch version.
@@ -27,7 +27,7 @@ if( !class_exists( 'Cs_Cw_Config' ) ){
 
         public function __construct() {
             $this->define_constants();
-            register_activation_hook( __FILE__, array( $this, 'cs_cw_install' ) );
+            register_activation_hook( __FILE__, array( $this, 'zoo_cw_install' ) );
         }
 
         /**
@@ -35,14 +35,14 @@ if( !class_exists( 'Cs_Cw_Config' ) ){
          */
         private function define_constants() {
             $plugin_path = dirname(plugin_dir_path( __FILE__ ))."/";
-            $this->define( 'CS_VM_VERSION', $this->version );
-            $this->define( 'CS_VM_DIRPATH', $plugin_path );
-            $this->define( 'CS_VM_TEMPLATES_PATH', $plugin_path."templates/" );
-            $this->define( 'CS_VM_URL', plugin_dir_url( __FILE__ ) );
-            $this->define( 'CS_VM_JSPATH', $plugin_path."assests/js/" );
-            $this->define( 'CS_VM_CSSPATH', $plugin_path."assests/css/" );
-            $this->define( 'CS_VM_GALLERYPATH', $plugin_path."assests/images/" );
-            $this->define( 'CS_VM_ABSPATH', untrailingslashit( $plugin_path));
+            $this->define( 'ZOO_CW_VERSION', $this->version );
+            $this->define( 'ZOO_CW_DIRPATH', $plugin_path );
+            $this->define( 'ZOO_CW_TEMPLATES_PATH', $plugin_path."templates/" );
+            $this->define( 'ZOO_CW_URL', plugin_dir_url( __FILE__ ) );
+            $this->define( 'ZOO_CW_JSPATH', $plugin_path."assests/js/" );
+            $this->define( 'ZOO_CW_CSSPATH', $plugin_path."assests/css/" );
+            $this->define( 'ZOO_CW_GALLERYPATH', $plugin_path."assests/images/" );
+            $this->define( 'ZOO_CW_ABSPATH', untrailingslashit( $plugin_path));
         }
 
         /**
@@ -63,7 +63,7 @@ if( !class_exists( 'Cs_Cw_Config' ) ){
          *
          * @since 1.0.0
          */
-        function cs_cw_install(){
+        function zoo_cw_install(){
 
             $general_settings_array = array();
             $enableThis = 1;
@@ -85,11 +85,11 @@ if( !class_exists( 'Cs_Cw_Config' ) ){
             $general_settings_array['atds'] = $attbds;
 
             if(is_array($general_settings_array))
-                update_option('cs-cw-settings',$general_settings_array);
+                update_option('zoo-cw-settings',$general_settings_array);
         }
     }
 }
 
-$cs_cw_config = new cs_cw_config();
+$zoo_clever_swatch_config = new Zoo_Clever_Swatch_Config();
 
 ?>

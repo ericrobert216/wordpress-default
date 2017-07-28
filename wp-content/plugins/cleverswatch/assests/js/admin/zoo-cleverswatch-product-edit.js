@@ -1,23 +1,23 @@
-var ajax_url = cs_cw_params.ajax_url;
+var ajax_url = zoo_cw_params.ajax_url;
 
 jQuery(document).ready(function(){
     /**
      *  script for swatch images..
      */
-    jQuery(document.body).on('click','#cs-cw-accordion .cs-cw-panel-heading',function(){
+    jQuery(document.body).on('click','#zoo-cw-accordion .zoo-cw-panel-heading',function(){
         var k = jQuery(this).next().slideToggle('slow');
-        jQuery('.cs-cw-collapse').not(k).slideUp('slow');
+        jQuery('.zoo-cw-collapse').not(k).slideUp('slow');
     });
-    jQuery(document.body).on('click','.cs-cw-sub-accordion .cs-cw-sub-panel-heading',function(){
+    jQuery(document.body).on('click','.zoo-cw-sub-accordion .zoo-cw-sub-panel-heading',function(){
         var m = jQuery(this).next().slideToggle('slow');
-        jQuery('.cs-cw-sub-collapse').not(m).slideUp('slow');
+        jQuery('.zoo-cw-sub-collapse').not(m).slideUp('slow');
     });
 
     // adding the color picker for attributes swatches..
-    jQuery('.cs-cw-colorpicker').wpColorPicker();
+    jQuery('.zoo-cw-colorpicker').wpColorPicker();
 
     // using media library for selecting attributes swatch images..
-    jQuery(document).on('click','.cs-cw-scimage-upload',function(e){
+    jQuery(document).on('click','.zoo-cw-scimage-upload',function(e){
         var attrName = jQuery(this).attr('data-attrname');
         e.preventDefault();
         var image = wp.media({
@@ -29,31 +29,31 @@ jQuery(document).ready(function(){
                 var uploaded_image = image.state().get('selection').first();
                 var image_url = uploaded_image.toJSON().url;
 
-                jQuery('.cs-cw-scimage_'+attrName).attr('src',image_url);
-                jQuery('.cs-cw-input-scimg-'+attrName).val(image_url);
+                jQuery('.zoo-cw-scimage_'+attrName).attr('src',image_url);
+                jQuery('.zoo-cw-input-scimg-'+attrName).val(image_url);
             });
     });
 
     // toggle the colorpicker and image select option based on the swatch type select.
-    jQuery(document).on('change','.cs-cw-dtslct',function(){
+    jQuery(document).on('change','.zoo-cw-dtslct',function(){
 
         var slctdOption = jQuery(this).val();
         if(slctdOption==0){
-            jQuery(this).closest('tr').parent().find('.cs-cw-scc').show();
-            jQuery(this).closest('tr').parent().find('.cs-cw-sci').hide();
+            jQuery(this).closest('tr').parent().find('.zoo-cw-scc').show();
+            jQuery(this).closest('tr').parent().find('.zoo-cw-sci').hide();
         }else{
-            jQuery(this).closest('tr').parent().find('.cs-cw-scc').hide();
-            jQuery(this).closest('tr').parent().find('.cs-cw-sci').show();
+            jQuery(this).closest('tr').parent().find('.zoo-cw-scc').hide();
+            jQuery(this).closest('tr').parent().find('.zoo-cw-sci').show();
         }
     });
 
     //----------End of swatch images script ---------------------//
 
     // always load updated attributes terms..
-    jQuery(".cs-cw-term-swatches a").on('click',function(){
+    jQuery(".zoo-cw-term-swatches a").on('click',function(){
 
         var post_id = jQuery("#post_ID").val();
-        var wrapper_div = jQuery("#cs-cw-variation-swatch-data");
+        var wrapper_div = jQuery("#zoo-cw-variation-swatch-data");
 
         jQuery( '#woocommerce-product-data' ).block({
             message: null,
@@ -69,13 +69,13 @@ jQuery(document).ready(function(){
             type: "POST",
             headers : { "cache-control": "no-cache" },
             data: {
-                'action': 'cs_cw_update_term_data',
+                'action': 'zoo_cw_update_term_data',
                 'post_id' : post_id,
             },
             success:function(response) {
 
                 wrapper_div.empty().replaceWith( response );
-                jQuery('.cs-cw-colorpicker').wpColorPicker();
+                jQuery('.zoo-cw-colorpicker').wpColorPicker();
                 jQuery( '#woocommerce-product-data' ).unblock();
             }
         });
@@ -95,8 +95,8 @@ jQuery(document).ready(function(){
 
         // Product gallery file uploads
         var product_gallery_frame;
-        var $image_gallery_ids = jQuery(this).parent().find('.cs-cw-variation-gallery');
-        var $product_images    = jQuery(this).parent().find('.cs-cw-variation-gallery-container').find('ul.product_images');
+        var $image_gallery_ids = jQuery(this).parent().find('.zoo-cw-variation-gallery');
+        var $product_images    = jQuery(this).parent().find('.zoo-cw-variation-gallery-container').find('ul.product_images');
 
         // If the media frame already exists, reopen it.
         if ( product_gallery_frame ) {
@@ -132,7 +132,7 @@ jQuery(document).ready(function(){
                     attachment_ids   = attachment_ids ? attachment_ids + ',' + attachment.id : attachment.id;
                     var attachment_image = attachment.sizes && attachment.sizes.thumbnail ? attachment.sizes.thumbnail.url : attachment.url;
 
-                    $product_images.append( '<li class="image" data-attachment_id="' + attachment.id + '"><img src="' + attachment_image + '" /><ul class="actions"><li><a href="javascript:void(0)" class="cs-cw-delete-gallery-image" title="' + $el.data('delete') + '">' + $el.data('text') + '</a></li></ul></li>' );
+                    $product_images.append( '<li class="image" data-attachment_id="' + attachment.id + '"><img src="' + attachment_image + '" /><ul class="actions"><li><a href="javascript:void(0)" class="zoo-cw-delete-gallery-image" title="' + $el.data('delete') + '">' + $el.data('text') + '</a></li></ul></li>' );
                 }
             });
 
@@ -151,7 +151,7 @@ jQuery(document).ready(function(){
     });
 
     //deleting product gallery image.
-    jQuery(document).on('click',".cs-cw-delete-gallery-image",function(e){
+    jQuery(document).on('click',".zoo-cw-delete-gallery-image",function(e){
 
         e.preventDefault();
 
@@ -160,14 +160,14 @@ jQuery(document).ready(function(){
 
         jQuery($imageToDelete).fadeOut();
 
-        var attrValues = jQuery($imageToDelete).parent().parent().find(".cs-cw-variation-gallery").val();
+        var attrValues = jQuery($imageToDelete).parent().parent().find(".zoo-cw-variation-gallery").val();
         var attrArray = attrValues.split(',');
 
         attrArray = jQuery.grep(attrArray, function(value) {
             return value != attchmntId;
         });
 
-        jQuery($imageToDelete).parent().parent().find(".cs-cw-variation-gallery").val(attrArray);
+        jQuery($imageToDelete).parent().parent().find(".zoo-cw-variation-gallery").val(attrArray);
 
         jQuery( this ).closest( '#variable_product_options' ).find( '.woocommerce_variation' ).addClass( 'variation-needs-update' );
 

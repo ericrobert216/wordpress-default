@@ -21,21 +21,21 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 // load config
-require plugin_dir_path( __FILE__ ) . 'includes/class-zoo-cleverswatch-config.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-zoo-clever-swatch-config.php';
 
 //add_action('init', array($this, 'load_plugin_textdomain'));
 
 // install default config
-register_activation_hook( __FILE__, array( $cs_cw_config, 'cs_cw_install' ) );
+register_activation_hook( __FILE__, array( $zoo_clever_swatch_config, 'zoo_cw_install' ) );
 
 if (check_woocommerce_active()) {
-    //add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), array($this,'cs_cw_add_settings_link' ) );
+    //add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), array($this,'zoo_cw_add_settings_link' ) );
 
     // checking the woocommerce template if existed in the plugin.
-    //add_filter( 'woocommerce_locate_template', array( $this,'cs_pwv_locate_template' ), 10, 3 );
+    //add_filter( 'woocommerce_locate_template', array( $this,'zoo_pwv_locate_template' ), 10, 3 );
 
     if(is_admin()){
-        require_once(CS_VM_DIRPATH . 'includes/class-zoo-cleverswatch-admin-manager.php');
+        require_once(ZOO_CW_DIRPATH . 'includes/class-zoo-clever-swatch-admin-manager.php');
     }else{
 
         //$this->__front_end_constructor();
@@ -43,17 +43,17 @@ if (check_woocommerce_active()) {
 
 } else {
 
-    add_action( 'admin_init', 'cs_clever_swatch_plugin_deactivate' );
+    add_action( 'admin_init', 'zoo_clever_swatch_plugin_deactivate' );
 
     /**
      * callback function for deactivating the plugin if woocommerce is not activated.
      *
      * @since 1.0.0
      */
-    function cs_clever_swatch_plugin_deactivate(){
+    function zoo_clever_swatch_plugin_deactivate(){
 
         deactivate_plugins( plugin_basename( __FILE__ ) );
-        add_action('admin_notices', 'cs_clever_swatch_woo_missing_notice' );
+        add_action('admin_notices', 'zoo_clever_swatch_woo_missing_notice' );
         if ( isset( $_GET['activate'] ) ) {
             unset( $_GET['activate'] );
         }
@@ -65,7 +65,7 @@ if (check_woocommerce_active()) {
      * @since 1.0.0
      * @return string
      */
-    function cs_clever_swatch_woo_missing_notice(){
+    function zoo_clever_swatch_woo_missing_notice(){
         echo '<div class="error"><p>' . sprintf(__('Clever Swatch requires WooCommerce to be installed and active. You can download %s here.', 'clever-swatch'), '<a href="http://www.google.com/" target="_blank">WooCommerce</a>') . '</p></div>';
     }
 }
