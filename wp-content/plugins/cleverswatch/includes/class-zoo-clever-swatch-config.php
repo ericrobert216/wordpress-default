@@ -34,14 +34,18 @@ if( !class_exists( 'Zoo_Clever_Swatch_Config' ) ){
          * define all necessary constants of the plugin.
          */
         private function define_constants() {
+
             $plugin_path = dirname(plugin_dir_path( __FILE__ ))."/";
+            $file_url = plugin_dir_url( __FILE__ );
+            $plugin_url = substr($file_url, 0, strpos($file_url, 'includes'));
+
             $this->define( 'ZOO_CW_VERSION', $this->version );
             $this->define( 'ZOO_CW_DIRPATH', $plugin_path );
             $this->define( 'ZOO_CW_TEMPLATES_PATH', $plugin_path."templates/" );
-            $this->define( 'ZOO_CW_URL', plugin_dir_url( __FILE__ ) );
-            $this->define( 'ZOO_CW_JSPATH', $plugin_path."assests/js/" );
-            $this->define( 'ZOO_CW_CSSPATH', $plugin_path."assests/css/" );
-            $this->define( 'ZOO_CW_GALLERYPATH', $plugin_path."assests/images/" );
+            $this->define( 'ZOO_CW_URL', $plugin_url );
+            $this->define( 'ZOO_CW_JSPATH', $plugin_url."assests/js/" );
+            $this->define( 'ZOO_CW_CSSPATH', $plugin_url."assests/css/" );
+            $this->define( 'ZOO_CW_GALLERYPATH', $plugin_url."assests/images/" );
             $this->define( 'ZOO_CW_ABSPATH', untrailingslashit( $plugin_path));
         }
 

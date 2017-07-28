@@ -69,22 +69,7 @@ if( !class_exists( 'Zoo_Clever_Swatch_Admin_Variation_Gallery' ) ){
 		 * @since 1.0.0
 		 */
 		public function zoo_cw_add_variation_gallery_option( $loop, $variation_data, $variation ){
-		    ?>
-			</br>
-            <label><?php _e('Variation Gallery Images','clever-swatch') ?></label>
-			<div class="zoo-cw-variation-gallery-wrapper">
-				<div class="zoo-cw-variation-gallery-container product_images">
-					<ul class="product_images ui-sortable">
-					<?php echo $this->variation_gallery_output($variation->ID); ?>
-					</ul>
-					<input class="zoo-cw-variation-gallery" type="hidden" value="<?php echo get_post_meta( $variation->ID, 'zoo-cw-variation-gallery', true ) ?>" name="zoo-cw-variation-gallery[<?php echo $variation->ID; ?>]">
-				</div>
-				
-				<div data-loop="<?php echo $loop; ?>" class="add-variation-gallery-image">
-					<a href="#" data-text="Delete" data-delete="Delete image" data-update="Add to gallery" data-choose="Add Images to Product Variation"><?php _e('Add Variation Gallery Images','clever-swatch');?></a>
-				</div>
-			</div>
-			<?php 
+            require_once ZOO_CW_TEMPLATES_PATH.'admin/product-page-add-variation-gallery-option.php';
 		}
 		
 		/**
@@ -110,12 +95,8 @@ if( !class_exists( 'Zoo_Clever_Swatch_Admin_Variation_Gallery' ) ){
 
 						continue;
 					}
-					echo '<li class="image" data-attachment_id="' . esc_attr( $attachment_id ) . '">
-						' . $attachment . '
-						<ul class="actions">
-							<li><a href="javascrip:void(0)" class="zoo-cw-delete-gallery-image tips" data-tip="' . esc_attr__( 'Delete image', 'clever-swatch' ) . '">' . __( 'Delete', 'clever-swatch' ) . '</a></li>
-						</ul>
-					</li>';
+
+                    require_once ZOO_CW_TEMPLATES_PATH.'admin/product-page-variation-gallery-output.php';
 
 					// rebuild ids to be saved
 					$updated_gallery_ids[] = $attachment_id;
