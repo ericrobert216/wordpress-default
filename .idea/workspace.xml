@@ -1,32 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f4c1b66-c7dd-451c-9546-21868a032477" name="Default" comment="abc">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/clever-swatch-bak.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin_sac/class-admin_manager.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin_sac/class-cs-cw-variation-gallery.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin_sac/templates/cs-cw-settings-page.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/admin_sac/templates/product-custom-tab-fields.php" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/templates/admin/zoo-cleverswatch-edit-attr-fields.php" afterPath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/templates/admin/product-page-edit-attr-fields.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/templates/admin/zoo-cleverswatch-product-custom-tab-fields.php" afterPath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/templates/admin/product-page-custom-tab-fields.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/templates/admin/zoo-cleverswatch-settings-page.php" afterPath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/templates/admin/zoo-clever-watch-settings-page.php" />
+    <list default="true" id="5f4c1b66-c7dd-451c-9546-21868a032477" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/css/admin/ced-vm-product-edit-style.css" afterPath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/css/admin/ced-vm-product-edit-style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/css/admin/variation-master-style.css" afterPath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/css/admin/variation-master-style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/css/template/cart/ced-vm-cart-style.css" afterPath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/css/template/cart/ced-vm-cart-style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/css/template/single/ced_vm_single_page.css" afterPath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/css/template/single/ced_vm_single_page.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/js/admin/edit-tags.js" afterPath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/js/admin/edit-tags.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/js/admin/import-export.js" afterPath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/js/admin/import-export.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/js/admin/zoo-cleverswatch-product-edit.js" afterPath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/js/admin/zoo-cleverswatch-product-edit.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/js/template/cart/ced-vm-cart-manager-old.js" afterPath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/js/template/cart/ced-vm-cart-manager-old.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/js/template/cart/ced-vm-cart-manager.js" afterPath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/js/template/cart/ced-vm-cart-manager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/js/template/single/ced-vm-single-gallery-old.js" afterPath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/js/template/single/ced-vm-single-gallery-old.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/js/template/single/ced-vm-single-gallery.js" afterPath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/js/template/single/ced-vm-single-gallery.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/js/template/single/ced-vm-single-swatches.js" afterPath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/js/template/single/ced-vm-single-swatches.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/clever-swatch.php" afterPath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/clever-swatch.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/class-zoo-clever-swatch-admin-manager.php" afterPath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/class-zoo-clever-swatch-admin-manager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/class-zoo-clever-swatch-admin-variation-gallery.php" afterPath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/class-zoo-clever-swatch-admin-variation-gallery.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/class-zoo-clever-swatch-config.php" afterPath="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/class-zoo-clever-swatch-config.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -38,7 +15,7 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="class-zoo-clever-swatch-admin-manager.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="class-zoo-clever-swatch-admin-manager.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/class-zoo-clever-swatch-admin-manager.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="157">
@@ -47,6 +24,16 @@
                 <element signature="e#10938#10960#0#HTML" expanded="true" />
                 <element signature="e#11455#11477#0#HTML" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -79,27 +66,6 @@
             <state relative-caret-position="352">
               <caret line="22" column="28" lean-forward="true" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ced-vm-cart-manager-old.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/assests/js/template/cart/ced-vm-cart-manager-old.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="268" column="71" lean-forward="false" selection-start-line="268" selection-start-column="71" selection-end-line="268" selection-end-column="71" />
-              <folding>
-                <marker date="1501257735601" expanded="true" signature="1140:1147" ph="×" />
-                <marker date="1501257735601" expanded="true" signature="3990:21109" ph="{...}" />
-                <marker date="1501257735601" expanded="true" signature="4439:21076" ph="{...}" />
-                <marker date="1501257735601" expanded="true" signature="4479:7231" ph="{...}" />
-                <marker date="1501257735601" expanded="true" signature="6661:7231" ph="{...}" />
-                <marker date="1501257735601" expanded="true" signature="20678:20845" ph="{...}" />
-                <marker date="1501257735601" expanded="true" signature="20678:20849" ph="{...}" />
-                <marker date="1501257735601" expanded="true" signature="20867:21071" ph="{...}" />
-                <marker date="1501257735601" expanded="true" signature="20933:21068" ph="{...}" />
-                <marker date="1501257735601" expanded="true" signature="20979:21062" ph="{...}" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -270,6 +236,7 @@
         <option value="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/class-zoo-clever-swatch-config.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/cleverswatch/clever-swatch.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/class-zoo-clever-swatch-admin-manager.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -747,11 +714,18 @@
       <option name="project" value="LOCAL" />
       <updated>1501149474697</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="abc">
+      <created>1501258560102</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1501258560102</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57009000" />
+    <option name="totallyTimeSpent" value="57143000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="25" width="1922" height="1055" extended-state="6" />
@@ -831,14 +805,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/templates/admin/zoo-clever-swatch-settings-page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="23" column="42" lean-forward="true" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/cleverswatch/includes/class-zoo-clever-swatch-admin-variation-gallery.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -1242,6 +1208,14 @@
             <element signature="e#10938#10960#0#HTML" expanded="true" />
             <element signature="e#11455#11477#0#HTML" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
