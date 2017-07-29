@@ -38,7 +38,7 @@ if (check_woocommerce_active()) {
         require_once(ZOO_CW_DIRPATH . 'includes/class-zoo-clever-swatch-admin-manager.php');
     }else{
 
-        //$this->__front_end_constructor();
+        require_once(ZOO_CW_DIRPATH . 'includes/class-zoo-clever-swatch-product-page.php');
     }
 
 } else {
