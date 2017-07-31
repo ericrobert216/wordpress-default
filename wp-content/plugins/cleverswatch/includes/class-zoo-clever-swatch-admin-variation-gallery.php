@@ -69,7 +69,7 @@ if( !class_exists( 'Zoo_Clever_Swatch_Admin_Variation_Gallery' ) ){
 		 * @since 1.0.0
 		 */
 		public function zoo_cw_add_variation_gallery_option( $loop, $variation_data, $variation ){
-            require_once ZOO_CW_TEMPLATES_PATH.'admin/product-page-add-variation-gallery-option.php';
+            require ZOO_CW_TEMPLATES_PATH.'admin/product-page-add-variation-gallery-option.php';
 		}
 		
 		/**
@@ -96,7 +96,7 @@ if( !class_exists( 'Zoo_Clever_Swatch_Admin_Variation_Gallery' ) ){
 						continue;
 					}
 
-                    require_once ZOO_CW_TEMPLATES_PATH.'admin/product-page-variation-gallery-output.php';
+                    require ZOO_CW_TEMPLATES_PATH.'admin/product-page-variation-gallery-output.php';
 
 					// rebuild ids to be saved
 					$updated_gallery_ids[] = $attachment_id;

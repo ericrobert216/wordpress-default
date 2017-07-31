@@ -15,7 +15,10 @@ if ( ! defined( 'ABSPATH' ) ) {
     <?php echo( $attachment ); ?>
     <ul class="actions">
         <li>
-            <a href="javascrip:void(0)" class="zoo-cw-delete-gallery-image tips" data-tip="<?php echo( esc_attr__( 'Delete image', 'clever-swatch' ) ); ?>"><?php echo( __( 'Delete', 'clever-swatch' ) ); ?></a>
+            <a href="javascrip:void(0)" class="zoo-cw-delete-gallery-image tips"
+               data-tip="<?php echo( esc_attr__( 'Delete image', 'clever-swatch' ) ); ?>">
+                <?php echo( __( 'Delete', 'clever-swatch' ) ); ?>
+            </a>
         </li>
     </ul>
 </li>
