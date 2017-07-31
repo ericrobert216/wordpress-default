@@ -70,22 +70,6 @@ if (check_woocommerce_active()) {
     }
 }
 
-/**
- * Begins execution of the plugin.
- *
- * Since everything within the plugin is registered via hooks,
- * then kicking off the plugin from this point in the file does
- * not affect the page life cycle.
- *
- * @since    1.0.0
- */
-//function run_plugin_name() {
-//    $plugin = new Plugin_Name();
-//    $plugin->run();
-//}
-//run_plugin_name();
-
-
 function check_woocommerce_active(){
 
     if ( function_exists('is_multisite') && is_multisite() ){
@@ -104,6 +88,83 @@ function check_woocommerce_active(){
         }
         return false;
     }
+}
+
+add_action( 'wp_ajax_clever_swatch_action', 'clever_swatch_action' );
+
+function clever_swatch_action() {
+
+    $variation_id = intval($_POST['variation_id']);
+    $product_id = intval($_POST['product_id']);
+
+    global $post, $product;
+    $columns           = apply_filters( 'woocommerce_product_thumbnails_columns', 4 );
+    $thumbnail_size    = apply_filters( 'woocommerce_product_thumbnails_large_size', 'full' );
+    $post_thumbnail_id = get_post_thumbnail_id( $variation_id );
+    $full_size_image   = wp_get_attachment_image_src( $post_thumbnail_id, $thumbnail_size );
+    $placeholder       = has_post_thumbnail() ? 'with-images' : 'without-images';
+    $wrapper_classes   = apply_filters( 'woocommerce_single_product_image_gallery_classes', array(
+        'woocommerce-product-gallery',
+        'woocommerce-product-gallery--' . $placeholder,
+        'woocommerce-product-gallery--columns-' . absint( $columns ),
+        'images',
+    ) );
+
+    $_product = wc_get_product($variation_id);
+    $attachment_ids = $_product->get_gallery_attachment_ids();
+    ?>
+    <div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?>" data-columns="<?php echo esc_attr( $columns ); ?>"
+         style="opacity: 0; transition: opacity .25s ease-in-out;">
+        <figure class="woocommerce-product-gallery__wrapper">
+            <?php
+                $attributes = array(
+                    'title'                   => get_post_field( 'post_title', $post_thumbnail_id ),
+                    'data-caption'            => get_post_field( 'post_excerpt', $post_thumbnail_id ),
+                    'data-src'                => $full_size_image[0],
+                    'data-large_image'        => $full_size_image[0],
+                    'data-large_image_width'  => $full_size_image[1],
+                    'data-large_image_height' => $full_size_image[2],
+                );
+
+                if ( has_post_thumbnail($variation_id) ) {
+                    $html  = '<div data-thumb="' . get_the_post_thumbnail_url( $variation_id, 'shop_thumbnail' ) . '" class="woocommerce-product-gallery__image"><a href="' . esc_url( $full_size_image[0] ) . '">';
+                    $html .= get_the_post_thumbnail( $variation_id, 'shop_single', $attributes );
+                    $html .= '</a></div>';
+                } else {
+                    $html  = '<div class="woocommerce-product-gallery__image--placeholder">';
+                    $html .= sprintf( '<img src="%s" alt="%s" class="wp-post-image" />', esc_url( wc_placeholder_img_src() ), esc_html__( 'Awaiting product image', 'woocommerce' ) );
+                    $html .= '</div>';
+                }
+
+                echo $html;
+
+                foreach ($attachment_ids as $attachment_id) {
+                    $full_size_image = wp_get_attachment_image_src($attachment_id, 'full');
+                    $thumbnail = wp_get_attachment_image_src($attachment_id, 'shop_thumbnail');
+                    $image_title = get_post_field('post_excerpt', $attachment_id);
+
+                    $attributes = array(
+                        'title' => $image_title,
+                        'data-src' => $full_size_image[0],
+                        'data-large_image' => $full_size_image[0],
+                        'data-large_image_width' => $full_size_image[1],
+                        'data-large_image_height' => $full_size_image[2],
+                    );
+
+                    $html = '<div data-thumb="' . esc_url($thumbnail[0]) . '" class="woocommerce-product-gallery__image"><a href="' . esc_url($full_size_image[0]) . '">';
+                    $html .= wp_get_attachment_image($attachment_id, 'shop_single', false, $attributes);
+                    $html .= '</a></div>';
+
+                    echo $html;
+                }
+
+            ?>
+
+        </figure>
+    </div>
+<?php
+
+    wp_die(); // this is required to terminate immediately and return a proper response
 }
 
 ?>
