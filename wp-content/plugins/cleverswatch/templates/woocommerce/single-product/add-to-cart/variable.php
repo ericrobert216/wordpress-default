@@ -41,9 +41,14 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 								$selected = isset( $_REQUEST[ 'attribute_' . sanitize_title( $attribute_name ) ] )
                                     ? wc_clean( stripslashes( urldecode( $_REQUEST[ 'attribute_' . sanitize_title( $attribute_name ) ] ) ) )
                                     : $product->get_variation_default_attribute( $attribute_name );
-                            sac( array( 'options' => $options, 'attribute' => $attribute_name, 'product' => $product, 'selected' => $selected ) );
-								echo end( $attribute_keys ) === $attribute_name ? apply_filters( 'woocommerce_reset_variations_link', '<a class="reset_variations" href="#">' . esc_html__( 'Clear', 'woocommerce' ) . '</a>' ) : '';
+                                wc_dropdown_variation_attribute_options( array( 'options' => $options, 'attribute' => $attribute_name, 'product' => $product, 'selected' => $selected ) );
+
+								$items = sac2( array( 'options' => $options, 'attribute' => $attribute_name, 'product' => $product, 'selected' => $selected ) );
 							?>
+                            <?php foreach ( $items as $item ) : ?>
+                                <input type="radio" name="<?php echo($item['attribute_name']);?>" value="<?php echo($item['value']);?>"><span><?php echo($item['name']);?></span>
+                            <?php endforeach;?>
+                            <?php echo end( $attribute_keys ) === $attribute_name ? apply_filters( 'woocommerce_reset_variations_link', '<a class="reset_variations" href="#">' . esc_html__( 'Clear', 'woocommerce' ) . '</a>' ) : ''; ?>
 						</td>
 					</tr>
 				<?php endforeach;?>
@@ -136,3 +141,70 @@ function sac( $args = array() ) {
 
     echo apply_filters( 'woocommerce_dropdown_variation_attribute_options_html', $html, $args );
 }
+
+function sac2( $args = array() ) {
+
+    $array = array();
+
+    $args = wp_parse_args( apply_filters( 'woocommerce_dropdown_variation_attribute_options_args', $args ), array(
+        'options'          => false,
+        'attribute'        => false,
+        'product'          => false,
+        'selected' 	       => false,
+        'name'             => '',
+        'id'               => '',
+        'class'            => '',
+        'show_option_none' => __( 'Choose an option', 'woocommerce' ),
+    ) );
+
+    $options               = $args['options'];
+    $product               = $args['product'];
+    $attribute             = $args['attribute'];
+    $name                  = $args['name'] ? $args['name'] : 'attribute_' . sanitize_title( $attribute );
+    $id                    = $args['id'] ? $args['id'] : sanitize_title( $attribute );
+    $class                 = $args['class'];
+    $show_option_none      = $args['show_option_none'] ? true : false;
+    $show_option_none_text = $args['show_option_none'] ? $args['show_option_none'] : __( 'Choose an option', 'woocommerce' ); // We'll do our best to hide the placeholder, but we'll need to show something when resetting options.
+
+    if ( empty( $options ) && ! empty( $product ) && ! empty( $attribute ) ) {
+        $attributes = $product->get_variation_attributes();
+        $options    = $attributes[ $attribute ];
+    }
+
+    $html = '<select id="' . esc_attr( $id ) . '" class="' . esc_attr( $class ) . '" name="' . esc_attr( $name ) . '" data-attribute_name="attribute_' . esc_attr( sanitize_title( $attribute ) ) . '" data-show_option_none="' . ( $show_option_none ? 'yes' : 'no' ) . '">';
+    $html .= '<option value="">' . esc_html( $show_option_none_text ) . '</option>';
+
+    if ( ! empty( $options ) ) {
+        if ( $product && taxonomy_exists( $attribute ) ) {
+            // Get terms if this is a taxonomy - ordered. We need the names too.
+            $terms = wc_get_product_terms( $product->get_id(), $attribute, array( 'fields' => 'all' ) );
+
+            foreach ( $terms as $term ) {
+                if ( in_array( $term->slug, $options ) ) {
+                    $array[] = array(
+                        "attribute_name" => esc_attr( $name ),
+                        "name" => esc_html( apply_filters( 'woocommerce_variation_option_name', $term->name ) ),
+                        "value" => esc_attr( $term->slug )
+                        );
+                }
+            }
+        } else {
+            foreach ( $options as $option ) {
+                // This handles < 2.4.0 bw compatibility where text attributes were not sanitized.
+                $array[] = array(
+                    "attribute_name" => esc_attr( $name ),
+                    "name" => esc_html( apply_filters( 'woocommerce_variation_option_name', $option ) ),
+                    "value" => esc_attr( $option )
+                );
+            }
+        }
+    }
+
+    $html .= '</select>';
+
+    //echo apply_filters( 'woocommerce_dropdown_variation_attribute_options_html', $html, $args );
+
+    return $array;
+}
+
+?>

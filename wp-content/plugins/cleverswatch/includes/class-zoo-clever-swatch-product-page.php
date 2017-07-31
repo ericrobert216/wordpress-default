@@ -40,6 +40,10 @@ if( !class_exists( 'Zoo_Clever_Swatch_Product_Page' ) ) {
                 )
             );
 
+            if ($template_name == 'single-product/add-to-cart/variable.php') {
+                $this->load_product_page_assests();
+            }
+
             // check that the template is there in plugin or not.
             if ( file_exists( $plugin_path . $template_name ) )
                 $template = $plugin_path . $template_name;
@@ -50,6 +54,20 @@ if( !class_exists( 'Zoo_Clever_Swatch_Product_Page' ) ) {
 
             // replace with our plugin template.
             return $template;
+        }
+
+        public function load_product_page_assests(){
+
+            if(is_single()){
+                wp_register_script('zoo-cw-single-product-page-swatches', ZOO_CW_JSPATH . "single-product-page-swatch.js",
+                    array( 'jquery' ), ZOO_CW_VERSION , TRUE);
+
+                wp_localize_script( 'zoo-cw-single-product-page-swatches', 'ced_vm_params', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+
+                wp_enqueue_script('zoo-cw-single-product-page-swatches');
+
+                wp_enqueue_style ( 'zoo-cw-single-product-page', ZOO_CW_CSSPATH . 'single-product-page.css' );
+            }
         }
     }
 }
