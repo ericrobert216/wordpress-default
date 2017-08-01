@@ -95,6 +95,7 @@ add_action( 'wp_ajax_clever_swatch_action', 'clever_swatch_action' );
 function clever_swatch_action() {
 
     $variation_id = intval($_POST['variation_id']);
+    $product_id = intval($_POST['product_id']);
 
     $columns           = apply_filters( 'woocommerce_product_thumbnails_columns', 4 );
     $thumbnail_size    = apply_filters( 'woocommerce_product_thumbnails_large_size', 'full' );
@@ -131,6 +132,10 @@ function clever_swatch_action() {
                     $html .= get_the_post_thumbnail( $variation_id, 'shop_single', $attributes );
                     $html .= '</a>';
                     $html .= '</div>';
+                } elseif (has_post_thumbnail($product_id)) {
+                    $html = '<div data-thumb="' . get_the_post_thumbnail_url($product_id, 'shop_thumbnail') . '" class="woocommerce-product-gallery__image"><a href="' . esc_url($full_size_image[0]) . '">';
+                    $html .= get_the_post_thumbnail($product_id, 'shop_single', $attributes);
+                    $html .= '</a></div>';
                 } else {
                     $html  = '<div class="woocommerce-product-gallery__image--placeholder">';
                     $html .= sprintf( '<img src="%s" alt="%s" class="wp-post-image" />', esc_url( wc_placeholder_img_src() ), esc_html__( 'Awaiting product image', 'woocommerce' ) );
@@ -164,6 +169,19 @@ function clever_swatch_action() {
         </figure>
     </div>
 <?php
+
+    wp_die(); // this is required to terminate immediately and return a proper response
+}
+
+add_action( 'wp_ajax_clever_swatch_action_reset', 'clever_swatch_action_reset' );
+
+function clever_swatch_action_reset() {
+
+    $product_id = intval($_POST['product_id']);
+
+
+
+    require(ZOO_CW_TEMPLATES_PATH . 'woocommerce/single-product/product-image.php');
 
     wp_die(); // this is required to terminate immediately and return a proper response
 }
