@@ -97,7 +97,6 @@ function clever_swatch_action() {
     $variation_id = intval($_POST['variation_id']);
     $product_id = intval($_POST['product_id']);
 
-    global $post, $product;
     $columns           = apply_filters( 'woocommerce_product_thumbnails_columns', 4 );
     $thumbnail_size    = apply_filters( 'woocommerce_product_thumbnails_large_size', 'full' );
     $post_thumbnail_id = get_post_thumbnail_id( $variation_id );
@@ -110,8 +109,9 @@ function clever_swatch_action() {
         'images',
     ) );
 
-    $_product = wc_get_product($variation_id);
-    $attachment_ids = $_product->get_gallery_attachment_ids();
+    $gallery_images_id = get_post_meta($variation_id, 'zoo-cw-variation-gallery', true);
+    $attachment_ids = array_filter(explode(',', $gallery_images_id));
+
     ?>
     <div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?>" data-columns="<?php echo esc_attr( $columns ); ?>"
          style="opacity: 0; transition: opacity .25s ease-in-out;">
@@ -127,17 +127,23 @@ function clever_swatch_action() {
                 );
 
                 if ( has_post_thumbnail($variation_id) ) {
-                    $html  = '<div data-thumb="' . get_the_post_thumbnail_url( $variation_id, 'shop_thumbnail' ) . '" class="woocommerce-product-gallery__image"><a href="' . esc_url( $full_size_image[0] ) . '">';
+                    $html = '<div data-thumb="' . get_the_post_thumbnail_url( $variation_id, 'shop_thumbnail' ) . '" class="woocommerce-product-gallery__image">';
+                    $html .= '<a href="' . esc_url( $full_size_image[0] ) . '">';
                     $html .= get_the_post_thumbnail( $variation_id, 'shop_single', $attributes );
+                    $html .= '</a>';
+                    $html .= '</div>';
+                } elseif (has_post_thumbnail($product_id)) {
+                    $html = '<div data-thumb="' . get_the_post_thumbnail_url($product_id, 'shop_thumbnail') . '" class="woocommerce-product-gallery__image"><a href="' . esc_url($full_size_image[0]) . '">';
+                    $html .= get_the_post_thumbnail($product_id, 'shop_single', $attributes);
                     $html .= '</a></div>';
                 } else {
                     $html  = '<div class="woocommerce-product-gallery__image--placeholder">';
                     $html .= sprintf( '<img src="%s" alt="%s" class="wp-post-image" />', esc_url( wc_placeholder_img_src() ), esc_html__( 'Awaiting product image', 'woocommerce' ) );
                     $html .= '</div>';
                 }
-
                 echo $html;
 
+                //thumb image
                 foreach ($attachment_ids as $attachment_id) {
                     $full_size_image = wp_get_attachment_image_src($attachment_id, 'full');
                     $thumbnail = wp_get_attachment_image_src($attachment_id, 'shop_thumbnail');
@@ -151,18 +157,31 @@ function clever_swatch_action() {
                         'data-large_image_height' => $full_size_image[2],
                     );
 
-                    $html = '<div data-thumb="' . esc_url($thumbnail[0]) . '" class="woocommerce-product-gallery__image"><a href="' . esc_url($full_size_image[0]) . '">';
+                    $html = '<div data-thumb="' . esc_url($thumbnail[0]) . '" class="woocommerce-product-gallery__image">';
+                    $html .= '<a href="' . esc_url($full_size_image[0]) . '">';
                     $html .= wp_get_attachment_image($attachment_id, 'shop_single', false, $attributes);
-                    $html .= '</a></div>';
+                    $html .= '</a>';
+                    $html .= '</div>';
 
                     echo $html;
                 }
-
             ?>
-
         </figure>
     </div>
 <?php
+
+    wp_die(); // this is required to terminate immediately and return a proper response
+}
+
+add_action( 'wp_ajax_clever_swatch_action_reset', 'clever_swatch_action_reset' );
+
+function clever_swatch_action_reset() {
+
+    $product_id = intval($_POST['product_id']);
+
+
+
+    require(ZOO_CW_TEMPLATES_PATH . 'woocommerce/single-product/product-image.php');
 
     wp_die(); // this is required to terminate immediately and return a proper response
 }
