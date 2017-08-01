@@ -62,7 +62,7 @@ if( !class_exists( 'Zoo_Clever_Swatch_Product_Page' ) ) {
                 wp_register_script('zoo-cw-single-product-page-swatches', ZOO_CW_JSPATH . "single-product-page-swatch.js",
                     array( 'jquery' ), ZOO_CW_VERSION , TRUE);
 
-                wp_localize_script( 'zoo-cw-single-product-page-swatches', 'ced_vm_params', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+                wp_localize_script( 'zoo-cw-single-product-page-swatches', 'zoo_cw_params', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
 
                 wp_enqueue_script('zoo-cw-single-product-page-swatches');
 
