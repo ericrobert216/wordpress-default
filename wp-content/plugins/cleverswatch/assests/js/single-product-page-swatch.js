@@ -1,4 +1,9 @@
 jQuery( document ).ready(function() {
+    var defaultVariationID = jQuery('form.variations_form input[name=variation_id]').val();
+    console.log(defaultVariationID);
+    updateGallery(defaultVariationID, 'clever_swatch_action');
+
+
     // change select for woocommerce product page
     jQuery('.variations_form .variations .value input').change(function(){
         var parent_wrap = jQuery(this).parent('.value');
@@ -10,6 +15,10 @@ jQuery( document ).ready(function() {
     jQuery('form.variations_form input[name=variation_id]').change(function () {
         var variationID = jQuery(this).val();
 
+        updateGallery(variationID, 'clever_swatch_action');
+    });
+
+    function updateGallery(variationID, action) {
         if (variationID != '' && variationID != 'undefined' && variationID != null) {
             var ajax_url = zoo_cw_params.ajax_url;
             var form = jQuery('form.variations_form');
@@ -22,7 +31,7 @@ jQuery( document ).ready(function() {
                 cache: false,
                 type: "POST",
                 data: {
-                    'action': 'clever_swatch_action',
+                    'action': action,
                     'variation_id': variationID,
                     'product_id': productId
                 }, success: function (response) {
@@ -41,7 +50,7 @@ jQuery( document ).ready(function() {
             });
 
         }
-    });
+    }
 
     jQuery('.variations_form .variations .value .reset_variations').click(function(){
         jQuery('.variations_form .variations .value input').prop('checked', false);

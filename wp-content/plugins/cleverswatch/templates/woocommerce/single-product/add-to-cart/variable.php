@@ -21,6 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 global $product;
 
+$product_swatch_data_array = get_post_meta( $product->get_id(), 'zoo_cw_product_swatch_data', true );
 $attribute_keys = array_keys( $attributes );
 
 do_action( 'woocommerce_before_add_to_cart_form' ); ?>
@@ -44,9 +45,34 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
                                 wc_dropdown_variation_attribute_options( array( 'options' => $options, 'attribute' => $attribute_name, 'product' => $product, 'selected' => $selected ) );
 
 								$items = sac2( array( 'options' => $options, 'attribute' => $attribute_name, 'product' => $product, 'selected' => $selected ) );
+
+
+                            $clever_swatch_display_type = $product_swatch_data_array[$attribute_name]['dt'];
+                            var_dump($clever_swatch_display_type);
+
+
+                            if ($clever_swatch_display_type == 1) { //display type select
+?>
+
+                                <select class="" name="" >
+                                    <option value="">Choose an option</option>
+                                </select>
+                            <?php
+                            } else if ($clever_swatch_display_type == 2) { //display type image/color
+
+                            }
+
 							?>
+
+                            <select class="" name="" >
+                                <option value="">Choose an option</option>
+                            </select>
                             <?php foreach ( $items as $item ) : ?>
-                                <input type="radio" name="<?php echo($item['attribute_name']);?>" value="<?php echo($item['value']);?>"><span><?php echo($item['name']);?></span>
+                                <?php if ($item['value'] == $selected): ?>
+                                    <input type="radio" checked="checked" name="<?php echo($item['attribute_name']);?>" value="<?php echo($item['value']);?>"><span><?php echo($item['name']);?></span>
+                                <?php else : ?>
+                                    <input type="radio" name="<?php echo($item['attribute_name']);?>" value="<?php echo($item['value']);?>"><span><?php echo($item['name']);?></span>
+                                <?php endif; ?>
                             <?php endforeach;?>
                             <?php echo end( $attribute_keys ) === $attribute_name ? apply_filters( 'woocommerce_reset_variations_link', '<a class="reset_variations" href="#">' . esc_html__( 'Clear', 'woocommerce' ) . '</a>' ) : ''; ?>
 						</td>
