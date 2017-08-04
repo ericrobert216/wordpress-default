@@ -24,6 +24,13 @@ global $product;
 $product_swatch_data_array = get_post_meta( $product->get_id(), 'zoo_cw_product_swatch_data', true );
 $attribute_keys = array_keys( $attributes );
 
+$zoo_clever_swatch_product_page = new Zoo_Clever_Swatch_Product_Page();
+
+$data = $zoo_clever_swatch_product_page->prepare_singele_page_data($product, $attributes, $product_swatch_data_array);
+
+//var_dump($data);
+//die;
+
 do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 
 <form class="variations_form cart" method="post" enctype='multipart/form-data' data-product_id="<?php echo absint( $product->get_id() ); ?>" data-product_variations="<?php echo htmlspecialchars( wp_json_encode( $available_variations ) ) ?>">
@@ -38,6 +45,10 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 					<tr>
 						<td class="label"><label for="<?php echo sanitize_title( $attribute_name ); ?>"><?php echo wc_attribute_label( $attribute_name ); ?></label></td>
 						<td class="value">
+
+
+
+
 							<?php
 								$selected = isset( $_REQUEST[ 'attribute_' . sanitize_title( $attribute_name ) ] )
                                     ? wc_clean( stripslashes( urldecode( $_REQUEST[ 'attribute_' . sanitize_title( $attribute_name ) ] ) ) )
@@ -47,26 +58,11 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 								$items = sac2( array( 'options' => $options, 'attribute' => $attribute_name, 'product' => $product, 'selected' => $selected ) );
 
 
-                            $clever_swatch_display_type = $product_swatch_data_array[$attribute_name]['dt'];
-                            var_dump($clever_swatch_display_type);
 
 
-                            if ($clever_swatch_display_type == 1) { //display type select
 ?>
 
-                                <select class="" name="" >
-                                    <option value="">Choose an option</option>
-                                </select>
-                            <?php
-                            } else if ($clever_swatch_display_type == 2) { //display type image/color
 
-                            }
-
-							?>
-
-                            <select class="" name="" >
-                                <option value="">Choose an option</option>
-                            </select>
                             <?php foreach ( $items as $item ) : ?>
                                 <?php if ($item['value'] == $selected): ?>
                                     <input type="radio" checked="checked" name="<?php echo($item['attribute_name']);?>" value="<?php echo($item['value']);?>"><span><?php echo($item['name']);?></span>
@@ -204,6 +200,9 @@ function sac2( $args = array() ) {
         if ( $product && taxonomy_exists( $attribute ) ) {
             // Get terms if this is a taxonomy - ordered. We need the names too.
             $terms = wc_get_product_terms( $product->get_id(), $attribute, array( 'fields' => 'all' ) );
+
+            //echo('<pre/>');
+            //var_dump($terms);
 
             foreach ( $terms as $term ) {
                 if ( in_array( $term->slug, $options ) ) {

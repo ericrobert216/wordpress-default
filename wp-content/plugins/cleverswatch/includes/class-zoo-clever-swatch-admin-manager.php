@@ -400,6 +400,11 @@ if( !class_exists( 'Zoo_Clever_Swatch_Admin_Manager' ) ){
          * @since 1.0.0
          */
         function zoo_cw_saveCustomTabFields( $post_id ){
+
+//            echo('<pre/>');
+//            var_dump($_POST);
+//            die;
+
             $_product = wc_get_product( $post_id );
             $zoo_cw_swatch_array = array();
             if( $_product->is_type('variable') ){
@@ -411,11 +416,10 @@ if( !class_exists( 'Zoo_Clever_Swatch_Admin_Manager' ) ){
                         $tmp_attr_data_array = array();
                         $attrName =  $attribute_name;
                         $tmp_attr_data_array['label'] = isset($_POST["zoo_cw_label_$attrName"])&& !empty($_POST["zoo_cw_label_$attrName"]) ?  $_POST["zoo_cw_label_$attrName"] : wc_attribute_label( $attribute_name ) ;
-                        $tmp_attr_data_array['dt'] = isset($_POST["zoo_cw_dt_$attrName"]) ? intval( $_POST["zoo_cw_dt_$attrName"] ) : 1 ;
-                        $ds1 = isset($_POST["zoo_cw_ds_$attrName"]) ? intval( $_POST["zoo_cw_ds_$attrName"] ) : 1 ;
-                        $ds2 = isset($_POST["zoo_cw_ds2_$attrName"]) ? intval( $_POST["zoo_cw_ds2_$attrName"] ) : 1 ;
-                        $tmp_attr_data_array['ds'] = array('ds'=>$ds1, 'ds2'=>$ds2);
-                        $tmp_attr_data_array['dn'] = isset($_POST["zoo_cw_dn_$attrName"]) ?  $_POST["zoo_cw_dn_$attrName"]  : 1 ;
+                        $tmp_attr_data_array['display_type'] = isset($_POST["zoo_cw_display_type_$attrName"]) ? $_POST["zoo_cw_display_type_$attrName"] : 'default' ;
+                        $tmp_attr_data_array['display_size'] = isset($_POST["zoo_cw_display_size_$attrName"]) ? intval( $_POST["zoo_cw_display_size_$attrName"] ) : 1 ;
+                        $tmp_attr_data_array['display_shape'] = isset($_POST["zoo_cw_display_shape_$attrName"]) ? intval( $_POST["zoo_cw_display_shape_$attrName"] ) : 1 ;
+                        $tmp_attr_data_array['display_name_yn'] = isset($_POST["zoo_cw_display_name_$attrName"]) ?  $_POST["zoo_cw_display_name_$attrName"]  : 1 ;
 
                         if ( is_array( $options ) ) {
                             $tmp_option_array = array();

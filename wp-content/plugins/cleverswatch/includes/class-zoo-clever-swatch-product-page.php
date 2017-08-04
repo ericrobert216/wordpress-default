@@ -69,7 +69,86 @@ if( !class_exists( 'Zoo_Clever_Swatch_Product_Page' ) ) {
                 wp_enqueue_style ( 'zoo-cw-single-product-page', ZOO_CW_CSSPATH . 'single-product-page.css' );
             }
         }
+
+        public function prepare_singele_page_data($product, $attributes, $product_swatch_data_array) {
+            $array_data = array();
+
+            if ($product_swatch_data_array['disabled'] == 1) {
+                return array();
+            }
+
+//            if ( $product && taxonomy_exists( $attribute ) ) {
+//                // Get terms if this is a taxonomy - ordered. We need the names too.
+//                $terms = wc_get_product_terms($product->get_id(), $attribute, array('fields' => 'all'));
+//            }
+
+
+            $attribute_keys = array_keys( $attributes );
+
+            $attributes	=	$product->get_variation_attributes();
+            echo('<pre/>');
+//            var_dump('$product_swatch_data_array');
+//            var_dump($product_swatch_data_array);
+
+            foreach ( $product_swatch_data_array as $product_swatch_name => $product_swatch_data ) {
+                if ($product_swatch_name == 'disabled') {
+                    continue;
+                }
+
+                $options = array();
+                var_dump('$product_swatch_name');
+                $attribute_key = $product_swatch_name;
+                var_dump($product_swatch_data['options_data']);
+
+                if ( $product && taxonomy_exists( $attribute_key ) ) {
+                    // Get terms if this is a taxonomy - ordered. We need the names too.
+                    $swatch_options_data = wc_get_product_terms($product->get_id(), $attribute_key, array('fields' => 'all'));
+                }
+                var_dump($swatch_options_data[0]);
+
+                die;
+                foreach ($swatch_options_data as $option_data) {
+                    $display_type = $product_swatch_data['options_data'][$option_data->slug]['dt'];
+                    if ($display_type == 0) {
+                        $options[] = array(
+                            'name' => $option_data->name,
+                            'slug' => $option_data->slug,
+                            'display_type' => $display_type,
+                            'color' => $product_swatch_data['options_data'],
+                        );
+                    }
+
+                }
+
+                $array_data[] = array(
+                    'label' => $product_swatch_data['label'],
+                    'name' => $product_swatch_name,
+                    'display_type' => $product_swatch_data['dt'],
+                    'display_size' => array(
+                        'width' => $product_swatch_data['ds']['ds'],
+                        'height' => $product_swatch_data['ds']['ds2']
+                        ),
+                    'display_name_yn' => $product_swatch_data['dn'],
+                    'option' => array(
+                        'width' => $product_swatch_data['ds']['ds'],
+                        'height' => $product_swatch_data['ds']['ds2']
+                    ),
+                );
+            }
+            die;
+
+            echo('<pre/>');
+            var_dump($product_swatch_data_array);
+            var_dump($attributes);
+            die;
+
+
+            return $array_data;
+        }
     }
+
+
+
 }
 
 $zoo_clever_swatch_product_page = new Zoo_Clever_Swatch_Product_Page();

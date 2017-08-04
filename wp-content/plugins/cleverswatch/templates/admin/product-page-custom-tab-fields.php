@@ -42,40 +42,45 @@ if ( ! defined( 'ABSPATH' ) ) {
 						</tr>
 						<tr>
 							<td><?php _e('Display Type','clever-swatch');?></td>
-							<?php $dtslct = isset($product_swatch_data_array[$tmp_title]['dt']) ? intval($product_swatch_data_array[$tmp_title]['dt']) : 1; ?>
+							<?php $display_type = isset($product_swatch_data_array[$tmp_title]['display_type']) ? intval($product_swatch_data_array[$tmp_title]['display_type']) : 'default'; ?>
 							<td>
-								<select name="zoo_cw_dt_<?php echo  $attribute_name; ?>">
-									<option value="1" <?php if($dtslct == 1): echo 'selected=selected'; endif; ?> ><?php _e('Default(Select)','clever-swatch');?></option>
-									<option value="2" <?php if($dtslct == 2): echo 'selected=selected'; endif; ?>><?php _e('Image/Color','clever-swatch');?></option>
+								<select name="zoo_cw_display_type_<?php echo  $attribute_name; ?>">
+									<option value="default" <?php if($display_type == 'default'): echo 'selected=selected'; endif; ?> ><?php _e('Default(Select)','clever-swatch');?></option>
+									<option value="image" <?php if($display_type == 'image'): echo 'selected=selected'; endif; ?>><?php _e('Image','clever-swatch');?></option>
+                                    <option value="color" <?php if($display_type == 'color'): echo 'selected=selected'; endif; ?>><?php _e('Color','clever-swatch');?></option>
 								</select>
 							</td>
 						</tr>
 						<tr>
 							<td><?php _e('Display Size','clever-swatch');?></td>
-							<?php $dslct = isset($product_swatch_data_array[$tmp_title]['ds']['ds']) ? intval($product_swatch_data_array[$tmp_title]['ds']['ds']) : 1; ?>
-							<?php $ds2slct = isset($product_swatch_data_array[$tmp_title]['ds']['ds2']) ? intval($product_swatch_data_array[$tmp_title]['ds']['ds2']) : 1; ?>
+							<?php $display_size = isset($product_swatch_data_array[$tmp_title]['display_size']) ? intval($product_swatch_data_array[$tmp_title]['display_size']) : 1; ?>
 							<td>
-								<select class="zoo-cw-ds1" name="zoo_cw_ds_<?php echo  $attribute_name; ?>">
-									<option value="1" <?php if($dslct == 1): echo 'selected=selected'; endif; ?>><?php _e('20px * 20px','clever-swatch');?></option>
-									<option value="2" <?php if($dslct == 2): echo 'selected=selected'; endif; ?>><?php _e('40px * 40px','clever-swatch');?></option>
-									<option value="3" <?php if($dslct == 3): echo 'selected=selected'; endif; ?>><?php _e('60px * 60px','clever-swatch');?></option>
-									<option value="4" <?php if($dslct == 4): echo 'selected=selected'; endif; ?>><?php _e('Default global size','clever-swatch');?></option>
-								</select>
-								<select name="zoo_cw_ds2_<?php echo  $attribute_name; ?>" class="zoo-cw-selectsecnd">
-									<option value="1" <?php if($ds2slct == 1): echo 'selected=selected'; endif; ?>><?php _e('square','clever-swatch');?></option>
-									<option value="2" <?php if($ds2slct == 2): echo 'selected=selected'; endif; ?>><?php _e('circle','clever-swatch');?></option>
-									<option value="3" <?php if($ds2slct == 3): echo 'selected=selected'; endif; ?>><?php _e('rectangle','clever-swatch');?></option>
-								
+								<select class="" name="zoo_cw_display_size_<?php echo  $attribute_name; ?>">
+									<option value="1" <?php if($display_size == 1): echo 'selected=selected'; endif; ?>><?php _e('20px * 20px','clever-swatch');?></option>
+									<option value="2" <?php if($display_size == 2): echo 'selected=selected'; endif; ?>><?php _e('40px * 40px','clever-swatch');?></option>
+									<option value="3" <?php if($display_size == 3): echo 'selected=selected'; endif; ?>><?php _e('60px * 60px','clever-swatch');?></option>
+									<option value="4" <?php if($display_size == 4): echo 'selected=selected'; endif; ?>><?php _e('Default global size','clever-swatch');?></option>
 								</select>
 							</td>
 						</tr>
+                        <tr>
+                            <td><?php _e('Display Shape','clever-swatch');?></td>
+                            <?php $display_shape = isset($product_swatch_data_array[$tmp_title]['display_type']) ? intval($product_swatch_data_array[$tmp_title]['display_type']) : 'square'; ?>
+                            <td>
+                                <select name="zoo_cw_display_shape_<?php echo  $attribute_name; ?>">
+                                    <option value="square" <?php if($display_shape == 'square'): echo 'selected=selected'; endif; ?>><?php _e('Square','clever-swatch');?></option>
+                                    <option value="circle" <?php if($display_shape == 'circle'): echo 'selected=selected'; endif; ?>><?php _e('Circle','clever-swatch');?></option>
+                                    <option value="rectangle" <?php if($display_shape == 'rectangle'): echo 'selected=selected'; endif; ?>><?php _e('Rectangle','clever-swatch');?></option>
+                                </select>
+                            </td>
+                        </tr>
 						<tr>
-							<td><?php _e('Display Name','clever-swatch');?></td>
-							<?php $dnslct = isset($product_swatch_data_array[$tmp_title]['dn']) ? intval($product_swatch_data_array[$tmp_title]['dn']) : 1; ?>
+							<td><?php _e('Show Attribute Name?','clever-swatch');?></td>
+							<?php $display_name = isset($product_swatch_data_array[$tmp_title]['display_name_yn']) ? intval($product_swatch_data_array[$tmp_title]['display_name_yn']) : 1; ?>
 							<td>
-								<select name="zoo_cw_dn_<?php echo  $attribute_name; ?>">
-									<option value="1" <?php if($dnslct == 1): echo 'selected=selected'; endif; ?>><?php _e('Yes','clever-swatch');?></option>
-									<option value="0" <?php if($dnslct == 0): echo 'selected=selected'; endif; ?>><?php _e('No','clever-swatch');?></option>
+								<select name="zoo_cw_display_name_<?php echo  $attribute_name; ?>">
+									<option value="1" <?php if($display_name == 1): echo 'selected=selected'; endif; ?>><?php _e('Yes','clever-swatch');?></option>
+									<option value="0" <?php if($display_name == 0): echo 'selected=selected'; endif; ?>><?php _e('No','clever-swatch');?></option>
 								</select>
 							</td>
 						</tr>
@@ -94,38 +99,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 											<?php $termName =  $term->slug; ?>
 											<div class="zoo-cw-sub-collapse">
 												<table class="zoo-cw-attr-option">
-												<?php $tmpgat = isset($tmp_options_data_array[$termName]['gat']) ? $tmp_options_data_array[$termName]['gat'] : 0; ?>
-														<?php $tmpdtslctType = isset($tmp_options_data_array[$termName]['dt'])  ? $tmp_options_data_array[$termName]['dt'] : 1; ?>
-														<?php $tmpdtslctimg = isset($tmp_options_data_array[$termName]['image']) ? $tmp_options_data_array[$termName]['image'] : wc_placeholder_img_src(); ?>
-														<?php $tmpdtslctclr = isset($tmp_options_data_array[$termName]['color']) ? $tmp_options_data_array[$termName]['color'] : ''; ?>
-													<tr>
-														<td><?php _e('Enable This','clever-swatch');?></td>
-														<td>
-															<select class="zoo_cw_global_at" name="zoo_cw_gat_<?php echo  $term->slug; ?>">
-																<option value="0" <?php if($tmpgat == 0): echo 'selected=selected'; endif; ?> ><?php _e('Later','clever-swatch');?></option>
-																<option value="1" <?php if($tmpgat == 1): echo 'selected=selected'; endif; ?>><?php _e('Yes','clever-swatch');?></option>
-															</select>
-														</td>
-													</tr>
-													<tr>
-														<td><?php _e('Display Type','clever-swatch')?></td>
-														<td>
-															<select class="zoo-cw-dtslct" name="zoo_cw_sdt_<?php echo  $term->slug; ?>">
-																<option value="1" <?php if($tmpdtslctType == 1): echo 'selected=selected'; endif; ?> ><?php _e('Image','clever-swatch');?></option>
-																<option value="0" <?php if($tmpdtslctType == 0): echo 'selected=selected'; endif; ?>><?php _e('Color','clever-swatch');?></option>
-															</select>
-														</td>
-													</tr>
-													<tr class="zoo-cw-sci" <?php if(!$tmpdtslctType): echo 'style="display:none;"'; endif;?>>
+                                                    <?php $image = isset($tmp_options_data_array[$termName]['image']) ? $tmp_options_data_array[$termName]['image'] : wc_placeholder_img_src(); ?>
+                                                    <?php $color = isset($tmp_options_data_array[$termName]['color']) ? $tmp_options_data_array[$termName]['color'] : ''; ?>
+
+													<tr class="zoo-cw-sci" <?php if($display_type == 'image'): echo 'style="display:none;"'; endif;?>>
 														<td><?php _e('Select/Upload Image','clever-swatch')?></td>
-														<td><img height="30px" width="30px" src="<?php echo $tmpdtslctimg;?>" alt="<?php _e('Select Image','clever-swatch');?>" class="zoo-cw-scimage_<?php echo  $term->slug; ?>">
-															<input type="hidden" value="<?php echo $tmpdtslctimg;?>" class="zoo-cw-input-scimg-<?php echo  $term->slug; ?>" name="zoo-cw-input-scimg-<?php echo  $term->slug; ?>">
+														<td><img height="30px" width="30px" src="<?php echo $image;?>" alt="<?php _e('Select Image','clever-swatch');?>" class="zoo-cw-scimage_<?php echo  $term->slug; ?>">
+															<input type="hidden" value="<?php echo $image;?>" class="zoo-cw-input-scimg-<?php echo  $term->slug; ?>" name="zoo-cw-input-scimg-<?php echo  $term->slug; ?>">
 															<button type="button" data-attrname="<?php echo  $term->slug; ?>" class="zoo-cw-scimage-upload"><?php _e('Browse','clever-swatch')?></button>
 														</td>
 													</tr>
-													<tr class="zoo-cw-scc" <?php if($tmpdtslctType): echo 'style="display:none;"'; endif;?>>
+													<tr class="zoo-cw-scc" <?php if($display_type == 'color'): echo 'style="display:none;"'; endif;?>>
 														<td><?php _e('Choose Color','clever-swatch')?></td>
-														<td><input type="text" value="<?php echo $tmpdtslctclr;?>" name="zoo_cw_slctclr_<?php echo  $term->slug; ?>" class="zoo-cw-colorpicker" /></td>
+														<td><input type="text" value="<?php echo $color;?>" name="zoo_cw_slctclr_<?php echo  $term->slug; ?>" class="zoo-cw-colorpicker" /></td>
 													</tr>
 												</table>
 											</div>
