@@ -418,7 +418,7 @@ if( !class_exists( 'Zoo_Clever_Swatch_Admin_Manager' ) ){
                         $tmp_attr_data_array['label'] = isset($_POST["zoo_cw_label_$attrName"])&& !empty($_POST["zoo_cw_label_$attrName"]) ?  $_POST["zoo_cw_label_$attrName"] : wc_attribute_label( $attribute_name ) ;
                         $tmp_attr_data_array['display_type'] = isset($_POST["zoo_cw_display_type_$attrName"]) ? $_POST["zoo_cw_display_type_$attrName"] : 'default' ;
                         $tmp_attr_data_array['display_size'] = isset($_POST["zoo_cw_display_size_$attrName"]) ? intval( $_POST["zoo_cw_display_size_$attrName"] ) : 1 ;
-                        $tmp_attr_data_array['display_shape'] = isset($_POST["zoo_cw_display_shape_$attrName"]) ? intval( $_POST["zoo_cw_display_shape_$attrName"] ) : 1 ;
+                        $tmp_attr_data_array['display_shape'] = isset($_POST["zoo_cw_display_shape_$attrName"]) ? $_POST["zoo_cw_display_shape_$attrName"] : 'square' ;
                         $tmp_attr_data_array['display_name_yn'] = isset($_POST["zoo_cw_display_name_$attrName"]) ?  $_POST["zoo_cw_display_name_$attrName"]  : 1 ;
 
                         if ( is_array( $options ) ) {

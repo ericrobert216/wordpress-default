@@ -47,6 +47,24 @@ jQuery(document).ready(function(){
         }
     });
 
+    jQuery(document).on('change','.zoo-cw-display-type',function(){
+
+        var display_type = jQuery(this).val();
+        if(display_type == 'image') {
+            console.log('image');
+            jQuery(this).parents('.zoo-cw-collapse').find('.zoo-cw-scc').hide();
+            jQuery(this).parents('.zoo-cw-collapse').find('.zoo-cw-sci').show();
+        } else if(display_type == 'color'){
+            console.log('color');
+            jQuery(this).parents('.zoo-cw-collapse').find('.zoo-cw-scc').show();
+            jQuery(this).parents('.zoo-cw-collapse').find('.zoo-cw-sci').hide();
+        } else {
+            console.log('default');
+            jQuery(this).parents('.zoo-cw-collapse').find('.zoo-cw-scc').hide();
+            jQuery(this).parents('.zoo-cw-collapse').find('.zoo-cw-sci').hide();
+        }
+    });
+
     //----------End of swatch images script ---------------------//
 
     // always load updated attributes terms..
