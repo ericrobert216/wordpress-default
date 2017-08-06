@@ -416,7 +416,8 @@ if( !class_exists( 'Zoo_Clever_Swatch_Admin_Manager' ) ){
                         $tmp_attr_data_array = array();
                         $attrName =  $attribute_name;
                         $tmp_attr_data_array['label'] = isset($_POST["zoo_cw_label_$attrName"])&& !empty($_POST["zoo_cw_label_$attrName"]) ?  $_POST["zoo_cw_label_$attrName"] : wc_attribute_label( $attribute_name ) ;
-                        $tmp_attr_data_array['display_type'] = isset($_POST["zoo_cw_display_type_$attrName"]) ? $_POST["zoo_cw_display_type_$attrName"] : 'default' ;
+                        $display_type = isset($_POST["zoo_cw_display_type_$attrName"]) ? $_POST["zoo_cw_display_type_$attrName"] : 'default' ;
+                        $tmp_attr_data_array['display_type'] = $display_type;
                         $tmp_attr_data_array['display_size'] = isset($_POST["zoo_cw_display_size_$attrName"]) ? intval( $_POST["zoo_cw_display_size_$attrName"] ) : 1 ;
                         $tmp_attr_data_array['display_shape'] = isset($_POST["zoo_cw_display_shape_$attrName"]) ? $_POST["zoo_cw_display_shape_$attrName"] : 'square' ;
                         $tmp_attr_data_array['display_name_yn'] = isset($_POST["zoo_cw_display_name_$attrName"]) ?  $_POST["zoo_cw_display_name_$attrName"]  : 1 ;
@@ -428,11 +429,9 @@ if( !class_exists( 'Zoo_Clever_Swatch_Admin_Manager' ) ){
                                 foreach ( $terms as $term ) {
                                     if ( in_array( $term->slug, $options ) ){
                                         $tmp_term_name =  $term->slug;
-                                        $tmp_option_array[$tmp_term_name]['gat'] = isset($_POST["zoo_cw_gat_$tmp_term_name"]) ? intval( $_POST["zoo_cw_gat_$tmp_term_name"] ) : 0 ;
-                                        $tmp_option_array[$tmp_term_name]['dt'] = isset($_POST["zoo_cw_sdt_$tmp_term_name"]) ? intval( $_POST["zoo_cw_sdt_$tmp_term_name"] ) : 1 ;
-                                        if( $tmp_option_array[$tmp_term_name]['dt'] == 1 ){
+                                        if( $display_type == 'image' ){
                                             $tmp_option_array[$tmp_term_name]['image'] = isset($_POST["zoo-cw-input-scimg-$tmp_term_name"]) ? sanitize_text_field( $_POST["zoo-cw-input-scimg-$tmp_term_name"] ) : '' ;
-                                        }else{
+                                        }else if ( $display_type == 'color' ){
                                             $tmp_option_array[$tmp_term_name]['color'] = isset($_POST["zoo_cw_slctclr_$tmp_term_name"]) ? sanitize_text_field( $_POST["zoo_cw_slctclr_$tmp_term_name"] ) : '' ;
                                         }
                                     }
@@ -440,10 +439,9 @@ if( !class_exists( 'Zoo_Clever_Swatch_Admin_Manager' ) ){
                             }else{
                                 foreach ( $options as $option ){
                                     $tmp_term_name =  $option;
-                                    $tmp_option_array[$tmp_term_name]['dt'] = isset($_POST["zoo_cw_sdt_$tmp_term_name"]) ? intval( $_POST["zoo_cw_sdt_$tmp_term_name"] ) : 1 ;
-                                    if( $tmp_option_array[$tmp_term_name]['dt'] == 1 ){
+                                    if( $display_type == 'image' ){
                                         $tmp_option_array[$tmp_term_name]['image'] = isset($_POST["zoo-cw-input-scimg-$tmp_term_name"]) ? sanitize_text_field( $_POST["zoo-cw-input-scimg-$tmp_term_name"] ) : '' ;
-                                    }else{
+                                    }else if ( $display_type == 'color' ){
                                         $tmp_option_array[$tmp_term_name]['color'] = isset($_POST["zoo_cw_slctclr_$tmp_term_name"]) ? sanitize_text_field( $_POST["zoo_cw_slctclr_$tmp_term_name"] ) : '' ;
                                     }
                                 }

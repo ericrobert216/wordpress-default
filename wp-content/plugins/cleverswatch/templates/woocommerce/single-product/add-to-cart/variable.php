@@ -26,7 +26,7 @@ $attribute_keys = array_keys( $attributes );
 
 $zoo_clever_swatch_product_page = new Zoo_Clever_Swatch_Product_Page();
 
-$data = $zoo_clever_swatch_product_page->prepare_singele_page_data($product, $attributes, $product_swatch_data_array);
+$product_swatch_data_array = $zoo_clever_swatch_product_page->prepare_singele_page_data($product, $attributes, $product_swatch_data_array);
 
 //var_dump($data);
 //die;
@@ -46,30 +46,36 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 						<td class="label"><label for="<?php echo sanitize_title( $attribute_name ); ?>"><?php echo wc_attribute_label( $attribute_name ); ?></label></td>
 						<td class="value">
 
-
-
-
 							<?php
 								$selected = isset( $_REQUEST[ 'attribute_' . sanitize_title( $attribute_name ) ] )
                                     ? wc_clean( stripslashes( urldecode( $_REQUEST[ 'attribute_' . sanitize_title( $attribute_name ) ] ) ) )
                                     : $product->get_variation_default_attribute( $attribute_name );
                                 wc_dropdown_variation_attribute_options( array( 'options' => $options, 'attribute' => $attribute_name, 'product' => $product, 'selected' => $selected ) );
-
 								$items = sac2( array( 'options' => $options, 'attribute' => $attribute_name, 'product' => $product, 'selected' => $selected ) );
-
-
-
 
 ?>
 
-
-                            <?php foreach ( $items as $item ) : ?>
-                                <?php if ($item['value'] == $selected): ?>
-                                    <input type="radio" checked="checked" name="<?php echo($item['attribute_name']);?>" value="<?php echo($item['value']);?>"><span><?php echo($item['name']);?></span>
-                                <?php else : ?>
-                                    <input type="radio" name="<?php echo($item['attribute_name']);?>" value="<?php echo($item['value']);?>"><span><?php echo($item['name']);?></span>
+                            <?php
+                                $zoo_cw_attribute = $product_swatch_data_array[$attribute_name];
+                                $zoo_cw_attribute_options = $zoo_cw_attribute['options_data'];
+                            ?>
+                            <?php foreach ($zoo_cw_attribute_options as $zoo_cw_attribute_option): ?>
+                                <div>
+                                <?php if ($zoo_cw_attribute['display_type'] == 'color'): ?>
+                                    <span><?php echo($zoo_cw_attribute_option['name']);?></span>
                                 <?php endif; ?>
+                                <?php if ($zoo_cw_attribute['display_type'] == 'color'): ?>
+                                    <div style="background-color: <?php echo($zoo_cw_attribute_option['color']); ?>;">
+                                        <span>color</span>
+                                    </div>
+                                <?php elseif ($zoo_cw_attribute['display_type'] == 'image'): ?>
+                                    <div>
+                                        <span>image</span>
+                                    </div>
+                                <?php endif; ?>
+                                </div>
                             <?php endforeach;?>
+
                             <?php echo end( $attribute_keys ) === $attribute_name ? apply_filters( 'woocommerce_reset_variations_link', '<a class="reset_variations" href="#">' . esc_html__( 'Clear', 'woocommerce' ) . '</a>' ) : ''; ?>
 						</td>
 					</tr>
