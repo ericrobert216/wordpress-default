@@ -1,14 +1,18 @@
 jQuery( document ).ready(function() {
     var defaultVariationID = jQuery('form.variations_form input[name=variation_id]').val();
-    console.log(defaultVariationID);
     updateGallery(defaultVariationID, 'clever_swatch_action');
 
-
     // change select for woocommerce product page
-    jQuery('.variations_form .variations .value input').change(function(){
-        var parent_wrap = jQuery(this).parent('.value');
-        var selected_value = parent_wrap.find('input:checked').val();
-        parent_wrap.find('select').val(selected_value).change();
+    jQuery('.variations_form .variations .value').each(function(){
+        var variation_wrap = jQuery(this);
+        variation_wrap.find('.zoo-cw-attribue-option').click(function(){
+            //add class active
+            variation_wrap.find('.zoo-cw-attribue-option').removeClass('active');
+            jQuery(this).addClass('active');
+            
+            var selected_value = jQuery(this).find('input').val();
+            variation_wrap.find('select').val(selected_value).change();
+        });
     });
 
     // catch even change variation of product form

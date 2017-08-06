@@ -84,6 +84,7 @@ if( !class_exists( 'Zoo_Clever_Swatch_Product_Page' ) ) {
                 foreach ($terms as $term) {
                     if (in_array($term->slug,$attribute_enabled_options)) {
                         $options_data[$term->slug]['name'] = $term->name;
+                        $options_data[$term->slug]['value'] = $term->slug;
                     } else {
                         unset($options_data[$term->slug]);
                     }
@@ -91,8 +92,13 @@ if( !class_exists( 'Zoo_Clever_Swatch_Product_Page' ) ) {
                 }
 
                 $product_swatch_data_array[$attribute_name]['options_data'] = $options_data;
-            }
 
+                //render class
+                $class = 'zoo-cw-option-display-size-'.$data['display_size'];
+                $class .= ' zoo-cw-option-display-shape-'.$data['display_shape'];
+                $product_swatch_data_array[$attribute_name]['class'] = $class;
+            }
+            
             return $product_swatch_data_array;
         }
     }

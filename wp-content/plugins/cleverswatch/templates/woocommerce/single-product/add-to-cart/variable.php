@@ -60,19 +60,20 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
                                 $zoo_cw_attribute_options = $zoo_cw_attribute['options_data'];
                             ?>
                             <?php foreach ($zoo_cw_attribute_options as $zoo_cw_attribute_option): ?>
-                                <div>
-                                <?php if ($zoo_cw_attribute['display_type'] == 'color'): ?>
-                                    <span><?php echo($zoo_cw_attribute_option['name']);?></span>
-                                <?php endif; ?>
-                                <?php if ($zoo_cw_attribute['display_type'] == 'color'): ?>
-                                    <div style="background-color: <?php echo($zoo_cw_attribute_option['color']); ?>;">
-                                        <span>color</span>
-                                    </div>
-                                <?php elseif ($zoo_cw_attribute['display_type'] == 'image'): ?>
-                                    <div>
-                                        <span>image</span>
-                                    </div>
-                                <?php endif; ?>
+                                <div class="zoo-cw-attribue-option">
+                                    <?php if ($zoo_cw_attribute['display_name_yn'] == 1): ?>
+                                        <span><?php echo($zoo_cw_attribute_option['name']);?></span>
+                                    <?php endif; ?>
+                                    <?php if ($zoo_cw_attribute['display_type'] == 'color'): ?>
+                                        <div style="background-color: <?php echo($zoo_cw_attribute_option['color']); ?>;" class="<?php echo($zoo_cw_attribute['class']);?>">
+                                            <span>color</span>
+                                        </div>
+                                    <?php elseif ($zoo_cw_attribute['display_type'] == 'image'): ?>
+                                        <div class="<?php echo($zoo_cw_attribute['class']);?>">
+                                            <img src="<?php echo($zoo_cw_attribute_option['image']); ?>">
+                                        </div>
+                                    <?php endif; ?>
+                                    <input type="hidden" name="" value="<?php echo($zoo_cw_attribute_option['value']); ?>">
                                 </div>
                             <?php endforeach;?>
 
