@@ -1,0 +1,84 @@
+@mixin transition-all($time) {
+  transition: all $time;
+  -webkit-transition: all $time;
+  -moz-transition: all $time;
+  -o-transition: all $time;
+  -ms-transition: all $time;
+}
+
+@mixin transition($val) {
+  transition: $val;
+  -webkit-transition: $val;
+  -moz-transition: $val;
+  -o-transition: $val;
+  -ms-transition: $val;
+}
+
+@mixin border-radius($val) {
+  border-radius: $val;
+  -moz-border-radius: $val;
+  -o-border-radius: $val;
+  -webkit-border-radius: $val;
+  -ms-border-radius: $val;
+}
+
+@mixin transform($val) {
+  -webkit-transform: $val;
+  -moz-transform: $val;
+  -ms-transform: $val;
+  -o-transform: $val;
+  transform: $val
+}
+
+.zoo-cw-attribute-option{
+  display: flex;
+  float: left;
+  cursor: pointer;
+  margin:0 5px 10px 0;
+  align-items: center;
+}
+.zoo-cw-attribute-option.active, .zoo-cw-attribute-option:hover{
+  .zoo-cv-attr-item {
+    border-color: #252525;
+  }
+}
+.zoo-cv-attr-item {
+  display: inline-block;
+  border: 2px solid #ccc;
+  padding:2px;
+  @include transition-all(300ms);
+  height: 100%;
+  img{
+    max-height: 100%;
+    max-width: 100%;
+  }
+}
+.zoo-cv-label-color{
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+.zoo-cv-attr-label{
+  padding:0 5px;
+}
+.zoo-cw-option-display-size-1 {
+  min-width: 20px;
+  height:20px;
+  line-height: 16px;
+}
+.zoo-cw-option-display-size-2 {
+  min-width: 40px;
+  height:40px;
+  line-height: 36px;
+}
+.zoo-cw-option-display-size-3 {
+  min-width: 60px;
+  height:60px;
+  line-height: 56px;
+}
+.zoo-cw-option-display-shape-circle{
+  @include border-radius(50%);
+  .zoo-cv-label-color, img{
+    @include border-radius(50%);
+  }
+}

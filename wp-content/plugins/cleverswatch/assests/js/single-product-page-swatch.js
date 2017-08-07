@@ -5,9 +5,9 @@ jQuery( document ).ready(function() {
     // change select for woocommerce product page
     jQuery('.variations_form .variations .value').each(function(){
         var variation_wrap = jQuery(this);
-        variation_wrap.find('.zoo-cw-attribue-option').click(function(){
+        variation_wrap.find('.zoo-cw-attribute-option').click(function(){
             //add class active
-            variation_wrap.find('.zoo-cw-attribue-option').removeClass('active');
+            variation_wrap.find('.zoo-cw-attribute-option').removeClass('active');
             jQuery(this).addClass('active');
             
             var selected_value = jQuery(this).find('input').val();
