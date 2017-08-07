@@ -91,6 +91,7 @@ function check_woocommerce_active(){
 }
 
 add_action( 'wp_ajax_clever_swatch_action', 'clever_swatch_action' );
+add_action( 'wp_ajax_nopriv_clever_swatch_action', 'clever_swatch_action' );
 
 function clever_swatch_action() {
 
