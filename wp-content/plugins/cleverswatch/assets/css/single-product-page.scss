@@ -38,11 +38,11 @@
   align-items: center;
 }
 .zoo-cw-attribute-option.active, .zoo-cw-attribute-option:hover{
-  .zoo-cv-attr-item {
+  .zoo-cw-attr-item {
     border-color: #252525;
   }
 }
-.zoo-cv-attr-item {
+.zoo-cw-attr-item {
   display: inline-block;
   border: 2px solid #ccc;
   padding:2px;
@@ -53,12 +53,12 @@
     max-width: 100%;
   }
 }
-.zoo-cv-label-color{
+.zoo-cw-label-color{
   display: block;
   height: 100%;
   width: 100%;
 }
-.zoo-cv-attr-label{
+.zoo-cw-attr-label{
   padding:0 5px;
 }
 .zoo-cw-option-display-size-1 {
@@ -78,7 +78,7 @@
 }
 .zoo-cw-option-display-shape-circle{
   @include border-radius(50%);
-  .zoo-cv-label-color, img{
+  .zoo-cw-label-color, img{
     @include border-radius(50%);
   }
 }

@@ -43,9 +43,9 @@ if( !class_exists( 'Zoo_Clever_Swatch_Config' ) ){
             $this->define( 'ZOO_CW_DIRPATH', $plugin_path );
             $this->define( 'ZOO_CW_TEMPLATES_PATH', $plugin_path."templates/" );
             $this->define( 'ZOO_CW_URL', $plugin_url );
-            $this->define( 'ZOO_CW_JSPATH', $plugin_url."assests/js/" );
-            $this->define( 'ZOO_CW_CSSPATH', $plugin_url."assests/css/" );
-            $this->define( 'ZOO_CW_GALLERYPATH', $plugin_url."assests/images/" );
+            $this->define( 'ZOO_CW_JSPATH', $plugin_url."assets/js/" );
+            $this->define( 'ZOO_CW_CSSPATH', $plugin_url."assets/css/" );
+            $this->define( 'ZOO_CW_GALLERYPATH', $plugin_url."assets/images/" );
             $this->define( 'ZOO_CW_ABSPATH', untrailingslashit( $plugin_path));
         }
 

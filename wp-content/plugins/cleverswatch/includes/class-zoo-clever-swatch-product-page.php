@@ -41,7 +41,7 @@ if( !class_exists( 'Zoo_Clever_Swatch_Product_Page' ) ) {
             );
 
             if ($template_name == 'single-product/add-to-cart/variable.php') {
-                $this->load_product_page_assests();
+                $this->load_product_page_assets();
             }
 
             // check that the template is there in plugin or not.
@@ -56,7 +56,7 @@ if( !class_exists( 'Zoo_Clever_Swatch_Product_Page' ) ) {
             return $template;
         }
 
-        public function load_product_page_assests(){
+        public function load_product_page_assets(){
 
             if(is_single()){
                 wp_register_script('zoo-cw-single-product-page-swatches', ZOO_CW_JSPATH . "single-product-page-swatch.js",

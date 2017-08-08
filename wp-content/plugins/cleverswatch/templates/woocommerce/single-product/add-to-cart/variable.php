@@ -62,17 +62,17 @@ do_action('woocommerce_before_add_to_cart_form'); ?>
 
                         <?php foreach ($zoo_cw_attribute_options as $zoo_cw_attribute_option): ?>
                             <div class="zoo-cw-attribute-option">
-                                <div class="zoo-cv-attr-item  <?php echo($zoo_cw_attribute['class']); ?>">
+                                <div class="zoo-cw-attr-item  <?php echo($zoo_cw_attribute['class']); ?>">
                                     <?php if ($zoo_cw_attribute['display_type'] == 'color'): ?>
                                         <span style="background-color: <?php echo($zoo_cw_attribute_option['color']); ?>;"
-                                              class="zoo-cv-label-color">
+                                              class="zoo-cw-label-color">
                                         </span>
                                     <?php elseif ($zoo_cw_attribute['display_type'] == 'image'): ?>
                                         <img src="<?php echo($zoo_cw_attribute_option['image']); ?>">
                                     <?php endif; ?>
                                 </div>
                                 <?php if ($zoo_cw_attribute['display_name_yn'] == 1): ?>
-                                    <span  class="zoo-cv-attr-label"><?php echo($zoo_cw_attribute_option['name']); ?></span>
+                                    <span  class="zoo-cw-attr-label"><?php echo($zoo_cw_attribute_option['name']); ?></span>
                                 <?php endif; ?>
                                 <input type="hidden" name="" value="<?php echo($zoo_cw_attribute_option['value']); ?>">
                             </div>
