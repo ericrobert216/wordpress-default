@@ -33,8 +33,8 @@ if( !class_exists( 'Zoo_Clever_Swatch_Admin_Variation_Gallery' ) ){
 		public function __construct(){
 
 			$general_settings = get_option('zoo-cw-settings',true);
-				
-			if(!is_array($general_settings)){
+
+			if(!is_array($general_settings) || $general_settings['swatch'] == 0){
 				return;
 			}else{
 				$is_gallery_enabled = isset($general_settings['pwg']) ? intval($general_settings['pwg']) : 1;

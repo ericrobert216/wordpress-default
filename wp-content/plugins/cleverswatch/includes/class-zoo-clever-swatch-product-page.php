@@ -26,6 +26,12 @@ if( !class_exists( 'Zoo_Clever_Swatch_Product_Page' ) ) {
 
         public function load_template($template, $template_name, $template_path) {
 
+            $general_settings = get_option('zoo-cw-settings',true);
+
+            if(!is_array($general_settings) || $general_settings['swatch'] == 0){
+                return $template;
+            }
+
             global $woocommerce;
 
             $_template = $template;

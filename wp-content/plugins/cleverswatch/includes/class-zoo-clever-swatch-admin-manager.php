@@ -357,11 +357,15 @@ if( !class_exists( 'Zoo_Clever_Swatch_Admin_Manager' ) ){
          */
         public function zoo_cw_variation_product_tab( $tabs ){
 
-            $tabs['swatches'] = array(
-                'label'  => __( 'Clever Swatch', 'clever-swatch' ),
-                'target' => 'zoo-cw-variation-swatch-data',
-                'class'  => array( 'show_if_variable','zoo-cw-term-swatches' ),
-            );
+            $general_settings = get_option('zoo-cw-settings',true);
+
+            if(is_array($general_settings) && $general_settings['swatch'] != 0){
+                $tabs['swatches'] = array(
+                    'label'  => __( 'Clever Swatch', 'clever-swatch' ),
+                    'target' => 'zoo-cw-variation-swatch-data',
+                    'class'  => array( 'show_if_variable','zoo-cw-term-swatches' ),
+                );
+            }
 
             return $tabs;
         }
