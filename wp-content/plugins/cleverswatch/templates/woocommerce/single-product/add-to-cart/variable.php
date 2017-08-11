@@ -48,8 +48,9 @@ do_action('woocommerce_before_add_to_cart_form'); ?>
                     <td class="label">
                         <label for="<?php echo sanitize_title($attribute_name); ?>">
                             <?php echo wc_attribute_label($attribute_name); ?>
-                        </label></td>
-                    <td class="value">
+                        </label>
+                    </td>
+                    <td class="value <?php echo($product_swatch_data_array[$attribute_name]['class_attribute']); ?>">
                         <?php
                         $selected = isset($_REQUEST['attribute_' . sanitize_title($attribute_name)])
                             ? wc_clean(stripslashes(urldecode($_REQUEST['attribute_' . sanitize_title($attribute_name)])))
@@ -62,10 +63,14 @@ do_action('woocommerce_before_add_to_cart_form'); ?>
 
                         <?php foreach ($zoo_cw_attribute_options as $zoo_cw_attribute_option): ?>
                             <div class="zoo-cw-attribute-option">
-                                <div class="zoo-cw-attr-item  <?php echo($zoo_cw_attribute['class']); ?>">
+                                <div class="zoo-cw-attr-item  <?php echo($zoo_cw_attribute['class_options']); ?>">
                                     <?php if ($zoo_cw_attribute['display_type'] == 'color'): ?>
                                         <span style="background-color: <?php echo($zoo_cw_attribute_option['color']); ?>;"
                                               class="zoo-cw-label-color">
+                                        </span>
+                                    <?php elseif ($zoo_cw_attribute['display_type'] == 'text'): ?>
+                                        <span class="zoo-cw-label-text">
+                                            <?php echo($zoo_cw_attribute_option['name']); ?>
                                         </span>
                                     <?php elseif ($zoo_cw_attribute['display_type'] == 'image'): ?>
                                         <img src="<?php echo($zoo_cw_attribute_option['image']); ?>">

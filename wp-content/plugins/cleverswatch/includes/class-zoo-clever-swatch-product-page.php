@@ -77,6 +77,7 @@ if( !class_exists( 'Zoo_Clever_Swatch_Product_Page' ) ) {
                     continue;
                 }
 
+
                 $attribute_enabled_options = $attributes[$attribute_name];
 
                 $terms = wc_get_product_terms( $product->get_id(), $attribute_name, array( 'fields' => 'all' ) );
@@ -88,17 +89,22 @@ if( !class_exists( 'Zoo_Clever_Swatch_Product_Page' ) ) {
                     } else {
                         unset($options_data[$term->slug]);
                     }
-
                 }
 
                 $product_swatch_data_array[$attribute_name]['options_data'] = $options_data;
 
                 //render class
-                $class = 'zoo-cw-option-display-size-'.$data['display_size'];
-                $class .= ' zoo-cw-option-display-shape-'.$data['display_shape'];
-                $product_swatch_data_array[$attribute_name]['class'] = $class;
+                $class_attribute = '';
+                if ($data['display_type'] != 'default') {
+                    $class_attribute .= ' zoo-cw-active zoo-cw-type-'.$data['display_type'];
+                }
+                $product_swatch_data_array[$attribute_name]['class_attribute'] = $class_attribute;
+
+                $class_options = 'zoo-cw-option-display-size-'.$data['display_size'];
+                $class_options .= ' zoo-cw-option-display-shape-'.$data['display_shape'];
+                $product_swatch_data_array[$attribute_name]['class_options'] = $class_options;
             }
-            
+
             return $product_swatch_data_array;
         }
     }

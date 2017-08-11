@@ -48,6 +48,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 									<option value="default" <?php if($display_type == 'default'): echo 'selected=selected'; endif; ?> ><?php _e('Default(Select)','clever-swatch');?></option>
 									<option value="image" <?php if($display_type == 'image'): echo 'selected=selected'; endif; ?>><?php _e('Image','clever-swatch');?></option>
                                     <option value="color" <?php if($display_type == 'color'): echo 'selected=selected'; endif; ?>><?php _e('Color','clever-swatch');?></option>
+                                    <option value="text" <?php if($display_type == 'text'): echo 'selected=selected'; endif; ?>><?php _e('Text','clever-swatch');?></option>
 								</select>
 							</td>
 						</tr>
