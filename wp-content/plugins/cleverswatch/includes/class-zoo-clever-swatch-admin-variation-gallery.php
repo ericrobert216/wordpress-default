@@ -42,8 +42,13 @@ if( !class_exists( 'Zoo_Clever_Swatch_Admin_Variation_Gallery' ) ){
 				if(!$is_gallery_enabled){
 					return;
 				}else{
-					add_action( 'woocommerce_variation_options', array($this,'zoo_cw_add_variation_gallery_option'), 10, 3 );
+
+				    if ($general_settings['pwg'] != 0) {
+                        add_action( 'woocommerce_variation_options', array($this,'zoo_cw_add_variation_gallery_option'), 10, 3 );
+                    }
+
 					add_action( 'woocommerce_save_product_variation', array($this,'zoo_cw_save_variation_meta'), 10, 2 );
+
 				}
 			}
 		}
