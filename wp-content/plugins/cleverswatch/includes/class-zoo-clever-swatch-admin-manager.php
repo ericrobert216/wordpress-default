@@ -64,6 +64,9 @@ if( !class_exists( 'Zoo_Clever_Swatch_Admin_Manager' ) ){
                 }
             }
 
+            add_filter('product_attributes_type_selector', array( $this,'zoo_cw_add_attribute_image_color_selector'),10, 3 );
+
+
             add_action( 'created_term', array( $this, 'zoo_cw_save_attr_extra_fields' ), 10, 3 );
             add_action( 'edit_term', array( $this, 'zoo_cw_save_attr_extra_fields' ), 10, 3 );
 
@@ -71,6 +74,15 @@ if( !class_exists( 'Zoo_Clever_Swatch_Admin_Manager' ) ){
             add_action( "wp_ajax_zoo_cw_update_term_data", array( $this ,'zoo_cw_customTabFields' ) );
         }
 
+        public function zoo_cw_add_attribute_image_color_selector() {
+            $array = array(
+                'select' => __( 'Select', 'woocommerce' ),
+                'text'   => __( 'Text', 'woocommerce' ),
+                'image' => __( 'Image', 'woocommerce' ),
+                'color'   => __( 'Color', 'woocommerce' ),
+            );
+            return $array;
+        }
 
         public function wc_get_attribute_taxonomies() {
             if ( false === ( $attribute_taxonomies = get_transient( 'wc_attribute_taxonomies' ) ) ) {
