@@ -37,13 +37,13 @@ if( !class_exists( 'Zoo_Clever_Swatch_Admin_Variation_Gallery' ) ){
 			if(!is_array($general_settings) || $general_settings['swatch'] == 0){
 				return;
 			}else{
-				$is_gallery_enabled = isset($general_settings['pwg']) ? intval($general_settings['pwg']) : 1;
+				$is_gallery_enabled = isset($general_settings['product_gallery']) ? intval($general_settings['product_gallery']) : 1;
 					
 				if(!$is_gallery_enabled){
 					return;
 				}else{
 
-				    if ($general_settings['pwg'] != 0) {
+				    if ($is_gallery_enabled != 0) {
                         add_action( 'woocommerce_variation_options', array($this,'zoo_cw_add_variation_gallery_option'), 10, 3 );
                     }
 

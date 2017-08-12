@@ -72,7 +72,7 @@ if( !class_exists( 'Zoo_Clever_Swatch_Config' ) ){
             $general_settings_array = array();
             $enableThis = 1;
             $enableSwatch = 1;
-            $enablePWG = 1;
+            $enable_product_gallery = 1;
             $attrthumb = 0;
 
             $attbds = array();
@@ -84,7 +84,7 @@ if( !class_exists( 'Zoo_Clever_Swatch_Config' ) ){
 
             $general_settings_array['this'] = $enableThis;
             $general_settings_array['swatch'] = $enableSwatch;
-            $general_settings_array['pwg'] = $enablePWG;
+            $general_settings_array['product_gallery'] = $enable_product_gallery;
             $general_settings_array['at'] = $attrthumb;
             $general_settings_array['atds'] = $attbds;
 
