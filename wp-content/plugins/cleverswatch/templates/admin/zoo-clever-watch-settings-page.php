@@ -27,17 +27,17 @@ if (isset($_POST['save'])) {
 
         $display_shape = isset($_POST['zoo_cw_display_shape']) ? $_POST['zoo_cw_display_shape'] : 1;
         $display_size = isset($_POST['zoo_cw_display_size']) ? $_POST['zoo_cw_display_size'] : 2;
-        if ($display_size == 4) {
+        if ($display_size == 5) {
             $display_size_width = isset($_POST['zoo_cw_display_size_width']) ? $_POST['zoo_cw_display_size_width'] : 20;
             $display_size_height = isset($_POST['zoo_cw_display_size_height']) ? $_POST['zoo_cw_display_size_height'] : $display_size_width;
         }
-        $display_name = isset($_POST['display_name']) ? $_POST['display_name'] : 1;
+        $display_name = isset($_POST['zoo_cw_display_name']) ? intval($_POST['zoo_cw_display_name']) : 1;
 
         $general_settings_array['swatch'] = $enable_swatch;
         $general_settings_array['product_gallery'] = $enable_product_gallery;
         $general_settings_array['display_shape'] = $display_shape;
         $general_settings_array['display_size'] = $display_size;
-        if ($display_size == 4) {
+        if ($display_size == 5) {
             $general_settings_array['display_size_width'] = $display_size_width;
             $general_settings_array['display_size_height'] = $display_size_height;
         }
@@ -77,10 +77,8 @@ if (isset($_POST['save'])) {
                             $enable_product_gallery = isset($general_settings['product_gallery']) ? intval($general_settings['product_gallery']) : 1;
                             $display_shape = isset($general_settings['display_shape']) ? intval($general_settings['display_shape']) : 1;
                             $display_size = isset($general_settings['display_size']) ? intval($general_settings['display_size']) : 1;
-                            if ($display_size == 4) {
-                                $display_size_width = isset($general_settings['display_size_width']) ? intval($general_settings['display_size_width']) : 20;
-                                $display_size_height = isset($general_settings['display_size_height']) ? intval($general_settings['display_size_height']) : $display_size_width;
-                            }
+                            $display_size_width = isset($general_settings['display_size_width']) ? intval($general_settings['display_size_width']) : 20;
+                            $display_size_height = isset($general_settings['display_size_height']) ? intval($general_settings['display_size_height']) : $display_size_width;
                             $display_name = isset($general_settings['display_name']) ? intval($general_settings['display_name']) : 1;
                             ?>
 

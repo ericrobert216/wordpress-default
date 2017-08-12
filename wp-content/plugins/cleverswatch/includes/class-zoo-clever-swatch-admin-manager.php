@@ -53,22 +53,35 @@ if( !class_exists( 'Zoo_Clever_Swatch_Admin_Manager' ) ){
             //saving custom tab data..
             add_action( 'woocommerce_process_product_meta', array( $this ,'zoo_cw_saveCustomTabFields' ) );
 
-//            $attribute_taxonomies = wc_get_attribute_taxonomies();
-//
-//            if ( ! empty( $attribute_taxonomies ) ) {
-//                foreach ( $attribute_taxonomies as $attribute ) {
-//                    add_action( 'pa_' . $attribute->attribute_name . '_add_form_fields', array( $this, 'zoo_cw_add_image_color_selector' ) );
-//                    add_filter('manage_edit-'.'pa_' . $attribute->attribute_name.'_columns', array( $this,'zoo_cw_add_preview_column') );
-//                    add_filter('manage_pa_' . $attribute->attribute_name.'_custom_column', array( $this,'zoo_cw_preview_column_content'),10, 3 );
-//                    add_action( 'pa_' . $attribute->attribute_name .'_edit_form_fields', array( $this, 'zoo_cw_edit_attr_fields' ), 10 );
-//                }
-//            }
+            $attribute_taxonomies = $this->wc_get_attribute_taxonomies();
+
+            if ( ! empty( $attribute_taxonomies ) ) {
+                foreach ( $attribute_taxonomies as $attribute ) {
+                    add_action( 'pa_' . $attribute->attribute_name . '_add_form_fields', array( $this, 'zoo_cw_add_image_color_selector' ) );
+                    add_filter('manage_edit-'.'pa_' . $attribute->attribute_name.'_columns', array( $this,'zoo_cw_add_preview_column') );
+                    add_filter('manage_pa_' . $attribute->attribute_name.'_custom_column', array( $this,'zoo_cw_preview_column_content'),10, 3 );
+                    add_action( 'pa_' . $attribute->attribute_name .'_edit_form_fields', array( $this, 'zoo_cw_edit_attr_fields' ), 10 );
+                }
+            }
 
             add_action( 'created_term', array( $this, 'zoo_cw_save_attr_extra_fields' ), 10, 3 );
             add_action( 'edit_term', array( $this, 'zoo_cw_save_attr_extra_fields' ), 10, 3 );
 
             //custom tab fields.
             add_action( "wp_ajax_zoo_cw_update_term_data", array( $this ,'zoo_cw_customTabFields' ) );
+        }
+
+
+        public function wc_get_attribute_taxonomies() {
+            if ( false === ( $attribute_taxonomies = get_transient( 'wc_attribute_taxonomies' ) ) ) {
+                global $wpdb;
+
+                $attribute_taxonomies = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "woocommerce_attribute_taxonomies WHERE attribute_name != '' ORDER BY attribute_name ASC;" );
+
+                set_transient( 'wc_attribute_taxonomies', $attribute_taxonomies );
+            }
+
+            return (array) array_filter( apply_filters( 'woocommerce_attribute_taxonomies', $attribute_taxonomies ) );
         }
 
         /**
