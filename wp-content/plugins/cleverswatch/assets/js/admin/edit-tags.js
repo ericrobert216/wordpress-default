@@ -23,8 +23,8 @@ jQuery(document).ready(function(){
 		zoo_cw_show_option(slctd);
 	});
 	
-	var value = jQuery("#zoo-cw-display-type").val();
-	zoo_cw_show_option(value);
+	// var value = jQuery("#zoo-cw-display-type").val();
+	// zoo_cw_show_option(value);
 	
 });
 

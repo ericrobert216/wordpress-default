@@ -352,8 +352,24 @@ if( !class_exists( 'Zoo_Clever_Swatch_Admin_Manager' ) ){
          *
          * @since 1.0.0
          */
-        function zoo_cw_add_image_color_selector(){
-            require_once ZOO_CW_TEMPLATES_PATH.'admin/product-page-add-image-color-selector.php';
+        function zoo_cw_add_image_color_selector($taxonomy){
+            //get attribute id by taxonomy name
+            $attribute_id = wc_attribute_taxonomy_id_by_name($taxonomy);
+
+
+            global $wpdb;
+            $table_name = $wpdb->prefix . "zoo_cw_product_attribute_swatch_type";
+
+            $mylink = $wpdb->get_row( "SELECT * FROM $table_name WHERE attribute_id = $attribute_id" );
+
+            $display_type = '';
+
+            if (isset($mylink)) {
+                $display_type = $mylink->swatch_type;
+            }
+
+            require ZOO_CW_TEMPLATES_PATH.'admin/attribute/option/add-default-swatch-option.php';
+            //require_once ZOO_CW_TEMPLATES_PATH.'admin/product-page-add-image-color-selector.php';
         }
 
         /**
