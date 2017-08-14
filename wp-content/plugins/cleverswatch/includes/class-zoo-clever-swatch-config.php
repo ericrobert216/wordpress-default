@@ -60,37 +60,6 @@ if( !class_exists( 'Zoo_Clever_Swatch_Config' ) ){
                 define( $name, $value );
             }
         }
-
-        /**
-         * install function, perform all necessary operation
-         * on plugin activation.
-         *
-         * @since 1.0.0
-         */
-        function zoo_cw_install(){
-
-            $general_settings_array = array();
-            $enableThis = 1;
-            $enableSwatch = 1;
-            $enable_product_gallery = 1;
-            $attrthumb = 0;
-
-            $attbds = array();
-            $ds1 = 1;
-            $ds2 = 1;
-
-            $attbds['ds1'] = $ds1;
-            $attbds['ds2'] = $ds2;
-
-            $general_settings_array['this'] = $enableThis;
-            $general_settings_array['swatch'] = $enableSwatch;
-            $general_settings_array['product_gallery'] = $enable_product_gallery;
-            $general_settings_array['at'] = $attrthumb;
-            $general_settings_array['atds'] = $attbds;
-
-            if(is_array($general_settings_array))
-                update_option('zoo-cw-settings',$general_settings_array);
-        }
     }
 }
 

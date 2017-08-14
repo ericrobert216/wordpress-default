@@ -22,11 +22,13 @@ if ( ! defined( 'WPINC' ) ) {
 
 // load config
 require plugin_dir_path( __FILE__ ) . 'includes/class-zoo-clever-swatch-config.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-zoo-clever-swatch-install.php';
 
 //add_action('init', array($this, 'load_plugin_textdomain'));
 
 // install default config
-register_activation_hook( __FILE__, array( $zoo_clever_swatch_config, 'zoo_cw_install' ) );
+register_activation_hook( __FILE__, array( $zoo_clever_swatch_install, 'zoo_cw_active_action' ) );
+register_deactivation_hook( __FILE__, array( $zoo_clever_swatch_install, 'zoo_cw_deactive_action' ) );
 
 if (check_woocommerce_active()) {
     //add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), array($this,'zoo_cw_add_settings_link' ) );
