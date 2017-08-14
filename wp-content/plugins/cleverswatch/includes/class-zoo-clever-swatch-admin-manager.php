@@ -146,6 +146,23 @@ if( !class_exists( 'Zoo_Clever_Swatch_Admin_Manager' ) ){
             return (array) array_filter( apply_filters( 'woocommerce_attribute_taxonomies', $attribute_taxonomies ) );
         }
 
+        private function get_display_type_by_attribute_taxonomy_name( $taxonomy_name) {
+            //get attribute id by taxonomy name
+            $attribute_id = wc_attribute_taxonomy_id_by_name($taxonomy_name);
+
+            global $wpdb;
+            $table_name = $wpdb->prefix . "zoo_cw_product_attribute_swatch_type";
+
+            $mylink = $wpdb->get_row( "SELECT * FROM $table_name WHERE attribute_id = $attribute_id" );
+
+            $display_type = '';
+            if (isset($mylink)) {
+                $display_type = $mylink->swatch_type;
+            }
+
+            return $display_type;
+        }
+
         /**
          * function for exporting csv file.
          *
@@ -266,13 +283,13 @@ if( !class_exists( 'Zoo_Clever_Swatch_Admin_Manager' ) ){
          */
         function zoo_cw_edit_attr_fields( $term ){
             $id = $term->term_id;
-            $dt = get_woocommerce_term_meta( $id, 'display_type', true );
+            $display_type = $this->get_display_type_by_attribute_taxonomy_name( $term->taxonomy );
             $color_code = get_woocommerce_term_meta( $id, 'slctd_clr', true );
             $image = get_woocommerce_term_meta( $id, 'slctd_img', true );
             if(empty($image))
                 $image = wc_placeholder_img_src();
 
-            require_once ZOO_CW_TEMPLATES_PATH.'admin/product-page-edit-attr-fields.php';
+            require_once ZOO_CW_TEMPLATES_PATH.'admin/attribute/option/edit-default-swatch-option.php';
         }
 
         /**
@@ -281,14 +298,21 @@ if( !class_exists( 'Zoo_Clever_Swatch_Admin_Manager' ) ){
          * @since 1.0.0
          */
         function zoo_cw_save_attr_extra_fields( $term_id, $tt_id = '', $taxonomy = '' ){
-            if ( isset( $_POST['zoo-cw-display-type'] ) ) {
+            //get attribute id by taxonomy name
+            $attribute_id = wc_attribute_taxonomy_id_by_name($taxonomy);
 
-                $dt = absint( $_POST['zoo-cw-display-type'] );
-                update_woocommerce_term_meta( $term_id, 'display_type', absint( $_POST['zoo-cw-display-type'] ) );
+            global $wpdb;
+            $table_name = $wpdb->prefix . "zoo_cw_product_attribute_swatch_type";
 
-                if($dt == 2){
+            $mylink = $wpdb->get_row( "SELECT * FROM $table_name WHERE attribute_id = $attribute_id" );
+
+            $display_type = '';
+            if (isset($mylink)) {
+                $display_type = $mylink->swatch_type;
+
+                if($display_type == 'color'){
                     update_woocommerce_term_meta( $term_id, 'slctd_clr',  $_POST['zoo_cw_slctdclr'] );
-                }else if($dt == 1){
+                }else if($display_type == 'image'){
                     update_woocommerce_term_meta( $term_id, 'slctd_img',  $_POST['zoo-cw-selected-attr-img'] );
                 }
             }
@@ -303,15 +327,17 @@ if( !class_exists( 'Zoo_Clever_Swatch_Admin_Manager' ) ){
 
             if ( 'thumb' == $column ) {
 
-                $dt = get_woocommerce_term_meta( $id, 'display_type', true );
+                $term = get_term_by('id', $id, 'category');
 
-                if($dt == 2){
+                $display_type = $this->get_display_type_by_attribute_taxonomy_name($term->taxonomy);
+
+                if ($display_type == 'color'){
 
                     $color_code = get_woocommerce_term_meta( $id, 'slctd_clr', true );
 
                     $columns .= '<div style="height:48px; width:48px; background-color:'.$color_code.';" ></div>';
 
-                } else{
+                } else if ($display_type == 'image'){
 
                     $img_url = get_woocommerce_term_meta( $id, 'slctd_img', true );
 
