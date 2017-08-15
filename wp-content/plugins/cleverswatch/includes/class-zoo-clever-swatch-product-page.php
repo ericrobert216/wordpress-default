@@ -83,7 +83,6 @@ if( !class_exists( 'Zoo_Clever_Swatch_Product_Page' ) ) {
                     continue;
                 }
 
-
                 $attribute_enabled_options = $attributes[$attribute_name];
 
                 $terms = wc_get_product_terms( $product->get_id(), $attribute_name, array( 'fields' => 'all' ) );

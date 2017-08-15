@@ -23,6 +23,7 @@ if ( ! defined( 'WPINC' ) ) {
 // load config
 require plugin_dir_path( __FILE__ ) . 'includes/class-zoo-clever-swatch-config.php';
 require plugin_dir_path( __FILE__ ) . 'includes/class-zoo-clever-swatch-install.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-zoo-clever-swatch-helper.php';
 
 //add_action('init', array($this, 'load_plugin_textdomain'));
 

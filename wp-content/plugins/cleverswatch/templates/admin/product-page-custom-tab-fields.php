@@ -9,8 +9,9 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-?>
 
+$zoo_cw_helper =  new Zoo_Clever_Swatch_Helper();
+?>
 
 <div id="zoo-cw-variation-swatch-data" class="panel woocommerce_options_panel"><?php
 	$attributes	=	$_product->get_variation_attributes();
@@ -28,6 +29,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</div>
 	<div id="zoo-cw-accordion">
 		<?php foreach ( $attributes as $attribute_name => $options ) : ?>
+            <?php
+                $default_display_type = $zoo_cw_helper->get_display_type_by_attribute_taxonomy_name($attribute_name);
+            ?>
 			<?php $tmp_title =  $attribute_name; ?>
 			<div class="zoo-cw-panel">
 				<div class="zoo-cw-panel-heading">
@@ -42,7 +46,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						</tr>
 						<tr>
 							<td><?php _e('Display Type','clever-swatch');?></td>
-							<?php $display_type = isset($product_swatch_data_array[$tmp_title]['display_type']) ? $product_swatch_data_array[$tmp_title]['display_type'] : 'default'; ?>
+							<?php $display_type = isset($product_swatch_data_array[$tmp_title]['display_type']) ? $product_swatch_data_array[$tmp_title]['display_type'] : $default_display_type; ?>
                             <td>
 								<select class="zoo-cw-display-type" name="zoo_cw_display_type_<?php echo  $attribute_name; ?>">
 									<option value="default" <?php if($display_type == 'default'): echo 'selected=selected'; endif; ?> ><?php _e('Default(Select)','clever-swatch');?></option>
@@ -100,8 +104,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 											<?php $termName =  $term->slug; ?>
 											<div class="zoo-cw-sub-collapse">
 												<table class="zoo-cw-attr-option">
-                                                    <?php $image = isset($tmp_options_data_array[$termName]['image']) ? $tmp_options_data_array[$termName]['image'] : wc_placeholder_img_src(); ?>
-                                                    <?php $color = isset($tmp_options_data_array[$termName]['color']) ? $tmp_options_data_array[$termName]['color'] : ''; ?>
+                                                    <?php $default_value = $zoo_cw_helper->get_default_value_of_attribute_option($term); ?>
+                                                    <?php $image = isset($tmp_options_data_array[$termName]['image']) ? $tmp_options_data_array[$termName]['image'] : $default_value['default_image']; ?>
+                                                    <?php $color = isset($tmp_options_data_array[$termName]['color']) ? $tmp_options_data_array[$termName]['color'] : $default_value['default_color']; ?>
 													<tr class="zoo-cw-sci" <?php if($display_type != 'image'): echo 'style="display:none;"'; endif;?>>
 														<td><?php _e('Select/Upload Image','clever-swatch')?></td>
 														<td><img height="30px" width="30px" src="<?php echo $image;?>" alt="<?php _e('Select Image','clever-swatch');?>" class="zoo-cw-scimage_<?php echo  $term->slug; ?>">

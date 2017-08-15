@@ -522,9 +522,7 @@ if( !class_exists( 'Zoo_Clever_Swatch_Admin_Manager' ) ){
          */
         function zoo_cw_saveCustomTabFields( $post_id ){
 
-//            echo('<pre/>');
-//            var_dump($_POST);
-//            die;
+            $zoo_cw_helper =  new Zoo_Clever_Swatch_Helper();
 
             $_product = wc_get_product( $post_id );
             $zoo_cw_swatch_array = array();
@@ -537,7 +535,9 @@ if( !class_exists( 'Zoo_Clever_Swatch_Admin_Manager' ) ){
                         $tmp_attr_data_array = array();
                         $attrName =  $attribute_name;
                         $tmp_attr_data_array['label'] = isset($_POST["zoo_cw_label_$attrName"])&& !empty($_POST["zoo_cw_label_$attrName"]) ?  $_POST["zoo_cw_label_$attrName"] : wc_attribute_label( $attribute_name ) ;
-                        $display_type = isset($_POST["zoo_cw_display_type_$attrName"]) ? $_POST["zoo_cw_display_type_$attrName"] : 'default' ;
+
+                        $default_display_type = $zoo_cw_helper->get_display_type_by_attribute_taxonomy_name($attribute_name);
+                        $display_type = isset($_POST["zoo_cw_display_type_$attrName"]) ? $_POST["zoo_cw_display_type_$attrName"] : $default_display_type ;
                         $tmp_attr_data_array['display_type'] = $display_type;
                         $tmp_attr_data_array['display_size'] = isset($_POST["zoo_cw_display_size_$attrName"]) ? intval( $_POST["zoo_cw_display_size_$attrName"] ) : 1 ;
                         $tmp_attr_data_array['display_shape'] = isset($_POST["zoo_cw_display_shape_$attrName"]) ? $_POST["zoo_cw_display_shape_$attrName"] : 'square' ;
@@ -549,11 +549,12 @@ if( !class_exists( 'Zoo_Clever_Swatch_Admin_Manager' ) ){
                                 $terms = get_terms( $attribute_name, array('menu_order' => 'ASC') );
                                 foreach ( $terms as $term ) {
                                     if ( in_array( $term->slug, $options ) ){
+                                        $default_value = $zoo_cw_helper->get_default_value_of_attribute_option($term);
                                         $tmp_term_name =  $term->slug;
                                         if( $display_type == 'image' ){
-                                            $tmp_option_array[$tmp_term_name]['image'] = isset($_POST["zoo-cw-input-scimg-$tmp_term_name"]) ? sanitize_text_field( $_POST["zoo-cw-input-scimg-$tmp_term_name"] ) : '' ;
+                                            $tmp_option_array[$tmp_term_name]['image'] = isset($_POST["zoo-cw-input-scimg-$tmp_term_name"]) ? sanitize_text_field( $_POST["zoo-cw-input-scimg-$tmp_term_name"] ) : $default_value['default_image'] ;
                                         }else if ( $display_type == 'color' ){
-                                            $tmp_option_array[$tmp_term_name]['color'] = isset($_POST["zoo_cw_slctclr_$tmp_term_name"]) ? sanitize_text_field( $_POST["zoo_cw_slctclr_$tmp_term_name"] ) : '' ;
+                                            $tmp_option_array[$tmp_term_name]['color'] = isset($_POST["zoo_cw_slctclr_$tmp_term_name"]) ? sanitize_text_field( $_POST["zoo_cw_slctclr_$tmp_term_name"] ) : $default_value['default_color'] ;
                                         }
                                     }
                                 }
