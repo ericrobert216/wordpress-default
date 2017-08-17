@@ -209,17 +209,18 @@ function zoo_cw_shop_page_swatch() {
 
     $thumbnail_size    = apply_filters( 'woocommerce_product_thumbnails_large_size', 'full' );
     $post_thumbnail_id = get_post_thumbnail_id( $variation_id );
-    $full_size_image   = wp_get_attachment_image_src( $post_thumbnail_id, $thumbnail_size );
+    $full_size_image_src   = wp_get_attachment_image_src( $post_thumbnail_id, $thumbnail_size );
+    $full_size_image_srcset   = wp_get_attachment_image_srcset( $post_thumbnail_id, $thumbnail_size );
 
     if (!isset($full_size_image) || !isset($full_size_image[0]) || $full_size_image[0] == '') {
         $data = array (
             'result' => 'done',
-            'image_url' => wc_placeholder_img_src()
+            'image_src' => wc_placeholder_img_src()
         );
     } else {
         $data = array (
             'result' => 'done',
-            'image_url' => $full_size_image[0]
+            'image_url' => $full_size_image_src[0]
         );
     }
 

@@ -25,7 +25,7 @@ if( !class_exists( 'Zoo_Clever_Swatch_Shop_Page' ) ) {
 
         public function hook_action() {
             add_action( 'woocommerce_after_shop_loop_item', array( $this,'zoo_cw_shop_page_add_swatch' ), 10, 3 );
-            add_action( 'wp_enqueue_scripts', array( $this,'load_shop_page_assets' ), 10, 3 );
+            add_action( 'woocommerce_after_shop_loop', array( $this,'load_shop_page_assets' ), 10, 3 );
         }
 
         public function zoo_cw_shop_page_add_swatch() {
@@ -55,7 +55,6 @@ if( !class_exists( 'Zoo_Clever_Swatch_Shop_Page' ) ) {
         }
 
         public function load_shop_page_assets() {
-
             wp_register_script('zoo-cw-shop-page-swatches', ZOO_CW_JSPATH . "shop-page-swatch.js",
                 array( 'jquery' ), ZOO_CW_VERSION , TRUE);
 
