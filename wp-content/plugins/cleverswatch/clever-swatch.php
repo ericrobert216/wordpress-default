@@ -40,8 +40,8 @@ if (check_woocommerce_active()) {
     if(is_admin()){
         require_once(ZOO_CW_DIRPATH . 'includes/class-zoo-clever-swatch-admin-manager.php');
     }else{
-
         require_once(ZOO_CW_DIRPATH . 'includes/class-zoo-clever-swatch-product-page.php');
+        require_once(ZOO_CW_DIRPATH . 'includes/class-zoo-clever-swatch-shop-page.php');
     }
 
 } else {
