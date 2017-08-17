@@ -190,4 +190,42 @@ function clever_swatch_action_reset() {
     wp_die(); // this is required to terminate immediately and return a proper response
 }
 
+
+add_action( 'wp_ajax_zoo_cw_shop_page_swatch','zoo_cw_shop_page_swatch' );
+
+function zoo_cw_shop_page_swatch() {
+    $data = array (
+        'result' => 'error',
+        'image_url' => ''
+    );
+
+    $selected_options = $_POST['selected_options'];
+
+    $product = wc_get_product($_POST['product_id']);
+
+
+    $data_store   = WC_Data_Store::load( 'product' );
+    $variation_id = $data_store->find_matching_product_variation( $product, $selected_options );
+
+    $thumbnail_size    = apply_filters( 'woocommerce_product_thumbnails_large_size', 'full' );
+    $post_thumbnail_id = get_post_thumbnail_id( $variation_id );
+    $full_size_image   = wp_get_attachment_image_src( $post_thumbnail_id, $thumbnail_size );
+
+    if (!isset($full_size_image) || !isset($full_size_image[0]) || $full_size_image[0] == '') {
+        $data = array (
+            'result' => 'done',
+            'image_url' => wc_placeholder_img_src()
+        );
+    } else {
+        $data = array (
+            'result' => 'done',
+            'image_url' => $full_size_image[0]
+        );
+    }
+
+    wp_send_json( $data );
+
+    wp_die();
+}
+
 ?>

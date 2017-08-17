@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 
-<table class="variations" cellspacing="0">
+<table class="variations" cellspacing="0" data-product_id="<?php echo($post_id);?>">
     <tbody>
     <?php foreach ($attributes as $attribute_name => $options) : ?>
         <tr>
