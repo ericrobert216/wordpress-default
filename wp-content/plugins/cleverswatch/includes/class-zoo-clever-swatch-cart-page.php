@@ -25,17 +25,20 @@ if( !class_exists( 'Zoo_Clever_Swatch_Cart_Page' ) ) {
         }
 
         public function zoo_wc_render_product_name_with_swatch($product_name, $cart_item, $cart_item_key) {
-            echo('<pre/>');
+            //echo('<pre/>');
 
             $html = $product_name;
+            echo($html);
             if (count($cart_item['variation'])) {
 
                 $product_swatch_data_array = get_post_meta($cart_item['product_id'], 'zoo_cw_product_swatch_data', true);
 
                 $variations = $cart_item['variation'];
+                $attributes = array();
                 foreach ($variations as $key => $variation) {
                     $attribue_name = str_replace('attribute_',"", $key);
-                    echo($attribue_name);
+                    //var_dump($attribue_name);
+                    $attributes[$attribue_name][] = $variation;
                 }
 
                 if ($product_swatch_data_array != '') {
@@ -45,21 +48,12 @@ if( !class_exists( 'Zoo_Clever_Swatch_Cart_Page' ) ) {
 
                     $product = wc_get_product( $cart_item['product_id'] );
 
-                    $attributes = $product->get_variation_attributes()  ;
-
-                    //var_dump($attributes);
-
                     $product_swatch_data_array = $zoo_clever_swatch_product_page->prepare_singele_page_data($product, $attributes, $product_swatch_data_array);
 
-                    require(ZOO_CW_TEMPLATES_PATH . 'shop-page-swatch-image.php');
+                    require(ZOO_CW_TEMPLATES_PATH . 'cart-page-swatch-variation.php');
                 }
             }
-//            echo('<pre/>');
-//            var_dump($product_name);
-//            var_dump($cart_item);
-//            var_dump($cart_item_key);
-            die;
-            echo($html);
+
         }
 
         public function load_template($template, $template_name, $template_path) {
