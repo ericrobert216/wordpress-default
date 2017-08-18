@@ -25,33 +25,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 <table class="variations" cellspacing="0" data-product_id="<?php echo($post_id);?>">
     <tbody>
     <?php foreach ($attributes as $attribute_name => $options) : ?>
-        <tr>
-            <td class="value <?php echo($product_swatch_data_array[$attribute_name]['class_attribute']); ?>">
-                <?php
-                    $zoo_cw_attribute = $product_swatch_data_array[$attribute_name];
-                    $zoo_cw_attribute_options = $zoo_cw_attribute['options_data'];
-                ?>
-                <?php foreach ($zoo_cw_attribute_options as $zoo_cw_attribute_option): ?>
-                    <div class="zoo-cw-attribute-option">
-                        <div class="zoo-cw-attr-item  <?php echo($zoo_cw_attribute['class_options']); ?>">
-                            <?php if ($zoo_cw_attribute['display_type'] == 'color'): ?>
-                                <span style="background-color: <?php echo($zoo_cw_attribute_option['color']); ?>;"
-                                      class="zoo-cw-label-color">
-                                        </span>
-                            <?php elseif ($zoo_cw_attribute['display_type'] == 'text' || $zoo_cw_attribute['display_type'] == 'default'): ?>
-                                <span class="zoo-cw-label-text">
-                                            <?php echo($zoo_cw_attribute_option['name']); ?>
-                                        </span>
-                            <?php elseif ($zoo_cw_attribute['display_type'] == 'image'): ?>
-                                <img src="<?php echo($zoo_cw_attribute_option['image']); ?>">
-                            <?php endif; ?>
-                        </div>
-                        
-                    </div>
-                <?php endforeach; ?>
-
-            </td>
-        </tr>
+        <?php
+            $zoo_cw_attribute = $product_swatch_data_array[$attribute_name];
+            $zoo_cw_attribute_options = $zoo_cw_attribute['options_data'];
+        ?>
+        <?php foreach ($zoo_cw_attribute_options as $zoo_cw_attribute_option): ?>
+            <div class="zoo-cw-attribute-option">
+                <div class="zoo-cw-attr-item  <?php echo($zoo_cw_attribute['class_options']); ?>">
+                    <?php if ($zoo_cw_attribute['display_type'] == 'color'): ?>
+                        <span style="background-color: <?php echo($zoo_cw_attribute_option['color']); ?>;"
+                              class="zoo-cw-label-color">
+                                </span>
+                    <?php elseif ($zoo_cw_attribute['display_type'] == 'text' || $zoo_cw_attribute['display_type'] == 'default'): ?>
+                        <span class="zoo-cw-label-text">
+                                    <?php echo($zoo_cw_attribute_option['name']); ?>
+                                </span>
+                    <?php elseif ($zoo_cw_attribute['display_type'] == 'image'): ?>
+                        <img src="<?php echo($zoo_cw_attribute_option['image']); ?>">
+                    <?php endif; ?>
+                </div>
+            </div>
+        <?php endforeach; ?>
     <?php endforeach; ?>
     </tbody>
 </table>
