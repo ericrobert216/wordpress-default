@@ -28,9 +28,6 @@ $zoo_clever_swatch_product_page = new Zoo_Clever_Swatch_Product_Page();
 
 $product_swatch_data_array = $zoo_clever_swatch_product_page->prepare_singele_page_data($product, $attributes, $product_swatch_data_array);
 
-//var_dump($data);
-//die;
-
 do_action('woocommerce_before_add_to_cart_form'); ?>
 
 <form class="variations_form cart" method="post" enctype='multipart/form-data'
