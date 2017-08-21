@@ -43,7 +43,7 @@ if( !class_exists( 'Zoo_Clever_Swatch_Helper' ) ){
             $default_array['display_type'] = $this->get_display_type_by_attribute_taxonomy_name( $term->taxonomy );
             $default_array['default_color'] = get_woocommerce_term_meta( $id, 'slctd_clr', true );
             $default_image = get_woocommerce_term_meta( $id, 'slctd_img', true );
-            if(empty($image))
+            if(empty($default_image))
                 $default_image = wc_placeholder_img_src();
 
             $default_array['default_image'] = $default_image;
