@@ -41,7 +41,7 @@ jQuery( document ).ready(function() {
 
                 console.log(data);
                 if (data['result'] == 'done') {
-                    product_li.find('.woocommerce-LoopProduct-link .wp-post-image')
+                    product_li.find('.wp-post-image')
                         .attr('src',data['image_src'])
                         .attr('srcset',data['image_src']);
                 }

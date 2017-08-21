@@ -26,8 +26,8 @@ if (isset($_POST['save'])) {
         $enable_product_gallery = isset($_POST['zoo_cw_enable_product_gallery']) ? 1 : 0;
 
         $display_shape = isset($_POST['zoo_cw_display_shape']) ? $_POST['zoo_cw_display_shape'] : 1;
-        $display_size = isset($_POST['zoo_cw_display_size']) ? $_POST['zoo_cw_display_size'] : 2;
-        if ($display_size == 5) {
+        $display_size = isset($_POST['zoo_cw_display_size']) ? $_POST['zoo_cw_display_size'] : 1;
+        if ($display_size == "custom") {
             $display_size_width = isset($_POST['zoo_cw_display_size_width']) ? $_POST['zoo_cw_display_size_width'] : 20;
             $display_size_height = isset($_POST['zoo_cw_display_size_height']) ? $_POST['zoo_cw_display_size_height'] : $display_size_width;
         }
@@ -37,7 +37,7 @@ if (isset($_POST['save'])) {
         $general_settings_array['product_gallery'] = $enable_product_gallery;
         $general_settings_array['display_shape'] = $display_shape;
         $general_settings_array['display_size'] = $display_size;
-        if ($display_size == 5) {
+        if ($display_size == "custom") {
             $general_settings_array['display_size_width'] = $display_size_width;
             $general_settings_array['display_size_height'] = $display_size_height;
         }
@@ -125,18 +125,18 @@ if (isset($_POST['save'])) {
                                 <td><?php _e('Swatch option display size', 'clever-swatch'); ?></td>
                                 <td>
                                     <select name="zoo_cw_display_size" class="zoo_cw_atds">
-                                        <option value="2" <?php selected($display_size, 2); ?>><?php _e('20px * 20px', 'clever-swatch') ?></option>
-                                        <option value="3" <?php selected($display_size, 3); ?>><?php _e('40px * 40px', 'clever-swatch') ?></option>
-                                        <option value="4" <?php selected($display_size, 4); ?>><?php _e('60px * 60px', 'clever-swatch') ?></option>
-                                        <option value="5" <?php selected($display_size, 5); ?>><?php _e('Custom', 'clever-swatch') ?></option>
+                                        <option value="1" <?php selected($display_size, 1); ?>><?php _e('20px * 20px', 'clever-swatch') ?></option>
+                                        <option value="2" <?php selected($display_size, 2); ?>><?php _e('40px * 40px', 'clever-swatch') ?></option>
+                                        <option value="3" <?php selected($display_size, 3); ?>><?php _e('60px * 60px', 'clever-swatch') ?></option>
+                                        <option value="custom" <?php selected($display_size, 'custom'); ?>><?php _e('Custom', 'clever-swatch') ?></option>
                                     </select>
 
                                     <input type="text" placeholder="size in px." id="zoo_cw_display_size_width"
                                            name="zoo_cw_display_size_width"
-                                           value="<?php echo $display_size_width; ?>" <?php if ($display_size != 5): echo 'style="display: none;"'; endif; ?>>
+                                           value="<?php echo $display_size_width; ?>" <?php if ($display_size != "custom"): echo 'style="display: none;"'; endif; ?>>
                                     <input type="text" placeholder="size in px." id="zoo_cw_display_size_height"
                                            name="zoo_cw_display_size_height"
-                                           value="<?php echo $display_size_height; ?>" <?php if ($display_size != 5): echo 'style="display: none;"'; endif; ?>>
+                                           value="<?php echo $display_size_height; ?>" <?php if ($display_size != "custom"): echo 'style="display: none;"'; endif; ?>>
 
                                 </td>
                                 <td>

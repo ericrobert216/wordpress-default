@@ -27,7 +27,7 @@ jQuery( document ).ready(function() {
             var ajax_url = zoo_cw_params.ajax_url;
             var form = jQuery('form.variations_form');
             var product = form.closest('.product');
-            var imagesDiv = product.find('div.woocommerce-product-gallery');
+            var imagesDiv = product.find('div.woocommerce-product-gallery,div.images');
             var productId = jQuery('input[name="product_id"]').val();
 
             jQuery.ajax({
@@ -42,7 +42,7 @@ jQuery( document ).ready(function() {
                     if (response != '' && response != 'undefined' && response != null) {
                         if (jQuery(imagesDiv).length) {
                             jQuery(imagesDiv).replaceWith(response);
-                            jQuery('.woocommerce-product-gallery').each(function () {
+                            imagesDiv.each(function () {
                                 jQuery(this).wc_product_gallery();
                             });
                         }

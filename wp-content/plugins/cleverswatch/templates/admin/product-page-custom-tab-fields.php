@@ -61,10 +61,10 @@ $zoo_cw_helper =  new Zoo_Clever_Swatch_Helper();
 							<?php $display_size = isset($product_swatch_data_array[$tmp_title]['display_size']) ? intval($product_swatch_data_array[$tmp_title]['display_size']) : 1; ?>
 							<td>
 								<select class="" name="zoo_cw_display_size_<?php echo  $attribute_name; ?>">
-                                    <option value="1" <?php if($display_size == 1): echo 'selected=selected'; endif; ?>><?php _e('Default global size','clever-swatch');?></option>
-									<option value="2" <?php if($display_size == 2): echo 'selected=selected'; endif; ?>><?php _e('20px * 20px','clever-swatch');?></option>
-									<option value="3" <?php if($display_size == 3): echo 'selected=selected'; endif; ?>><?php _e('40px * 40px','clever-swatch');?></option>
-									<option value="4" <?php if($display_size == 4): echo 'selected=selected'; endif; ?>><?php _e('60px * 60px','clever-swatch');?></option>
+                                    <option value="default" <?php if($display_size == "default"): echo 'selected=selected'; endif; ?>><?php _e('Default global size','clever-swatch');?></option>
+									<option value="1" <?php if($display_size == 1): echo 'selected=selected'; endif; ?>><?php _e('20px * 20px','clever-swatch');?></option>
+									<option value="2" <?php if($display_size == 2): echo 'selected=selected'; endif; ?>><?php _e('40px * 40px','clever-swatch');?></option>
+									<option value="3" <?php if($display_size == 3): echo 'selected=selected'; endif; ?>><?php _e('60px * 60px','clever-swatch');?></option>
 								</select>
 							</td>
 						</tr>
