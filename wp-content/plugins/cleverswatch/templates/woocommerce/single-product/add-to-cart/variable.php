@@ -28,6 +28,9 @@ $zoo_clever_swatch_product_page = new Zoo_Clever_Swatch_Product_Page();
 
 $product_swatch_data_array = $zoo_clever_swatch_product_page->prepare_singele_page_data($product, $attributes, $product_swatch_data_array);
 
+//var_dump($data);
+//die;
+
 do_action('woocommerce_before_add_to_cart_form'); ?>
 
 <form class="variations_form cart" method="post" enctype='multipart/form-data'
@@ -57,27 +60,29 @@ do_action('woocommerce_before_add_to_cart_form'); ?>
                         $zoo_cw_attribute_options = $zoo_cw_attribute['options_data'];
                         ?>
 
-                        <?php foreach ($zoo_cw_attribute_options as $zoo_cw_attribute_option): ?>
-                            <div class="zoo-cw-attribute-option">
-                                <div class="zoo-cw-attr-item  <?php echo($zoo_cw_attribute['class_options']); ?>">
-                                    <?php if ($zoo_cw_attribute['display_type'] == 'color'): ?>
-                                        <span style="background-color: <?php echo($zoo_cw_attribute_option['color']); ?>;"
-                                              class="zoo-cw-label-color">
-                                        </span>
-                                    <?php elseif ($zoo_cw_attribute['display_type'] == 'text'): ?>
-                                        <span class="zoo-cw-label-text">
-                                            <?php echo($zoo_cw_attribute_option['name']); ?>
-                                        </span>
-                                    <?php elseif ($zoo_cw_attribute['display_type'] == 'image'): ?>
-                                        <img src="<?php echo($zoo_cw_attribute_option['image']); ?>">
+                        <?php if ($zoo_cw_attribute['display_type'] != 'default'): ?>
+                            <?php foreach ($zoo_cw_attribute_options as $zoo_cw_attribute_option): ?>
+                                <div class="zoo-cw-attribute-option">
+                                    <div class="zoo-cw-attr-item  <?php echo($zoo_cw_attribute['class_options']); ?>">
+                                        <?php if ($zoo_cw_attribute['display_type'] == 'color'): ?>
+                                            <span style="background-color: <?php echo($zoo_cw_attribute_option['color']); ?>;"
+                                                  class="zoo-cw-label-color">
+                                            </span>
+                                        <?php elseif ($zoo_cw_attribute['display_type'] == 'text'): ?>
+                                            <span class="zoo-cw-label-text">
+                                                <?php echo($zoo_cw_attribute_option['name']); ?>
+                                            </span>
+                                        <?php elseif ($zoo_cw_attribute['display_type'] == 'image'): ?>
+                                            <img src="<?php echo($zoo_cw_attribute_option['image']); ?>">
+                                        <?php endif; ?>
+                                    </div>
+                                    <?php if ($zoo_cw_attribute['display_name_yn'] == 1): ?>
+                                        <span  class="zoo-cw-attr-label"><?php echo($zoo_cw_attribute_option['name']); ?></span>
                                     <?php endif; ?>
+                                    <input type="hidden" name="" value="<?php echo($zoo_cw_attribute_option['value']); ?>">
                                 </div>
-                                <?php if ($zoo_cw_attribute['display_name_yn'] == 1): ?>
-                                    <span  class="zoo-cw-attr-label"><?php echo($zoo_cw_attribute_option['name']); ?></span>
-                                <?php endif; ?>
-                                <input type="hidden" name="" value="<?php echo($zoo_cw_attribute_option['value']); ?>">
-                            </div>
-                        <?php endforeach; ?>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
 
                         <?php echo end($attribute_keys) === $attribute_name ? apply_filters('woocommerce_reset_variations_link', '<a class="reset_variations" href="#">' . esc_html__('Clear', 'woocommerce') . '</a>') : ''; ?>
                     </td>
