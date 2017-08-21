@@ -61,7 +61,7 @@ $zoo_cw_helper =  new Zoo_Clever_Swatch_Helper();
 							<?php $display_size = isset($product_swatch_data_array[$tmp_title]['display_size']) ? intval($product_swatch_data_array[$tmp_title]['display_size']) : 1; ?>
 							<td>
 								<select class="" name="zoo_cw_display_size_<?php echo  $attribute_name; ?>">
-                                    <option value="default" <?php if($display_size == "default"): echo 'selected=selected'; endif; ?>><?php _e('Default global size','clever-swatch');?></option>
+                                    <option value="default" <?php if($display_size == "default"): echo 'selected=selected'; endif; ?>><?php _e('Default Global','clever-swatch');?></option>
 									<option value="1" <?php if($display_size == 1): echo 'selected=selected'; endif; ?>><?php _e('20px * 20px','clever-swatch');?></option>
 									<option value="2" <?php if($display_size == 2): echo 'selected=selected'; endif; ?>><?php _e('40px * 40px','clever-swatch');?></option>
 									<option value="3" <?php if($display_size == 3): echo 'selected=selected'; endif; ?>><?php _e('60px * 60px','clever-swatch');?></option>
@@ -73,19 +73,20 @@ $zoo_cw_helper =  new Zoo_Clever_Swatch_Helper();
                             <?php $display_shape = isset($product_swatch_data_array[$tmp_title]['display_shape']) ? $product_swatch_data_array[$tmp_title]['display_shape'] : 'square'; ?>
                             <td>
                                 <select name="zoo_cw_display_shape_<?php echo  $attribute_name; ?>">
+                                    <option value="default" <?php if($display_shape == "default"): echo 'selected=selected'; endif; ?>><?php _e('Default Global','clever-swatch');?></option>
                                     <option value="square" <?php if($display_shape == 'square'): echo 'selected=selected'; endif; ?>><?php _e('Square','clever-swatch');?></option>
                                     <option value="circle" <?php if($display_shape == 'circle'): echo 'selected=selected'; endif; ?>><?php _e('Circle','clever-swatch');?></option>
-                                    <option value="rectangle" <?php if($display_shape == 'rectangle'): echo 'selected=selected'; endif; ?>><?php _e('Rectangle','clever-swatch');?></option>
                                 </select>
                             </td>
                         </tr>
 						<tr>
 							<td><?php _e('Show Attribute Name?','clever-swatch');?></td>
-							<?php $display_name = isset($product_swatch_data_array[$tmp_title]['display_name_yn']) ? intval($product_swatch_data_array[$tmp_title]['display_name_yn']) : 1; ?>
+							<?php $display_name = isset($product_swatch_data_array[$tmp_title]['display_name_yn']) ? $product_swatch_data_array[$tmp_title]['display_name_yn'] : 1; ?>
 							<td>
 								<select name="zoo_cw_display_name_<?php echo  $attribute_name; ?>">
-									<option value="1" <?php if($display_name == 1): echo 'selected=selected'; endif; ?>><?php _e('Yes','clever-swatch');?></option>
-									<option value="0" <?php if($display_name == 0): echo 'selected=selected'; endif; ?>><?php _e('No','clever-swatch');?></option>
+                                    <option value="default" <?php if($display_name == "default"): echo 'selected=selected'; endif; ?>><?php _e('Default Global','clever-swatch');?></option>
+									<option value="1" <?php if($display_name == '1'): echo 'selected=selected'; endif; ?>><?php _e('Yes','clever-swatch');?></option>
+									<option value="0" <?php if($display_name == '0'): echo 'selected=selected'; endif; ?>><?php _e('No','clever-swatch');?></option>
 								</select>
 							</td>
 						</tr>

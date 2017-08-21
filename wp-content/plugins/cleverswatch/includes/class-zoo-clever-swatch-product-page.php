@@ -79,6 +79,8 @@ if( !class_exists( 'Zoo_Clever_Swatch_Product_Page' ) ) {
 
         public function prepare_singele_page_data($product, $attributes, $product_swatch_data_array) {
 
+            $general_settings = get_option('zoo-cw-settings', true);
+
             foreach ($product_swatch_data_array as $attribute_name => $data) {
                 if ($attribute_name == 'disabled') {
                     continue;
@@ -108,18 +110,28 @@ if( !class_exists( 'Zoo_Clever_Swatch_Product_Page' ) ) {
 
                 $display_size = $data['display_size'];
                 if ($data['display_size'] == 'default') {
-                    $general_settings = get_option('zoo-cw-settings', true);
                     $display_size = $general_settings['display_size'];
                 }
 
                 if ($display_size == 'custom') {
-                    $general_settings = get_option('zoo-cw-settings', true);
                     $custom_style = 'style="width: '.$general_settings['display_size_width'].'px;height: '.$general_settings['display_size_height'].'px;"';
                     $product_swatch_data_array[$attribute_name]['custom_style'] = $custom_style;
                 }
 
+                $display_shape = $data['display_shape'];
+                if ($data['display_shape'] == 'default') {
+                    $display_shape = $general_settings['display_shape'];
+                    $product_swatch_data_array[$attribute_name]['display_shape'] = $display_shape;
+                }
+
+                $display_name_yn = $data['display_name_yn'];
+                if ($data['display_name_yn'] == 'default') {
+                    $display_name_yn = $general_settings['display_name'];
+                    $product_swatch_data_array[$attribute_name]['display_name_yn'] = $display_name_yn;
+                }
+
                 $class_options = 'zoo-cw-option-display-size-'.$display_size;
-                $class_options .= ' zoo-cw-option-display-shape-'.$data['display_shape'];
+                $class_options .= ' zoo-cw-option-display-shape-'.$display_shape;
                 $product_swatch_data_array[$attribute_name]['class_options'] = $class_options;
             }
 

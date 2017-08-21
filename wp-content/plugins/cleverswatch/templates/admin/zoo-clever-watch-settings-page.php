@@ -75,7 +75,7 @@ if (isset($_POST['save'])) {
                             <?php
                             $swatch = isset($general_settings['swatch']) ? intval($general_settings['swatch']) : 1;
                             $enable_product_gallery = isset($general_settings['product_gallery']) ? intval($general_settings['product_gallery']) : 1;
-                            $display_shape = isset($general_settings['display_shape']) ? intval($general_settings['display_shape']) : 1;
+                            $display_shape = isset($general_settings['display_shape']) ? $general_settings['display_shape'] : 'square';
                             $display_size = isset($general_settings['display_size']) ? $general_settings['display_size'] : 1;
                             $display_size_width = isset($general_settings['display_size_width']) ? intval($general_settings['display_size_width']) : 20;
                             $display_size_height = isset($general_settings['display_size_height']) ? intval($general_settings['display_size_height']) : $display_size_width;
@@ -112,8 +112,8 @@ if (isset($_POST['save'])) {
                                 <td><?php _e('Swatch option display shape', 'clever-swatch'); ?></td>
                                 <td>
                                     <select name="zoo_cw_display_shape" class="zoo_cw_atds zoo_cw_display_shape">
-                                        <option value="1" <?php selected($display_shape, 1); ?>><?php _e('SQUARE', 'clever-swatch') ?></option>
-                                        <option value="2" <?php selected($display_shape, 2); ?>><?php _e('CIRCLE', 'clever-swatch') ?></option>
+                                        <option value="square" <?php selected($display_shape, 'square'); ?>><?php _e('SQUARE', 'clever-swatch') ?></option>
+                                        <option value="circle" <?php selected($display_shape, 'circle'); ?>><?php _e('CIRCLE', 'clever-swatch') ?></option>
                                     </select>
 
                                 </td>
