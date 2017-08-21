@@ -15,11 +15,7 @@ jQuery( document ).ready(function() {
             product_attribute_wrapper.find('select').change(function () {
                 var selected_options = {};
                 product_li.find('.value select').each(function() {
-                    //var option = {};
                     var attribute_name = jQuery(this).data('attribute_name');
-                    // option.value = jQuery(this).val();
-                    // option.name = jQuery(this).attr('id');
-                    //option[attribute_name] = jQuery(this).attr('id');
                     selected_options[attribute_name] = jQuery(this).val();
 
                 });
@@ -42,8 +38,12 @@ jQuery( document ).ready(function() {
                 'product_id': product_id
             }, success: function (response) {
                 var data = response;
+
+                console.log(data);
                 if (data['result'] == 'done') {
-                    product_li.find('.woocommerce-LoopProduct-link .wp-post-image').attr('src',data['image_url']);
+                    product_li.find('.woocommerce-LoopProduct-link .wp-post-image')
+                        .attr('src',data['image_src'])
+                        .attr('srcset',data['image_src']);
                 }
             }
         });

@@ -25,38 +25,39 @@ if( !class_exists( 'Zoo_Clever_Swatch_Product_Page' ) ) {
         }
 
         public function load_template($template, $template_name, $template_path) {
-
-            $general_settings = get_option('zoo-cw-settings',true);
-
-            if(!is_array($general_settings) || $general_settings['swatch'] == 0){
-                return $template;
-            }
-
-            global $woocommerce;
-
-            $_template = $template;
-            if ( ! $template_path ) $template_path = $woocommerce->template_url;
-            $plugin_path  = ZOO_CW_TEMPLATES_PATH . 'woocommerce/';
-
-            // check the template is available in theme or not.
-            $template = locate_template(
-                array(
-                    $template_path . $template_name,
-                    $template_name
-                )
-            );
-
             if ($template_name == 'single-product/add-to-cart/variable.php') {
-                $this->load_product_page_assets();
+
+                $general_settings = get_option('zoo-cw-settings',true);
+
+                if(!is_array($general_settings) || $general_settings['swatch'] == 0){
+                    return $template;
+                }
+
+                global $woocommerce;
+
+                $_template = $template;
+                if ( ! $template_path ) $template_path = $woocommerce->template_url;
+                $plugin_path  = ZOO_CW_TEMPLATES_PATH . 'woocommerce/';
+
+                // check the template is available in theme or not.
+                $template = locate_template(
+                    array(
+                        $template_path . $template_name,
+                        $template_name
+                    )
+                );
+                
+                    $this->load_product_page_assets();
+
+                // check that the template is there in plugin or not.
+                if ( file_exists( $plugin_path . $template_name ) )
+                    $template = $plugin_path . $template_name;
+
+                // return the default template.
+                if ( ! $template )
+                    $template = $_template;
+
             }
-
-            // check that the template is there in plugin or not.
-            if ( file_exists( $plugin_path . $template_name ) )
-                $template = $plugin_path . $template_name;
-
-            // return the default template.
-            if ( ! $template )
-                $template = $_template;
 
             // replace with our plugin template.
             return $template;
