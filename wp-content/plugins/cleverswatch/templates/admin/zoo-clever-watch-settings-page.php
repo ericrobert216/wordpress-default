@@ -76,7 +76,7 @@ if (isset($_POST['save'])) {
                             $swatch = isset($general_settings['swatch']) ? intval($general_settings['swatch']) : 1;
                             $enable_product_gallery = isset($general_settings['product_gallery']) ? intval($general_settings['product_gallery']) : 1;
                             $display_shape = isset($general_settings['display_shape']) ? intval($general_settings['display_shape']) : 1;
-                            $display_size = isset($general_settings['display_size']) ? intval($general_settings['display_size']) : 1;
+                            $display_size = isset($general_settings['display_size']) ? $general_settings['display_size'] : 1;
                             $display_size_width = isset($general_settings['display_size_width']) ? intval($general_settings['display_size_width']) : 20;
                             $display_size_height = isset($general_settings['display_size_height']) ? intval($general_settings['display_size_height']) : $display_size_width;
                             $display_name = isset($general_settings['display_name']) ? intval($general_settings['display_name']) : 1;
@@ -111,7 +111,7 @@ if (isset($_POST['save'])) {
                             <tr>
                                 <td><?php _e('Swatch option display shape', 'clever-swatch'); ?></td>
                                 <td>
-                                    <select name="zoo_cw_display_shape" class="zoo_cw_atds">
+                                    <select name="zoo_cw_display_shape" class="zoo_cw_atds zoo_cw_display_shape">
                                         <option value="1" <?php selected($display_shape, 1); ?>><?php _e('SQUARE', 'clever-swatch') ?></option>
                                         <option value="2" <?php selected($display_shape, 2); ?>><?php _e('CIRCLE', 'clever-swatch') ?></option>
                                     </select>
@@ -124,7 +124,7 @@ if (isset($_POST['save'])) {
                             <tr>
                                 <td><?php _e('Swatch option display size', 'clever-swatch'); ?></td>
                                 <td>
-                                    <select name="zoo_cw_display_size" class="zoo_cw_atds">
+                                    <select name="zoo_cw_display_size" class="zoo_cw_atds zoo_cw_display_size">
                                         <option value="1" <?php selected($display_size, 1); ?>><?php _e('20px * 20px', 'clever-swatch') ?></option>
                                         <option value="2" <?php selected($display_size, 2); ?>><?php _e('40px * 40px', 'clever-swatch') ?></option>
                                         <option value="3" <?php selected($display_size, 3); ?>><?php _e('60px * 60px', 'clever-swatch') ?></option>

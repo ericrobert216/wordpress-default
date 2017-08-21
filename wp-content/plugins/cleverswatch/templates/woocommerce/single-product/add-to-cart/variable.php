@@ -28,9 +28,6 @@ $zoo_clever_swatch_product_page = new Zoo_Clever_Swatch_Product_Page();
 
 $product_swatch_data_array = $zoo_clever_swatch_product_page->prepare_singele_page_data($product, $attributes, $product_swatch_data_array);
 
-//var_dump($data);
-//die;
-
 do_action('woocommerce_before_add_to_cart_form'); ?>
 
 <form class="variations_form cart" method="post" enctype='multipart/form-data'
@@ -63,7 +60,8 @@ do_action('woocommerce_before_add_to_cart_form'); ?>
                         <?php if ($zoo_cw_attribute['display_type'] != 'default'): ?>
                             <?php foreach ($zoo_cw_attribute_options as $zoo_cw_attribute_option): ?>
                                 <div class="zoo-cw-attribute-option">
-                                    <div class="zoo-cw-attr-item  <?php echo($zoo_cw_attribute['class_options']); ?>">
+                                    <div class="zoo-cw-attr-item  <?php echo($zoo_cw_attribute['class_options']); ?>"
+                                        <?php  if (isset($zoo_cw_attribute['custom_style'])) echo ($zoo_cw_attribute['custom_style']); ?> >
                                         <?php if ($zoo_cw_attribute['display_type'] == 'color'): ?>
                                             <span style="background-color: <?php echo($zoo_cw_attribute_option['color']); ?>;"
                                                   class="zoo-cw-label-color">

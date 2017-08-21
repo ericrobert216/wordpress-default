@@ -106,7 +106,19 @@ if( !class_exists( 'Zoo_Clever_Swatch_Product_Page' ) ) {
                 }
                 $product_swatch_data_array[$attribute_name]['class_attribute'] = $class_attribute;
 
-                $class_options = 'zoo-cw-option-display-size-'.$data['display_size'];
+                $display_size = $data['display_size'];
+                if ($data['display_size'] == 'default') {
+                    $general_settings = get_option('zoo-cw-settings', true);
+                    $display_size = $general_settings['display_size'];
+                }
+
+                if ($display_size == 'custom') {
+                    $general_settings = get_option('zoo-cw-settings', true);
+                    $custom_style = 'style="width: '.$general_settings['display_size_width'].'px;height: '.$general_settings['display_size_height'].'px;"';
+                    $product_swatch_data_array[$attribute_name]['custom_style'] = $custom_style;
+                }
+
+                $class_options = 'zoo-cw-option-display-size-'.$display_size;
                 $class_options .= ' zoo-cw-option-display-shape-'.$data['display_shape'];
                 $product_swatch_data_array[$attribute_name]['class_options'] = $class_options;
             }

@@ -460,7 +460,7 @@ if( !class_exists( 'Zoo_Clever_Swatch_Admin_Manager' ) ){
 
                 wp_enqueue_style( 'wp-color-picker' );
 
-                wp_register_script( 'zoo-cw-import-export', ZOO_CW_JSPATH . 'admin/import-export.js', array( 'jquery','wp-color-picker' ), ZOO_CW_VERSION );
+                wp_register_script( 'zoo-cw-import-export', ZOO_CW_JSPATH . 'admin/global-config.js', array( 'jquery','wp-color-picker' ), ZOO_CW_VERSION );
                 wp_localize_script( 'zoo-cw-import-export', 'zoo_cw_params', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
                 wp_enqueue_script( 'zoo-cw-import-export' );
 
@@ -539,7 +539,7 @@ if( !class_exists( 'Zoo_Clever_Swatch_Admin_Manager' ) ){
                         $default_display_type = $zoo_cw_helper->get_display_type_by_attribute_taxonomy_name($attribute_name);
                         $display_type = isset($_POST["zoo_cw_display_type_$attrName"]) ? $_POST["zoo_cw_display_type_$attrName"] : $default_display_type ;
                         $tmp_attr_data_array['display_type'] = $display_type;
-                        $tmp_attr_data_array['display_size'] = isset($_POST["zoo_cw_display_size_$attrName"]) ? intval( $_POST["zoo_cw_display_size_$attrName"] ) : 1 ;
+                        $tmp_attr_data_array['display_size'] = isset($_POST["zoo_cw_display_size_$attrName"]) ? $_POST["zoo_cw_display_size_$attrName"] : 1 ;
                         $tmp_attr_data_array['display_shape'] = isset($_POST["zoo_cw_display_shape_$attrName"]) ? $_POST["zoo_cw_display_shape_$attrName"] : 'square' ;
                         $tmp_attr_data_array['display_name_yn'] = isset($_POST["zoo_cw_display_name_$attrName"]) ?  $_POST["zoo_cw_display_name_$attrName"]  : 1 ;
 
