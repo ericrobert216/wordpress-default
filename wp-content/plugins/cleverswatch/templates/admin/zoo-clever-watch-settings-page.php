@@ -55,9 +55,8 @@ if (isset($_POST['save'])) {
 
 <div class="wrap woocommerce">
     <form novalidate="novalidate" action="" method="post">
-        <h2 class="nav-tab-wrapper woo-nav-tab-wrapper">
-            <a href="<?php get_admin_url() ?>admin.php?page=zoo-cw-settings&tab=general"
-               class="nav-tab <?php if ($current_tab == 'general') : ?> nav-tab-active<?php endif; ?>"><?php _e('Clever Swatch', 'clever-swatch') ?></a>
+        <h2 class="nav-tab-wrapper woo-nav-tab-wrapper zoo-cw-heading-page">
+                <img src="<?php echo ZOO_CW_GALLERYPATH.'cleverswatch_40.png'?>"/><?php esc_html_e('Clever Swatch', 'clever-swatch') ?>
         </h2>
     </form>
 </div>
@@ -84,27 +83,15 @@ if (isset($_POST['save'])) {
 
                             <tr>
                                 <td><?php _e('Enable Clever Swatch', 'clever-swatch'); ?></td>
-                                <td>
-                                    <label class="toggle">
-                                        <input type="checkbox"
+                                <td><input type="checkbox"
                                                name="zoo_cw_enable_swatch" <?php checked($swatch, 1); ?>>
-                                        <span class="handle"></span>
-                                    </label>
-                                </td>
-                                <td>
                                     <p class="description"><?php _e('Turn this to "Off" if you don\'t like to use variation swatches.', 'varition-master') ?></p>
                                 </td>
                             </tr>
                             <tr>
                                 <td><?php _e('Enable Variation Gallery Images', 'clever-swatch'); ?></td>
-                                <td>
-                                    <label class="toggle">
-                                        <input type="checkbox"
+                                <td><input type="checkbox"
                                                name="zoo_cw_enable_product_gallery" <?php checked($enable_product_gallery, 1); ?>>
-                                        <span class="handle"></span>
-                                    </label>
-                                </td>
-                                <td>
                                     <p class="description"><?php _e('Turn this to "Off" if you don\'t like to use variation wise gallery.', 'varition-master') ?></p>
                                 </td>
                             </tr>
@@ -115,9 +102,6 @@ if (isset($_POST['save'])) {
                                         <option value="square" <?php selected($display_shape, 'square'); ?>><?php _e('SQUARE', 'clever-swatch') ?></option>
                                         <option value="circle" <?php selected($display_shape, 'circle'); ?>><?php _e('CIRCLE', 'clever-swatch') ?></option>
                                     </select>
-
-                                </td>
-                                <td>
                                     <p class="description"><?php _e('Shape of attribute swatch option.', 'varition-master') ?></p>
                                 </td>
                             </tr>
@@ -130,16 +114,12 @@ if (isset($_POST['save'])) {
                                         <option value="3" <?php selected($display_size, 3); ?>><?php _e('60px * 60px', 'clever-swatch') ?></option>
                                         <option value="custom" <?php selected($display_size, 'custom'); ?>><?php _e('Custom', 'clever-swatch') ?></option>
                                     </select>
-
                                     <input type="text" placeholder="size in px." id="zoo_cw_display_size_width"
                                            name="zoo_cw_display_size_width"
                                            value="<?php echo $display_size_width; ?>" <?php if ($display_size != "custom"): echo 'style="display: none;"'; endif; ?>>
                                     <input type="text" placeholder="size in px." id="zoo_cw_display_size_height"
                                            name="zoo_cw_display_size_height"
                                            value="<?php echo $display_size_height; ?>" <?php if ($display_size != "custom"): echo 'style="display: none;"'; endif; ?>>
-
-                                </td>
-                                <td>
                                     <p class="description"><?php _e('Size of attribute swatch option.', 'varition-master') ?></p>
                                 </td>
                             </tr>
@@ -150,8 +130,7 @@ if (isset($_POST['save'])) {
                                         <option value="1" <?php selected($display_name, 1); ?>><?php _e('Yes', 'clever-swatch') ?></option>
                                         <option value="0" <?php selected($display_name, 0); ?>><?php _e('No', 'clever-swatch') ?></option>
                                     </select>
-                                </td>
-                                <td>
+
                                     <p class="description"><?php _e('Show name of attribute swatch option.', 'varition-master') ?></p>
                                 </td>
                             </tr>
@@ -164,7 +143,7 @@ if (isset($_POST['save'])) {
                 </div>
             </div>
             <p class="submit">
-                <input class="button-primary woocommerce-save-button" type="submit" value="Save changes" name="save">
+                <input class="zoo-cw-button zoo-cw-submit" type="submit" value="Save changes" name="save">
             </p>
         </form>
     <?php elseif ($current_tab == "import-export"):

@@ -405,7 +405,7 @@ if( !class_exists( 'Zoo_Clever_Swatch_Admin_Manager' ) ){
          */
         function zoo_cw_add_settings_page(){
 
-            add_menu_page('Clever Swatch', 'Clever Swatch ', 'manage_woocommerce', 'zoo-cw-settings', array($this, 'zoo_cw_settings_callback'),ZOO_CW_GALLERYPATH.'variation.png',55.567 );
+            add_menu_page('Clever Swatch', 'Clever Swatch ', 'manage_woocommerce', 'zoo-cw-settings', array($this, 'zoo_cw_settings_callback'),ZOO_CW_GALLERYPATH.'cleverswatch.png',55.567 );
         }
 
         /**
@@ -539,9 +539,9 @@ if( !class_exists( 'Zoo_Clever_Swatch_Admin_Manager' ) ){
                         $default_display_type = $zoo_cw_helper->get_display_type_by_attribute_taxonomy_name($attribute_name);
                         $display_type = isset($_POST["zoo_cw_display_type_$attrName"]) ? $_POST["zoo_cw_display_type_$attrName"] : $default_display_type ;
                         $tmp_attr_data_array['display_type'] = $display_type;
-                        $tmp_attr_data_array['display_size'] = isset($_POST["zoo_cw_display_size_$attrName"]) ? $_POST["zoo_cw_display_size_$attrName"] : 1 ;
-                        $tmp_attr_data_array['display_shape'] = isset($_POST["zoo_cw_display_shape_$attrName"]) ? $_POST["zoo_cw_display_shape_$attrName"] : 'square' ;
-                        $tmp_attr_data_array['display_name_yn'] = isset($_POST["zoo_cw_display_name_$attrName"]) ?  $_POST["zoo_cw_display_name_$attrName"]  : 1 ;
+                        $tmp_attr_data_array['display_size'] = isset($_POST["zoo_cw_display_size_$attrName"]) ? $_POST["zoo_cw_display_size_$attrName"] : 'default' ;
+                        $tmp_attr_data_array['display_shape'] = isset($_POST["zoo_cw_display_shape_$attrName"]) ? $_POST["zoo_cw_display_shape_$attrName"] : 'default' ;
+                        $tmp_attr_data_array['display_name_yn'] = isset($_POST["zoo_cw_display_name_$attrName"]) ?  $_POST["zoo_cw_display_name_$attrName"]  : 'default' ;
 
                         if ( is_array( $options ) ) {
                             $tmp_option_array = array();

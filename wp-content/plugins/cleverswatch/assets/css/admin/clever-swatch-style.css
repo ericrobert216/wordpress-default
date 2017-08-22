@@ -1,10 +1,24 @@
 /*General Settings*/
+.zoo-cw-heading-page{
+  padding:20px !important;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  border-bottom: none !important;
+  box-shadow: -1px 0 10px 5px #ebebeb;
+  margin-bottom: 10px  !important;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.zoo-cw-heading-page img{
+  margin-right:10px
+}
 .zoo-cw-settings-wrapper {
   margin: 10px 20px 0 2px;
 }
-
 .zoo-cw-settings-container {
-  background: #f9f9f9 none repeat scroll 0 0;
+  background: #fff none repeat scroll 0 0;
+  box-shadow: -1px 0 10px 5px #ebebeb;
 }
 
 table.zoo-cw-settings-table {
@@ -13,7 +27,7 @@ table.zoo-cw-settings-table {
 
 table.zoo-cw-settings-table tbody tr td {
   display: table-cell;
-  padding: 5px;
+  padding: 10px 5px;
   vertical-align: middle;
 }
 
@@ -85,8 +99,8 @@ table.zoo-cw-settings-table tbody tr td {
 
 table.zoo-cw-settings-table {
   background: #fff none repeat scroll 0 0;
-  border: 1px solid #dddddd;
   border-collapse: collapse;
+  margin-bottom: 10px;
 }
 
 table.zoo-cw-settings-table tbody tr:nth-of-type(2n+1) {
@@ -113,12 +127,33 @@ table.zoo-cw-settings-table tbody tr td label {
 }
 
 h3.zoo-cw-heading {
-  background-color: #0073AA;
+  background-color: #222B36;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   color: #fff;
   padding: 15px;
   margin-bottom: 0;
 }
-
+.zoo-cw-button{
+  text-transform: uppercase;
+  border-radius: 0;
+  letter-spacing: 0.5px;
+  padding:10px 20px;
+  border:none;
+  transition: all 300ms;
+  box-shadow: -1px 0 10px 3px #ebebeb;
+  cursor: pointer;
+  font-weight: 600;
+}
+.zoo-cw-button.zoo-cw-submit{
+  background: #222B36;
+  color: #fff;
+}
+.zoo-cw-button:hover{
+  box-shadow: -1px 0 10px 3px #ccc;
+  color: #222B36;
+  background: #fff;
+}
 .zoo-cw-wrapper {
   background-color: #fff;
   padding: 10px;
@@ -136,13 +171,22 @@ h3.zoo-cw-heading {
     vertical-align: middle;
     width: 42px;
 }
+.zoo-cw-settings-table tr td:first-child{
+  font-weight: 600;
+}
+.zoo-cw-settings-table .description{
+  display: inline-block;
+  margin-left: 10px;
+}
+.zoo-cw-settings-table select{
+  min-width: 150px;
+}
 /*media quaries*/
 @media only screen and (min-width: 768px) {
   table.zoo-cw-settings-table tbody tr td:first-child {
     width: 25%;
   }
   table.zoo-cw-settings-table tr td:nth-child(2) {
-    text-align: center;
-    width: 30%;
+    width: 75%;
 }
 }

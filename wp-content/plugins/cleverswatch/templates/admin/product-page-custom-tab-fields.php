@@ -31,6 +31,7 @@ $zoo_cw_helper =  new Zoo_Clever_Swatch_Helper();
 		<?php foreach ( $attributes as $attribute_name => $options ) : ?>
             <?php
                 $default_display_type = $zoo_cw_helper->get_display_type_by_attribute_taxonomy_name($attribute_name);
+                if (!isset($default_display_type) || $default_display_type == '') $default_display_type = 'default';
             ?>
 			<?php $tmp_title =  $attribute_name; ?>
 			<div class="zoo-cw-panel">
@@ -58,7 +59,7 @@ $zoo_cw_helper =  new Zoo_Clever_Swatch_Helper();
 						</tr>
 						<tr>
 							<td><?php _e('Display Size','clever-swatch');?></td>
-							<?php $display_size = isset($product_swatch_data_array[$tmp_title]['display_size']) ? intval($product_swatch_data_array[$tmp_title]['display_size']) : 1; ?>
+							<?php $display_size = isset($product_swatch_data_array[$tmp_title]['display_size']) ? $product_swatch_data_array[$tmp_title]['display_size'] : 'default'; ?>
 							<td>
 								<select class="" name="zoo_cw_display_size_<?php echo  $attribute_name; ?>">
                                     <option value="default" <?php if($display_size == "default"): echo 'selected=selected'; endif; ?>><?php _e('Default Global','clever-swatch');?></option>
@@ -70,7 +71,7 @@ $zoo_cw_helper =  new Zoo_Clever_Swatch_Helper();
 						</tr>
                         <tr>
                             <td><?php _e('Display Shape','clever-swatch');?></td>
-                            <?php $display_shape = isset($product_swatch_data_array[$tmp_title]['display_shape']) ? $product_swatch_data_array[$tmp_title]['display_shape'] : 'square'; ?>
+                            <?php $display_shape = isset($product_swatch_data_array[$tmp_title]['display_shape']) ? $product_swatch_data_array[$tmp_title]['display_shape'] : 'default'; ?>
                             <td>
                                 <select name="zoo_cw_display_shape_<?php echo  $attribute_name; ?>">
                                     <option value="default" <?php if($display_shape == "default"): echo 'selected=selected'; endif; ?>><?php _e('Default Global','clever-swatch');?></option>
@@ -81,7 +82,7 @@ $zoo_cw_helper =  new Zoo_Clever_Swatch_Helper();
                         </tr>
 						<tr>
 							<td><?php _e('Show Attribute Name?','clever-swatch');?></td>
-							<?php $display_name = isset($product_swatch_data_array[$tmp_title]['display_name_yn']) ? $product_swatch_data_array[$tmp_title]['display_name_yn'] : 1; ?>
+							<?php $display_name = isset($product_swatch_data_array[$tmp_title]['display_name_yn']) ? $product_swatch_data_array[$tmp_title]['display_name_yn'] : 'default'; ?>
 							<td>
 								<select name="zoo_cw_display_name_<?php echo  $attribute_name; ?>">
                                     <option value="default" <?php if($display_name == "default"): echo 'selected=selected'; endif; ?>><?php _e('Default Global','clever-swatch');?></option>
@@ -128,31 +129,22 @@ $zoo_cw_helper =  new Zoo_Clever_Swatch_Helper();
 										<div class="zoo-cw-sub-panel-heading">
 											<h4><?php echo  $option; ?></h4>
 										</div>
-										<?php $termName =  $option; ?>
+										<?php $termName = $option; ?>
+                                        <?php $image = isset($tmp_options_data_array[$termName]['image']) ? $tmp_options_data_array[$termName]['image'] : wc_placeholder_img_src(); ?>
+                                        <?php $color = isset($tmp_options_data_array[$termName]['color']) ? $tmp_options_data_array[$termName]['color'] : ''; ?>
 										<div class="zoo-cw-sub-collapse">
 											<table class="zoo-cw-attr-option">
-												<tr>
-													<td><?php _e('Display Type','clever-swatch')?></td>
-													<?php $tmpdtslctType = isset($tmp_options_data_array[$termName]['dt']) ? $tmp_options_data_array[$termName]['dt'] : 1; ?>
-													<?php $tmpdtslctimg = isset($tmp_options_data_array[$termName]['image']) ? $tmp_options_data_array[$termName]['image'] : wc_placeholder_img_src(); ?>
-													<?php $tmpdtslctclr = isset($tmp_options_data_array[$termName]['color']) ? $tmp_options_data_array[$termName]['color'] : ''; ?>
-													<td>
-														<select class="zoo-cw-dtslct" name="zoo_cw_sdt_<?php echo  $option; ?>">
-															<option value="1" <?php if($tmpdtslctType == 1): echo 'selected=selected'; endif; ?>><?php _e('Image','clever-swatch');?></option>
-															<option value="0" <?php if($tmpdtslctType == 0): echo 'selected=selected'; endif; ?>><?php _e('Color','clever-swatch');?></option>
-														</select>
-													</td>
-												</tr>
-												<tr class="zoo-cw-sci" <?php if(!$tmpdtslctType){echo 'style="display: none"';}?>>
+
+												<tr class="zoo-cw-sci" <?php if($display_type != 'image'){echo 'style="display: none"';}?>>
 													<td><?php _e('Select/Upload Image','clever-swatch')?></td>
-													<td><img height="30px" width="30px" src="<?php echo $tmpdtslctimg;?>" alt="<?php _e('Select Image','clever-swatch');?>" class="zoo-cw-scimage_<?php echo  $option; ?>">
-														<input type="hidden" value="<?php echo $tmpdtslctimg;?>" class="zoo-cw-input-scimg-<?php echo  $option; ?>" name="zoo-cw-input-scimg-<?php echo  $option; ?>">
+													<td><img height="30px" width="30px" src="<?php echo($image);?>" alt="<?php _e('Select Image','clever-swatch');?>" class="zoo-cw-scimage_<?php echo  $option; ?>">
+														<input type="hidden" value="<?php echo($image);?>" class="zoo-cw-input-scimg-<?php echo  $option; ?>" name="zoo-cw-input-scimg-<?php echo  $option; ?>">
 														<button type="button" data-attrname="<?php echo  $option; ?>" class="zoo-cw-scimage-upload"><?php _e('Browse','clever-swatch')?></button>
 													</td>
 												</tr>
-												<tr class="zoo-cw-scc" <?php if($tmpdtslctType){echo 'style="display: none"';}?>>
+												<tr class="zoo-cw-scc" <?php if($display_type != 'color'){echo 'style="display: none"';}?>>
 													<td><?php _e('Choose Color','clever-swatch')?></td>
-													<td><input type="text" value="<?php echo $tmpdtslctclr;?>" name="zoo_cw_slctclr_<?php echo  $option; ?>" class="zoo-cw-colorpicker" /></td>
+													<td><input type="text" value="<?php echo($color);?>" name="zoo_cw_slctclr_<?php echo  $option; ?>" class="zoo-cw-colorpicker" /></td>
 												</tr>
 											</table>
 										</div>
