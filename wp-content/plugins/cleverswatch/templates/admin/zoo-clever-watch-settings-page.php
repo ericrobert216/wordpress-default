@@ -82,17 +82,17 @@ if (isset($_POST['save'])) {
                             ?>
 
                             <tr>
-                                <td><?php _e('Enable Clever Swatch', 'clever-swatch'); ?></td>
+                                <td><?php _e('Enable CleverSwatch', 'clever-swatch'); ?></td>
                                 <td><input type="checkbox"
                                                name="zoo_cw_enable_swatch" <?php checked($swatch, 1); ?>>
-                                    <p class="description"><?php _e('Turn this to "Off" if you don\'t like to use variation swatches.', 'varition-master') ?></p>
+                                    <p class="description"><?php _e('Enable the use of CleverSwatch', 'varition-master') ?></p>
                                 </td>
                             </tr>
                             <tr>
                                 <td><?php _e('Enable Variation Gallery Images', 'clever-swatch'); ?></td>
                                 <td><input type="checkbox"
                                                name="zoo_cw_enable_product_gallery" <?php checked($enable_product_gallery, 1); ?>>
-                                    <p class="description"><?php _e('Turn this to "Off" if you don\'t like to use variation wise gallery.', 'varition-master') ?></p>
+                                    <p class="description"><?php _e('Uncheck if you don’t like to use variation wise gallery.', 'varition-master') ?></p>
                                 </td>
                             </tr>
                             <tr>

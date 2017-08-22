@@ -62,27 +62,16 @@ if( !class_exists( 'Zoo_Clever_Swatch_Install' ) ) {
          */
         public function zoo_cw_admin_config_install(){
 
-            $general_settings_array = array();
-            $enableThis = 1;
-            $enableSwatch = 1;
-            $enable_product_gallery = 1;
-            $attrthumb = 0;
+            $general_settings['swatch'] = 1;
+            $general_settings['product_gallery'] = 1;
+            $general_settings['display_shape'] = 'square';
+            $general_settings['display_size'] = 1;
+            $general_settings['display_size_width'] = 20;
+            $general_settings['display_size_height'] = 20;
+            $general_settings['display_name'] = 1;
 
-            $attbds = array();
-            $ds1 = 1;
-            $ds2 = 1;
-
-            $attbds['ds1'] = $ds1;
-            $attbds['ds2'] = $ds2;
-
-            $general_settings_array['this'] = $enableThis;
-            $general_settings_array['swatch'] = $enableSwatch;
-            $general_settings_array['product_gallery'] = $enable_product_gallery;
-            $general_settings_array['at'] = $attrthumb;
-            $general_settings_array['atds'] = $attbds;
-
-            if(is_array($general_settings_array))
-                update_option('zoo-cw-settings',$general_settings_array);
+            if(is_array($general_settings))
+                update_option('zoo-cw-settings',$general_settings);
         }
     }
 }

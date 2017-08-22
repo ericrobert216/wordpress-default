@@ -88,14 +88,22 @@ if( !class_exists( 'Zoo_Clever_Swatch_Product_Page' ) ) {
 
                 $attribute_enabled_options = $attributes[$attribute_name];
 
-                $terms = wc_get_product_terms( $product->get_id(), $attribute_name, array( 'fields' => 'all' ) );
+                $terms = wc_get_product_terms($product->get_id(), $attribute_name, array('fields' => 'all'));
                 $options_data = $data['options_data'];
-                foreach ($terms as $term) {
-                    if (in_array($term->slug,$attribute_enabled_options)) {
-                        $options_data[$term->slug]['name'] = $term->name;
-                        $options_data[$term->slug]['value'] = $term->slug;
-                    } else {
-                        unset($options_data[$term->slug]);
+
+                if (taxonomy_exists($attribute_name)) {
+                    foreach ($terms as $term) {
+                        if (in_array($term->slug, $attribute_enabled_options)) {
+                            $options_data[$term->slug]['name'] = $term->name;
+                            $options_data[$term->slug]['value'] = $term->slug;
+                        } else {
+                            unset($options_data[$term->slug]);
+                        }
+                    }
+                } else {
+                    foreach ($options_data as $key => $value) {
+                        $options_data[$key]['name'] = $key;
+                        $options_data[$key]['value'] = $key;
                     }
                 }
 
@@ -138,9 +146,6 @@ if( !class_exists( 'Zoo_Clever_Swatch_Product_Page' ) ) {
             return $product_swatch_data_array;
         }
     }
-
-
-
 }
 
 $zoo_clever_swatch_product_page = new Zoo_Clever_Swatch_Product_Page();
