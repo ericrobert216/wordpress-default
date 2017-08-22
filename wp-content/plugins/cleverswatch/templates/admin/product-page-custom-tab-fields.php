@@ -45,11 +45,11 @@ $zoo_cw_helper =  new Zoo_Clever_Swatch_Helper();
 							<?php $labelValue = isset($product_swatch_data_array[$tmp_title]['label']) ? $product_swatch_data_array[$tmp_title]['label'] : ''; ?>
 							<td><input type="text" value="<?php echo $labelValue; ?>" name="zoo_cw_label_<?php echo  $attribute_name; ?>"></td>
 						</tr>
-						<tr>
+						<tr class="zoo-cw-display-type">
 							<td><?php _e('Display Type','clever-swatch');?></td>
 							<?php $display_type = isset($product_swatch_data_array[$tmp_title]['display_type']) ? $product_swatch_data_array[$tmp_title]['display_type'] : $default_display_type; ?>
                             <td>
-								<select class="zoo-cw-display-type" name="zoo_cw_display_type_<?php echo  $attribute_name; ?>">
+								<select name="zoo_cw_display_type_<?php echo  $attribute_name; ?>">
 									<option value="default" <?php if($display_type == 'default'): echo 'selected=selected'; endif; ?> ><?php _e('Default(Select)','clever-swatch');?></option>
 									<option value="image" <?php if($display_type == 'image'): echo 'selected=selected'; endif; ?>><?php _e('Image','clever-swatch');?></option>
                                     <option value="color" <?php if($display_type == 'color'): echo 'selected=selected'; endif; ?>><?php _e('Color','clever-swatch');?></option>
@@ -57,11 +57,11 @@ $zoo_cw_helper =  new Zoo_Clever_Swatch_Helper();
 								</select>
 							</td>
 						</tr>
-						<tr>
+						<tr class="zoo_cw_display_size">
 							<td><?php _e('Display Size','clever-swatch');?></td>
 							<?php $display_size = isset($product_swatch_data_array[$tmp_title]['display_size']) ? $product_swatch_data_array[$tmp_title]['display_size'] : 'default'; ?>
 							<td>
-								<select class="" name="zoo_cw_display_size_<?php echo  $attribute_name; ?>">
+								<select name="zoo_cw_display_size_<?php echo  $attribute_name; ?>">
                                     <option value="default" <?php if($display_size == "default"): echo 'selected=selected'; endif; ?>><?php _e('Default Global','clever-swatch');?></option>
 									<option value="1" <?php if($display_size == 1): echo 'selected=selected'; endif; ?>><?php _e('20px * 20px','clever-swatch');?></option>
 									<option value="2" <?php if($display_size == 2): echo 'selected=selected'; endif; ?>><?php _e('40px * 40px','clever-swatch');?></option>
@@ -69,7 +69,7 @@ $zoo_cw_helper =  new Zoo_Clever_Swatch_Helper();
 								</select>
 							</td>
 						</tr>
-                        <tr>
+                        <tr class="zoo_cw_display_shape">
                             <td><?php _e('Display Shape','clever-swatch');?></td>
                             <?php $display_shape = isset($product_swatch_data_array[$tmp_title]['display_shape']) ? $product_swatch_data_array[$tmp_title]['display_shape'] : 'default'; ?>
                             <td>
@@ -80,7 +80,7 @@ $zoo_cw_helper =  new Zoo_Clever_Swatch_Helper();
                                 </select>
                             </td>
                         </tr>
-						<tr>
+						<tr class="zoo_cw_display_name">
 							<td><?php _e('Show Attribute Name?','clever-swatch');?></td>
 							<?php $display_name = isset($product_swatch_data_array[$tmp_title]['display_name_yn']) ? $product_swatch_data_array[$tmp_title]['display_name_yn'] : 'default'; ?>
 							<td>
