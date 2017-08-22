@@ -132,8 +132,7 @@ if( !class_exists( 'Zoo_Clever_Swatch_Product_Page' ) ) {
                     $product_swatch_data_array[$attribute_name]['display_shape'] = $display_shape;
                 }
 
-                $display_name_yn = $data['display_name_yn'];
-                if ($data['display_name_yn'] == 'default') {
+                if ($data['display_name_yn'] === 'default') {
                     $display_name_yn = $general_settings['display_name'];
                     $product_swatch_data_array[$attribute_name]['display_name_yn'] = $display_name_yn;
                 }

@@ -541,7 +541,11 @@ if( !class_exists( 'Zoo_Clever_Swatch_Admin_Manager' ) ){
                         $tmp_attr_data_array['display_type'] = $display_type;
                         $tmp_attr_data_array['display_size'] = isset($_POST["zoo_cw_display_size_$attrName"]) ? $_POST["zoo_cw_display_size_$attrName"] : 'default' ;
                         $tmp_attr_data_array['display_shape'] = isset($_POST["zoo_cw_display_shape_$attrName"]) ? $_POST["zoo_cw_display_shape_$attrName"] : 'default' ;
-                        $tmp_attr_data_array['display_name_yn'] = isset($_POST["zoo_cw_display_name_$attrName"]) ?  $_POST["zoo_cw_display_name_$attrName"]  : 'default' ;
+                        if ($display_type == 'text') {
+                            $tmp_attr_data_array['display_name_yn'] = 0 ;
+                        } else {
+                            $tmp_attr_data_array['display_name_yn'] = isset($_POST["zoo_cw_display_name_$attrName"]) ?  $_POST["zoo_cw_display_name_$attrName"]  : 'default' ;
+                        }
 
                         if ( is_array( $options ) ) {
                             $tmp_option_array = array();
@@ -565,6 +569,8 @@ if( !class_exists( 'Zoo_Clever_Swatch_Admin_Manager' ) ){
                                         $tmp_option_array[$tmp_term_name]['image'] = isset($_POST["zoo-cw-input-scimg-$tmp_term_name"]) ? sanitize_text_field( $_POST["zoo-cw-input-scimg-$tmp_term_name"] ) : '' ;
                                     }else if ( $display_type == 'color' ){
                                         $tmp_option_array[$tmp_term_name]['color'] = isset($_POST["zoo_cw_slctclr_$tmp_term_name"]) ? sanitize_text_field( $_POST["zoo_cw_slctclr_$tmp_term_name"] ) : '' ;
+                                    }else if ( $display_type == 'text' ){
+                                        $tmp_option_array[$tmp_term_name]['text'] = $option ;
                                     }
                                 }
                             }
