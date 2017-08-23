@@ -82,10 +82,6 @@ if( !class_exists( 'Zoo_Clever_Swatch_Product_Page' ) ) {
             $general_settings = get_option('zoo-cw-settings', true);
 
             foreach ($product_swatch_data_array as $attribute_name => $data) {
-                if ($attribute_name == 'disabled') {
-                    continue;
-                }
-
                 $attribute_enabled_options = $attributes[$attribute_name];
 
                 $terms = wc_get_product_terms($product->get_id(), $attribute_name, array('fields' => 'all'));

@@ -527,8 +527,6 @@ if( !class_exists( 'Zoo_Clever_Swatch_Admin_Manager' ) ){
             $_product = wc_get_product( $post_id );
             $zoo_cw_swatch_array = array();
             if( $_product->is_type('variable') ){
-                $disabled_swatch = isset($_POST["zoo-cw-disable_swatch"]) ? 1 : 0;
-                $zoo_cw_swatch_array['disabled'] = $disabled_swatch;
                 $attributes	=	$_product->get_variation_attributes();
                 if(is_array($attributes)){
                     foreach ( $attributes as $attribute_name => $options ){

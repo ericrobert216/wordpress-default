@@ -20,13 +20,7 @@ $zoo_cw_helper =  new Zoo_Clever_Swatch_Helper();
 	$product_swatch_data_array = get_post_meta( $post->ID, 'zoo_cw_product_swatch_data', true );
 	if(!is_array($product_swatch_data_array))
 		$product_swatch_data_array = array();
-	
-	$disable_swatch = isset($product_swatch_data_array['disabled']) ? intval($product_swatch_data_array['disabled']) : 0;
 	?>
-	<div class="zoo-cw-enable-swatch">
-		<?php _e('Disable Swatches','clever-swatch');?>
-		<input type="checkbox" name="zoo-cw-disable_swatch" <?php checked($disable_swatch);?>>
-	</div>
 	<div id="zoo-cw-accordion">
 		<?php foreach ( $attributes as $attribute_name => $options ) : ?>
             <?php
@@ -57,7 +51,7 @@ $zoo_cw_helper =  new Zoo_Clever_Swatch_Helper();
 								</select>
 							</td>
 						</tr>
-						<tr class="zoo_cw_display_size">
+						<tr class="zoo_cw_display_size" <?php if ($display_type == 'default') echo('style="display:none;"'); ?> >
 							<td><?php _e('Display Size','clever-swatch');?></td>
 							<?php $display_size = isset($product_swatch_data_array[$tmp_title]['display_size']) ? $product_swatch_data_array[$tmp_title]['display_size'] : 'default'; ?>
 							<td>
@@ -69,7 +63,7 @@ $zoo_cw_helper =  new Zoo_Clever_Swatch_Helper();
 								</select>
 							</td>
 						</tr>
-                        <tr class="zoo_cw_display_shape">
+                        <tr class="zoo_cw_display_shape" <?php if ($display_type == 'default') echo('style="display:none;"'); ?> >
                             <td><?php _e('Display Shape','clever-swatch');?></td>
                             <?php $display_shape = isset($product_swatch_data_array[$tmp_title]['display_shape']) ? $product_swatch_data_array[$tmp_title]['display_shape'] : 'default'; ?>
                             <td>
@@ -80,7 +74,7 @@ $zoo_cw_helper =  new Zoo_Clever_Swatch_Helper();
                                 </select>
                             </td>
                         </tr>
-						<tr class="zoo_cw_display_name">
+						<tr class="zoo_cw_display_name" <?php if ($display_type == 'default' || $display_type == 'text') echo('style="display:none;"'); ?>>
 							<td><?php _e('Show Attribute Name?','clever-swatch');?></td>
 							<?php $display_name = isset($product_swatch_data_array[$tmp_title]['display_name_yn']) ? $product_swatch_data_array[$tmp_title]['display_name_yn'] : 'default'; ?>
 							<td>
@@ -92,7 +86,7 @@ $zoo_cw_helper =  new Zoo_Clever_Swatch_Helper();
 							</td>
 						</tr>
 					</table>
-					<div class="zoo-cw-sub-accordion">
+					<div class="zoo-cw-sub-accordion" <?php if ($display_type == 'default' || $display_type == 'text') echo('style="display:none;"'); ?> >
 						<div class="zoo-cw-sub-panel">
 						<?php $tmp_options_data_array = isset($product_swatch_data_array[$tmp_title]['options_data']) ? $product_swatch_data_array[$tmp_title]['options_data'] : array();?>
 							<?php if ( is_array( $options ) ) { ?>
