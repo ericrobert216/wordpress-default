@@ -42,13 +42,10 @@ jQuery( document ).ready(function() {
                     if (response != '' && response != 'undefined' && response != null) {
                         if (jQuery(imagesDiv).length) {
                             jQuery(imagesDiv).replaceWith(response);
-                            imagesDiv.each(function () {
+                            product.find('div.woocommerce-product-gallery,div.images').each(function () {
                                 jQuery(this).wc_product_gallery();
                             });
                         }
-                    }
-                    if (jQuery.isFunction(jQuery.fn.prettyPhoto)) {
-                        inititalize_preetyphoto();
                     }
                 }
             });
@@ -78,13 +75,10 @@ jQuery( document ).ready(function() {
                 if (response != '' && response != 'undefined' && response != null) {
                     if (jQuery(imagesDiv).length) {
                         jQuery(imagesDiv).replaceWith(response);
-                        jQuery('.woocommerce-product-gallery').each(function () {
+                        product.find('div.woocommerce-product-gallery,div.images').each(function () {
                             jQuery(this).wc_product_gallery();
                         });
                     }
-                }
-                if (jQuery.isFunction(jQuery.fn.prettyPhoto)) {
-                    inititalize_preetyphoto();
                 }
             }
         });
