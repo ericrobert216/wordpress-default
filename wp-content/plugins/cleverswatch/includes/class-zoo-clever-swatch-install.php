@@ -64,11 +64,13 @@ if( !class_exists( 'Zoo_Clever_Swatch_Install' ) ) {
 
             $general_settings['swatch'] = 1;
             $general_settings['product_gallery'] = 1;
-            $general_settings['display_shape'] = 'square';
-            $general_settings['display_size'] = 1;
-            $general_settings['display_size_width'] = 20;
-            $general_settings['display_size_height'] = 20;
-            $general_settings['display_name'] = 1;
+            $general_settings['product_swatch_display_shape'] = 'square';
+            $general_settings['product_swatch_display_size'] = 1;
+            $general_settings['product_swatch_display_size_width'] = 20;
+            $general_settings['product_swatch_display_size_height'] = 20;
+            $general_settings['product_swatch_display_name'] = 1;
+            $general_settings['display_shop_page'] = 0;
+            $general_settings['display_shop_page_hook'] = 'before';
 
             if(is_array($general_settings))
                 update_option('zoo-cw-settings',$general_settings);

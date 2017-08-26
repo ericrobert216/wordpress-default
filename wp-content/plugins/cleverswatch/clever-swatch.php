@@ -200,6 +200,12 @@ function zoo_cw_shop_page_swatch() {
         'image_url' => ''
     );
 
+    if (isset($_POST['image_size'])) {
+        $image_size = $_POST['image_size'];
+    } else {
+        $image_size = 'shop_catalog';
+    }
+
     $selected_options = $_POST['selected_options'];
 
     $product = wc_get_product($_POST['product_id']);
@@ -208,20 +214,21 @@ function zoo_cw_shop_page_swatch() {
     $data_store   = WC_Data_Store::load( 'product' );
     $variation_id = $data_store->find_matching_product_variation( $product, $selected_options );
 
-    $thumbnail_size    = apply_filters( 'woocommerce_product_thumbnails_large_size', 'full' );
     $post_thumbnail_id = get_post_thumbnail_id( $variation_id );
-    $full_size_image_src   = wp_get_attachment_image_src( $post_thumbnail_id, $thumbnail_size );
-    $full_size_image_srcset   = wp_get_attachment_image_srcset( $post_thumbnail_id, $thumbnail_size );
+    $full_size_image_src   = wp_get_attachment_image_src( $post_thumbnail_id, $image_size );
+    $full_size_image_srcset   = wp_get_attachment_image_srcset( $post_thumbnail_id, $image_size );
 
-    if (!isset($full_size_image) || !isset($full_size_image[0]) || $full_size_image[0] == '') {
+    if (!isset($full_size_image_src) || !isset($full_size_image_src[0]) || $full_size_image_src[0] == '') {
         $data = array (
             'result' => 'done',
-            'image_src' => wc_placeholder_img_src()
+            'image_src' => wc_placeholder_img_src(),
+            'image_srcset' => ''
         );
     } else {
         $data = array (
             'result' => 'done',
-            'image_url' => $full_size_image_src[0]
+            'image_src' => $full_size_image_src[0],
+            'image_srcset' => $full_size_image_srcset
         );
     }
 

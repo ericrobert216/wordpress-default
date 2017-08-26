@@ -60,24 +60,24 @@ do_action('woocommerce_before_add_to_cart_form'); ?>
                         <?php if ($zoo_cw_attribute['display_type'] != 'default'): ?>
                             <?php foreach ($zoo_cw_attribute_options as $zoo_cw_attribute_option): ?>
                                 <div class="zoo-cw-attribute-option">
-                                    <div class="zoo-cw-attr-item  <?php echo($zoo_cw_attribute['class_options']); ?>"
+                                    <div class="zoo-cw-attr-item <?php echo($zoo_cw_attribute['class_options']); ?>"
                                         <?php  if (isset($zoo_cw_attribute['custom_style'])) echo ($zoo_cw_attribute['custom_style']); ?> >
                                         <?php if ($zoo_cw_attribute['display_type'] == 'color'): ?>
-                                            <span style="background-color: <?php echo($zoo_cw_attribute_option['color']); ?>;"
+                                            <span style="background-color: <?php  echo esc_attr($zoo_cw_attribute_option['color']); ?>;" data-tooltip="<?php echo esc_attr($zoo_cw_attribute_option['name']); ?>"
                                                   class="zoo-cw-label-color">
                                             </span>
                                         <?php elseif ($zoo_cw_attribute['display_type'] == 'text'): ?>
                                             <span class="zoo-cw-label-text">
-                                                <?php echo($zoo_cw_attribute_option['name']); ?>
+                                                <?php  echo esc_html($zoo_cw_attribute_option['name']); ?>
                                             </span>
                                         <?php elseif ($zoo_cw_attribute['display_type'] == 'image'): ?>
-                                            <img src="<?php echo($zoo_cw_attribute_option['image']); ?>">
+                                            <img src="<?php  echo esc_url($zoo_cw_attribute_option['image']); ?>" data-tooltip="<?php echo esc_attr($zoo_cw_attribute_option['name']); ?>" alt="<?php echo esc_attr($zoo_cw_attribute_option['name']); ?>">
                                         <?php endif; ?>
                                     </div>
-                                    <?php if ($zoo_cw_attribute['display_name_yn'] == 1): ?>
-                                        <span  class="zoo-cw-attr-label"><?php echo($zoo_cw_attribute_option['name']); ?></span>
+                                    <?php if ($zoo_cw_attribute['product_swatch_display_name_yn'] == 1): ?>
+                                        <span  class="zoo-cw-attr-label"><?php echo esc_html($zoo_cw_attribute_option['name']); ?></span>
                                     <?php endif; ?>
-                                    <input type="hidden" name="" value="<?php echo($zoo_cw_attribute_option['value']); ?>">
+                                    <input type="hidden" name="" value="<?php  echo esc_attr($zoo_cw_attribute_option['value']); ?>">
                                 </div>
                             <?php endforeach; ?>
                         <?php endif; ?>

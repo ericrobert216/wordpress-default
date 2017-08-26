@@ -51,23 +51,23 @@ jQuery(document).ready(function(){
         var display_type = jQuery(this).find('select').val();
         var tab = jQuery(this).parents('.zoo-cw-collapse');
         if (display_type == 'default') {
-            tab.find('.zoo_cw_display_size').hide();
-            tab.find('.zoo_cw_display_shape').hide();
-            tab.find('.zoo_cw_display_name').hide();
+            tab.find('.zoo_cw_product_swatch_display_size').hide();
+            tab.find('.zoo_cw_product_swatch_display_shape').hide();
+            tab.find('.zoo_cw_product_swatch_display_name').hide();
             tab.find('.zoo-cw-sub-accordion').hide();
         } else{
-            tab.find('.zoo_cw_display_size').show();
-            tab.find('.zoo_cw_display_shape').show();
+            tab.find('.zoo_cw_product_swatch_display_size').show();
+            tab.find('.zoo_cw_product_swatch_display_shape').show();
             if (display_type == 'text') {
-                tab.find('.zoo_cw_display_name').hide();
+                tab.find('.zoo_cw_product_swatch_display_name').hide();
                 tab.find('.zoo-cw-sub-accordion').hide();
             } else if(display_type == 'image') {
-                tab.find('.zoo_cw_display_name').show();
+                tab.find('.zoo_cw_product_swatch_display_name').show();
                 tab.find('.zoo-cw-sub-accordion').show();
                 tab.find('.zoo-cw-scc').hide();
                 tab.find('.zoo-cw-sci').show();
             } else if(display_type == 'color') {
-                tab.find('.zoo_cw_display_name').show();
+                tab.find('.zoo_cw_product_swatch_display_name').show();
                 tab.find('.zoo-cw-sub-accordion').show();
                 tab.find('.zoo-cw-scc').show();
                 tab.find('.zoo-cw-sci').hide();
